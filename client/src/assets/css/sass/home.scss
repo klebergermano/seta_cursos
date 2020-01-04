@@ -1,0 +1,34 @@
+#bg_homepage {
+  margin-top: 550px;
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+}
+#homepage {
+  width: $content-width;
+  background: #fff;
+  margin: 0 auto;
+  padding: 20px 40px;
+  height: auto;
+}
+.block_content_home {
+  display: flex;
+
+  clear: both;
+  figure {
+    padding: 20px;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  div {
+    display: flex;
+
+    padding: 40px;
+    p {
+      margin: auto;
+      text-align: center;
+    }
+  }
+}

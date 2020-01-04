@@ -1,0 +1,23 @@
+body {
+  font-family: "Titillium Web", sans-serif;
+  background: #fff;
+}
+.container {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 120px;
+}
+#content {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.pages {
+  width: $content-width;
+  background: #fff;
+  margin: 0 auto;
+  padding: 20px 40px;
+  min-height: 500px;
+  margin-top: 90px;
+}
