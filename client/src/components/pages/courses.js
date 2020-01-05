@@ -2,20 +2,20 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Animated } from "react-animated-css";
 
-class Home extends Component {
+class Courses extends Component {
   state = {};
   render() {
     return (
-      <div id="bg_homepage">
-        <div id="homepage">
+      <div id="bg_courses">
+        <div id="courses">
           <Animated
             animationIn="fadeInLeft"
             animationOut="fadeOut"
             isVisible={true}
           >
             <div
-              className="bouce col-12 block_content_home"
-              id="block_content_home_1"
+              className="bouce col-12 block_content_courses"
+              id="block_content_courses_1"
             >
               <figure className="col-3">
                 <Link to="/service">
@@ -48,8 +48,8 @@ class Home extends Component {
             isVisible={true}
           >
             <div
-              className="col-12 block_content_home "
-              id="block_content_home_2"
+              className="col-12 block_content_courses "
+              id="block_content_courses_2"
             >
               <div className="col-8">
                 <p>
@@ -77,8 +77,8 @@ class Home extends Component {
             isVisible={true}
           >
             <div
-              className="col-12 block_content_home "
-              id="block_content_home_2"
+              className="col-12 block_content_courses "
+              id="block_content_courses_2"
             >
               <figure className="col-3">
                 <img
@@ -105,4 +105,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default Courses;

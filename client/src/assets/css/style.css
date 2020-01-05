@@ -698,7 +698,7 @@ header {
   position: fixed;
   z-index: 1;
   border-bottom: 5px solid #eb1e44;
-  background: #fff;
+  background: white;
   top: 0px;
   width: 100%;
   height: auto;
@@ -729,6 +729,7 @@ header #nav_header li {
   display: flex;
 }
 header #nav_header li a {
+  cursor: pointer;
   display: block;
   color: 64a77;
   text-decoration: none;
@@ -736,6 +737,16 @@ header #nav_header li a {
   text-align: center;
   height: 90px;
   padding: 30px 25px;
+  user-select: none;
+  /* supported by Chrome and Opera */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
 }
 header #nav_header li a:hover {
   background: #064a77;
@@ -744,24 +755,27 @@ header #nav_header li a:hover {
 
 /*header*/
 #slide_home {
-  position: fixed;
+  background: url("https://hostgiant.ug/wp-content/uploads/2018/07/Generic_BG09_Dark-1140x445.png") no-repeat;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   z-index: -1;
   width: 100%;
   top: 0px;
-  min-height: 550px;
-  background: url("https://hostgiant.ug/wp-content/uploads/2018/07/Generic_BG09_Dark-1140x445.png") no-repeat;
-  background-size: 100%;
+  min-height: 750px;
   background-position: 0 -150px;
 }
 
-#bg_homepage {
-  margin-top: 550px;
+#bg_courses {
+  margin-top: 0px;
   width: 100%;
   background: #fff;
   overflow: hidden;
 }
 
-#homepage {
+#courses {
   width: 1173px;
   background: #fff;
   margin: 0 auto;
@@ -769,22 +783,22 @@ header #nav_header li a:hover {
   height: auto;
 }
 
-.block_content_home {
+.block_content_courses {
   display: flex;
   clear: both;
 }
-.block_content_home figure {
+.block_content_courses figure {
   padding: 20px;
 }
-.block_content_home figure img {
+.block_content_courses figure img {
   max-width: 100%;
   height: auto;
 }
-.block_content_home div {
+.block_content_courses div {
   display: flex;
   padding: 40px;
 }
-.block_content_home div p {
+.block_content_courses div p {
   margin: auto;
   text-align: center;
 }
@@ -853,8 +867,7 @@ body {
   background: #fff;
   margin: 0 auto;
   padding: 20px 40px;
-  min-height: 500px;
-  margin-top: 90px;
+  height: 550px;
 }
 
 /*# sourceMappingURL=style.css.map */
