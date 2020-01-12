@@ -6,6 +6,7 @@ class Form extends Component {
     this.state = {
       name: "",
       email: "",
+      phone: "",
       subject: "",
       message: "",
       msg_send: ""
@@ -18,6 +19,10 @@ class Form extends Component {
 
   handleEmailChange = event => {
     this.setState({ email: event.target.value });
+  };
+
+  handlePhoneChange = event => {
+    this.setState({ phone: event.target.value });
   };
 
   handleSubjectChange = event => {
@@ -48,11 +53,13 @@ class Form extends Component {
   render() {
     return (
       <div>
-        <form id="contact_form" onSubmit={this.handleSubmit}>
+        <form id="form" onSubmit={this.handleSubmit}>
           <p>{this.state.msg_send}</p>
           <div>
-            <label>Name: </label>
+            <label>Nome: </label>
             <input
+              placeholder="Nome:"
+              required
               type="text"
               onChange={this.handleNameChange}
               value={this.state.name}
@@ -62,27 +69,41 @@ class Form extends Component {
           <div>
             <label>Email: </label>
             <input
+              placeholder="Email:"
               type="email"
               onChange={this.handleEmailChange}
               value={this.state.email}
             />
           </div>
           <div>
-            <label>Subject: </label>
+            <label>Telefone: </label>
             <input
+              placeholder="Telefone: "
+              required
+              type="text"
+              onChange={this.handlePhoneChange}
+              value={this.state.phone}
+            />
+          </div>
+          <div>
+            <label>Assunto: </label>
+            <input
+              placeholder="Assunto:"
               type="text"
               onChange={this.handleSubjectChange}
               value={this.state.subject}
             />
           </div>
           <div>
-            <label>Message</label>
+            <label>Menssagem</label>
             <textarea
+              placeholder="Menssagem:"
+              required
               value={this.state.message}
               onChange={this.handleTextareaChange}
             ></textarea>
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit">Enviar</button>
         </form>
       </div>
     );

@@ -4,10 +4,11 @@ class Contact extends Component {
   state = {};
   render() {
     return (
-      <div className="pages" id="contact">
-        <h1>Contact</h1>
-        <Form />
-        <form></form>
+      <div className="pages" id="bg_contact">
+        <div id="contact">
+          <h1>Entre em contato conosco</h1>
+          <Form />
+        </div>
       </div>
     );
   }

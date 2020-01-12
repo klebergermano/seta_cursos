@@ -12,11 +12,10 @@ function App() {
     <Router>
       <div className="container">
         <Header />
-
         <div id="content">
           <Homepage />
         </div>
-        {/* content */}
+        >{/* content */}
         <Footer />
       </div>
     </Router>

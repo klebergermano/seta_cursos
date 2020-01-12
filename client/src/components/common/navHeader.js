@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import { Link, animateScroll as scroll } from "react-scroll";
 
 class NavHeader extends Component {
-  state = {};
+  constructor() {
+    super();
+    this.state = {};
+  }
+
   render() {
     return (
       <nav id="nav_header">
@@ -10,26 +14,81 @@ class NavHeader extends Component {
           <li>
             <Link
               activeClass="active"
-              to="slide_home"
+              to="link_top"
               spy={true}
               smooth={true}
-              offset={-70}
+              offset={0}
               duration={600}
             >
               Início
             </Link>
           </li>
           <li>
-            <Link
-              activeClass="active"
-              to="courses"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={600}
-            >
-              Cursos
-            </Link>
+            <a id="a_cursos">
+              <Link
+                activeClass="active"
+                to="bg_courses"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={600}
+              >
+                Cursos
+              </Link>
+
+              <ul>
+                <li>
+                  <Link
+                    activeClass="active"
+                    to="see_more"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={600}
+                  >
+                    Sobre os Cursos
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    activeClass="active"
+                    to="computing_course"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={600}
+                  >
+                    Informática
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    activeClass="active"
+                    className="sub_menu"
+                    to="course_english"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={600}
+                  >
+                    Inglês
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    activeClass="active"
+                    className="sub_menu"
+                    to="course_excel"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={600}
+                  >
+                    Excel Avançado
+                  </Link>
+                </li>
+              </ul>
+            </a>
           </li>
           <li>
             <Link
@@ -49,7 +108,7 @@ class NavHeader extends Component {
               to="contact"
               spy={true}
               smooth={true}
-              offset={-70}
+              offset={-130}
               duration={600}
             >
               Contato

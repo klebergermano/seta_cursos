@@ -1,0 +1,18 @@
+#about {
+  background: #f0f0f0;
+
+  width: 100%;
+  margin: 0px;
+  height: 580px;
+  #content {
+    width: $content-width;
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin-top: 80px;
+    margin-bottom: 60px;
+
+    text-align: center;
+  }
+}

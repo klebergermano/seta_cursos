@@ -1,0 +1,23 @@
+#bg_contact {
+  background: #f9f9f9;
+  padding: 60px;
+
+  width: 100%;
+  margin: 0px;
+  height: 900px;
+  #contact {
+    width: $content-width;
+    background: #fff url("../img/bg_email.png") no-repeat;
+    background-size: auto;
+    background-position: 50px 100px;
+    margin: 0 auto;
+    overflow: hidden;
+    h1 {
+      text-align: center;
+      background: $primary-color;
+      margin: 0px;
+      padding: 20px;
+      color: #fff;
+    }
+  }
+}

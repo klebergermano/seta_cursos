@@ -1,0 +1,67 @@
+#computing_course {
+  background: #fff url("../../assets/img/bg_couse_computing.png") no-repeat;
+  background-size: auto 100%;
+  background-position: 15% 0%;
+  box-shadow: -0.2em 0em 0.2em #111;
+  padding: 40px;
+
+  #info_course_1 {
+    margin-left: 40%;
+    width: 60%;
+    overflow: hidden;
+    padding: 20px;
+
+    h2 {
+      margin: 0px;
+      margin-bottom: 40px;
+      display: block !important;
+      width: 100% !important;
+      color: #fff;
+      text-align: center;
+      border-bottom: 1px solid #332;
+      background: $secondary-color;
+      padding: 20px;
+    }
+  }
+
+  #computing_masonry {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+    height: 500px;
+    .modules {
+      height: auto;
+      overflow: hidden;
+      h3 {
+        padding: 10px 30px;
+        margin: 0px;
+
+        background: $primary-color;
+        border-bottom: 1px solid #41012c;
+
+        color: #ee0;
+      }
+      p {
+        margin: 0px;
+        padding: 30px;
+        color: #fff;
+        background: $primary-color;
+        height: 100%;
+      }
+      li {
+        list-style: none;
+      }
+    }
+  }
+
+  .col--1x {
+    grid-row-end: span 1;
+  }
+  .col--2x {
+    grid-row-end: span 2;
+  }
+  .col--3x {
+    grid-row-end: span 3;
+  }
+}
