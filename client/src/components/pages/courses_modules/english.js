@@ -4,7 +4,7 @@ class Course_Computing extends Component {
   state = {};
   render() {
     return (
-      <div className="col-12  courses_modules" id="computing_course">
+      <div className="col-12  courses_modules" id="english_course">
         <div id="info_course_1">
           <h2>CURSO DE INFORMÁTICA</h2>
 

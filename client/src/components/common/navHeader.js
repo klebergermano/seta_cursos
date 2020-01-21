@@ -65,7 +65,7 @@ class NavHeader extends Component {
                   <Link
                     activeClass="active"
                     className="sub_menu"
-                    to="course_english"
+                    to="english_course"
                     spy={true}
                     smooth={true}
                     offset={-70}
@@ -78,7 +78,7 @@ class NavHeader extends Component {
                   <Link
                     activeClass="active"
                     className="sub_menu"
-                    to="course_excel"
+                    to="excel_course"
                     spy={true}
                     smooth={true}
                     offset={-70}

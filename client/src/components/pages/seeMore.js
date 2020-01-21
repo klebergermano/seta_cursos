@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Animated } from "react-animated-css";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 class SeeMore extends Component {
   state = {};
@@ -26,7 +27,16 @@ class SeeMore extends Component {
                 lorem efficitur dapibus et et eros. Quisque condimentum erat
                 quam, id consequat nunc condimentum lacinia.
               </p>
-              <a>Saiba Mais</a>
+              <Link
+                activeClass="active"
+                to="computing_course"
+                spy={true}
+                smooth={true}
+                offset={0}
+                duration={600}
+              >
+                Saiba Mais
+              </Link>
             </div>
           </Animated>
           <Animated
@@ -45,7 +55,16 @@ class SeeMore extends Component {
                 lorem efficitur dapibus et et eros. Quisque condimentum erat
                 quam, id consequat nunc condimentum lacinia.
               </p>
-              <a>Saiba Mais</a>
+              <Link
+                activeClass="active"
+                to="english_course"
+                spy={true}
+                smooth={true}
+                offset={0}
+                duration={600}
+              >
+                Saiba Mais
+              </Link>
             </div>
           </Animated>
           <Animated
@@ -64,7 +83,16 @@ class SeeMore extends Component {
                 lorem efficitur dapibus et et eros. Quisque condimentum erat
                 quam, id consequat nunc condimentum lacinia.
               </p>
-              <a>Saiba Mais</a>
+              <Link
+                activeClass="active"
+                to="excel_course"
+                spy={true}
+                smooth={true}
+                offset={0}
+                duration={600}
+              >
+                Saiba Mais
+              </Link>
             </div>
           </Animated>
         </div>

@@ -24,7 +24,7 @@ class Courses extends Component {
             animationOut="fadeOut"
             isVisible={true}
           >
-            <div className="col-12 block_content_courses " id="course_english">
+            <div className="col-12 block_content_courses " id="english_course">
               <div className="col-8">
                 <p>
                   é simplesmente uma simulação de texto da indústria tipográfica
@@ -50,7 +50,7 @@ class Courses extends Component {
             animationOut="fadeOut"
             isVisible={true}
           >
-            <div className="col-12 block_content_courses " id="course_excel">
+            <div className="col-12 block_content_courses " id="excel_course">
               <figure className="col-3">
                 <img
                   id="logo"

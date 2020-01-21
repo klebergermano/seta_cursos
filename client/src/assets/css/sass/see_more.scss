@@ -31,9 +31,20 @@
     float: right;
     overflow: hidden;
     height: auto;
-    border: 1px solid $secondary-color;
-    border-radius: 10px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
     padding: 20px;
+    a {
+      cursor: pointer;
+      width: 100px;
+      display: block;
+      text-align: center;
+      margin: 0 auto;
+      text-decoration: underline;
+    }
+    a:hover {
+      color: $primary-color;
+    }
     h4 {
       text-align: center;
     }
