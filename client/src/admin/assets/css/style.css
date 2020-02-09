@@ -1,0 +1,60 @@
+#bg_login {
+  background: #f8f8f8;
+  height: 100vh;
+  width: 100%;
+}
+#bg_login h1 {
+  text-align: center;
+  margin-top: 8%;
+}
+#bg_login #form_login {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 50%;
+  max-width: 400px;
+  height: 300px;
+  padding: 60px 50px;
+  background: #fff;
+  display: block;
+  margin: 0 auto;
+}
+#bg_login #form_login div {
+  padding: 10px;
+}
+#bg_login #form_login div label {
+  width: 20%;
+  display: block;
+  float: left;
+}
+#bg_login #form_login div input {
+  padding: 5px;
+  width: 80%;
+}
+#bg_login #form_login #btn_login {
+  background: #1f458b;
+  color: #fff;
+  border: 0px solid #ccc;
+  padding: 8px 20px;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#bg_login #form_login #btn_login:hover {
+  background: #1a5bd3;
+}
+#bg_login #form_login #btn_login:active {
+  background: #033aa0;
+}
+#bg_login #bg_link_goback {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 15px;
+}
+#bg_login #bg_link_goback a {
+  float: right;
+}
+
+/*# sourceMappingURL=style.css.map */

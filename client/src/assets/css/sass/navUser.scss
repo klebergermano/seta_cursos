@@ -1,0 +1,38 @@
+#bg_nav_user {
+  height: auto;
+
+  width: 100%;
+}
+#nav_user {
+  margin: 0 auto;
+  height: 30px;
+  max-width: $content-width;
+  padding: 0px 0px;
+  ul {
+    float: right;
+    li {
+      list-style: none;
+      a {
+        background: #222;
+        height: 30px;
+        display: block;
+        padding: 5px 15px;
+        color: #fff;
+        font-size: 12px;
+        border-radius: 0px 0px 2px 2px;
+        text-decoration: none;
+      }
+
+      a:hover {
+        background: rgb(4, 62, 150);
+      }
+      a:active {
+        background: darken($secondary-color, 10%);
+      }
+    }
+  }
+}
+
+#bg_nav_user {
+  //display: none;
+}

@@ -821,6 +821,40 @@ header #nav_header li a:hover > ul {
 }
 
 /*header*/
+#bg_nav_user {
+  height: auto;
+  width: 100%;
+}
+
+#nav_user {
+  margin: 0 auto;
+  height: 30px;
+  max-width: 1173px;
+  padding: 0px 0px;
+}
+#nav_user ul {
+  float: right;
+}
+#nav_user ul li {
+  list-style: none;
+}
+#nav_user ul li a {
+  background: #222;
+  height: 30px;
+  display: block;
+  padding: 5px 15px;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 0px 0px 2px 2px;
+  text-decoration: none;
+}
+#nav_user ul li a:hover {
+  background: #043e96;
+}
+#nav_user ul li a:active {
+  background: #c51133;
+}
+
 #bg_scanlines {
   width: 100%;
   height: 100%;
