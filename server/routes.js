@@ -1,7 +1,18 @@
 const express = require("express");
 const sendNodemailer = require("./nodemailer/sendNodemailer");
 
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
+
 const app = express.Router();
+
+//Create User
+app.post("/form_create_user", async (req, res, next) => {
+  console.log(req.body.username);
+  console.log(req.body.password);
+
+  console.log(req.body.privilege);
+});
 
 //Login Form
 app.post("/form_login", async (req, res, next) => {
