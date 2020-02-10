@@ -3,6 +3,12 @@ const sendNodemailer = require("./nodemailer/sendNodemailer");
 
 const app = express.Router();
 
+//Login Form
+app.post("/form_login", async (req, res, next) => {
+  console.log(req.body.username);
+  console.log(req.body.password);
+});
+
 //receive the form POST and call nodemailer to send
 app.post("/form_send", async (req, res, next) => {
   //Create the html body to send by email

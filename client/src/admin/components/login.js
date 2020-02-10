@@ -19,8 +19,20 @@ class Login extends Component {
   };
 
   logar = e => {
+    const data = this.state;
+    fetch("/form_login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.text())
+      .then(text => {
+        //this.setState({ msg_send: text });
+      });
+
     e.preventDefault();
-    alert(this.state.username + " " + this.state.password);
   };
   render() {
     return (
