@@ -1,16 +1,29 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/style.css";
+import Users from "./users";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       username: "Fulano",
-      password: "123"
+      password: "123",
+      authenticated: []
     };
   }
 
+  componentDidMount() {
+    fetch("/api/services")
+      .then(res => res.json())
+      .then(services => this.setState({ services }));
+  }
   handleUserChange = event => {
     this.setState({ username: event.target.value });
   };
@@ -19,6 +32,8 @@ class Login extends Component {
   };
 
   logar = e => {
+    e.preventDefault();
+
     const data = this.state;
     fetch("/form_login", {
       method: "POST",
@@ -27,18 +42,26 @@ class Login extends Component {
       },
       body: JSON.stringify(data)
     })
-      .then(res => res.text())
-      .then(text => {
-        //this.setState({ msg_send: text });
+      .then(res => res.json())
+      .then(res => {
+        this.setState({ authenticated: res.result });
+        alert(this.state.authenticated);
       });
-
-    e.preventDefault();
   };
+
+  redirect() {
+    if (this.state.authenticated == true) {
+      return <Redirect to="/users" />;
+    }
+  }
   render() {
     return (
       <div className="pages" id="bg_login">
         <h1>Login</h1>
+        {this.redirect()}
         <form id="form_login">
+          <p>{this.state.authenticated}</p>
+
           <div>
             <label>Nome: </label>
             <input
