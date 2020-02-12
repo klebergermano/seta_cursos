@@ -6,7 +6,7 @@ class Header extends Component {
   state = {};
   render() {
     return (
-      <header>
+      <header id="header_website">
         <NavUser />
         <div id="header_center">
           <a href="./" id="logo">

@@ -45,13 +45,12 @@ class Login extends Component {
       .then(res => res.json())
       .then(res => {
         this.setState({ authenticated: res.result });
-        alert(this.state.authenticated);
       });
   };
 
   redirect() {
     if (this.state.authenticated == true) {
-      return <Redirect to="/users" />;
+      return <Redirect to="/profile" />;
     }
   }
   render() {

@@ -60,6 +60,75 @@
   color: #fff;
 }
 
+.dashboard_container {
+  background: #ccc;
+  min-height: 140vh;
+  width: 100%;
+}
+.dashboard_container #header_dash {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  background: #0a4e89;
+  border-bottom: 0px;
+}
+.dashboard_container #header_dash #bg_logo {
+  background: #222;
+  height: 60px;
+  width: 15%;
+  color: #fff;
+  float: left;
+}
+.dashboard_container #header_dash #bg_logo img {
+  width: auto;
+  height: 30px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+.dashboard_container #header_dash #nav_header {
+  float: right;
+  height: 100%;
+  overflow: hidden;
+}
+.dashboard_container #header_dash #nav_header ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  height: 100%;
+}
+.dashboard_container #header_dash #nav_header ul li {
+  margin-left: 5px;
+  list-style: none;
+}
+.dashboard_container #header_dash #nav_header ul li a {
+  display: block;
+  padding: 18px 20px;
+  color: #fff;
+}
+.dashboard_container #nav_dashboard {
+  position: fixed;
+  background: #111;
+  min-height: 100vh;
+  width: 15%;
+  min-width: 200px;
+}
+
+#dashboard_content {
+  width: 85%;
+  float: right;
+  padding: 20px;
+  padding-top: 80px;
+}
+#dashboard_content #bg_blocks {
+  margin: 0 auto;
+  width: 100%;
+  float: right;
+  min-height: 700px;
+  background: #fff;
+}
+
 #bg_create_user {
   background: #1e2849;
   height: 100vh;
