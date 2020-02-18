@@ -1,11 +1,41 @@
 const express = require("express");
 const connection = require("./config/connection");
 const sendNodemailer = require("./nodemailer/sendNodemailer");
-
+var session = require("express-session");
+var MySQLStore = require("express-mysql-session")(session);
 const bcrypt = require("bcrypt");
+
+var sessionStore = new MySQLStore({} /* session store options */, connection);
+
 const saltRounds = 10;
 
 const app = express.Router();
+
+const TWO_HOURS = 1000 * 60 * 60 * 2; // 2 HOURS
+const IN_PRODUCTION = false; // Developing stage if is False or true for Production state
+const SESS_NAME = "sid";
+const SESS_SECRET = "setaLogSpK";
+
+app.use(
+  session({
+    name: SESS_NAME,
+    resave: false,
+    saveUninitialized: false,
+    secret: SESS_SECRET,
+    store: sessionStore,
+    cookie: {
+      httpOnly: false,
+      maxAge: TWO_HOURS,
+      sameSite: true, // strict
+      secure: false // Developing stage if is False or true for Production state
+    }
+  })
+);
+
+app.post("/check_session", async (req, res, next) => {
+  console.log("check_session: " + req.body.sid);
+  res.send(200, { result: true });
+});
 
 //Create User
 app.post("/form_create_user", async (req, res, next) => {
@@ -23,38 +53,58 @@ app.post("/form_create_user", async (req, res, next) => {
       modified: created
     };
     connection.query("INSERT INTO user SET?", new_user, (err, res) => {
-      if (err) throw err;
+      if (err) {
+      }
     });
   });
 });
+//Login Form
 
 app.post("/form_login", async (req, res, next) => {
   connection.query(
-    `SELECT name, password FROM user WHERE name = '${req.body.username}'`,
+    `SELECT id, name, privilege,  password FROM user WHERE name = '${req.body.username}'`,
     (err, results) => {
       if (err) {
-        return reject(err);
       } else {
-        let hashpassword = results[0].password; //hashed password for comparison
-        let password = req.body.password; //plain password from form login
+        if (typeof results[0] !== "undefined") {
+          let hashpassword = results[0].password; //hashed password for comparison
+          let password = req.body.password; //plain password from form login
 
-        var match = bcrypt.compare(password, hashpassword, function(
-          err,
-          result
-        ) {
-          if (result) {
-            console.log(result);
-            res.send(200, { result: true });
-          } else {
-            res.send(false);
-          }
-        });
+          bcrypt.compare(password, hashpassword, function(err, result) {
+            if (result) {
+              let userInfo = {
+                id: results[0].id, //hashed password for comparison
+                name: results[0].name, //hashed password for comparison
+                privilege: results[0].privilege //hashed password for comparison
+              };
+
+              var sess = req.session;
+              sess.Id = userInfo.id;
+              sess.name = userInfo.name;
+              sess.privilege = userInfo.privilege;
+
+              res.send(200, { result: true, session_id: req.sessionID });
+            } else {
+              res.send(false); //TODO:
+            }
+          });
+        } else {
+          console.log("User not found");
+        }
       }
     }
   );
 });
-
-//Login Form
+// Logout
+app.post("/logout", (req, res, next) => {
+  req.session.destroy(err => {
+    if (err) {
+      throw err;
+    } else {
+      res.clearCookie(SESS_NAME);
+    }
+  });
+});
 
 //receive the form POST and call nodemailer to send
 app.post("/form_send", async (req, res, next) => {

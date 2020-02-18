@@ -1,8 +1,18 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
+import { isAuthenticated } from "../../routes/auth";
 
 class Dashboard extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      userInfo: ""
+    };
+  }
+
+  componentDidMount() {}
+
   render() {
     return (
       <div className="dashboard_container">

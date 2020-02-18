@@ -19,11 +19,7 @@ class Login extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch("/api/services")
-      .then(res => res.json())
-      .then(services => this.setState({ services }));
-  }
+  componentDidMount() {}
   handleUserChange = event => {
     this.setState({ username: event.target.value });
   };
