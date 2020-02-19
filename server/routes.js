@@ -83,7 +83,12 @@ app.post("/form_login", async (req, res, next) => {
               sess.name = userInfo.name;
               sess.privilege = userInfo.privilege;
 
-              res.send(200, { result: true, session_id: req.sessionID });
+              res.send(200, {
+                result: true,
+                session_id: req.sessionID,
+                name: userInfo.name,
+                privilege: userInfo.privilege
+              });
             } else {
               res.send(false); //TODO:
             }

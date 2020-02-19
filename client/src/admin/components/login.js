@@ -13,13 +13,20 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "Fulano",
+      username: "Test",
       password: "123",
-      authenticated: []
+      authenticated: [],
+      user: {
+        session_id: "",
+        name: "",
+        privilege: ""
+      }
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.setState({ user: { session_id: true } });
+  }
   handleUserChange = event => {
     this.setState({ username: event.target.value });
   };
@@ -40,7 +47,17 @@ class Login extends Component {
     })
       .then(res => res.json())
       .then(res => {
+        this.setState({
+          user: {
+            session_id: res.session_id,
+            name: res.name,
+            privilege: res.privilege
+          }
+        });
         this.setState({ authenticated: res.result });
+      })
+      .then(res => {
+        console.log(this.state.user);
       });
   };
 

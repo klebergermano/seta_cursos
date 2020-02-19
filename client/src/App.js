@@ -8,10 +8,12 @@ import {
   Redirect
 } from "react-router-dom";
 
-import Test from "./test";
-
 import Dashboard from "./admin/components/dashboard";
 import { isAuthenticated } from "./routes/auth";
+import { LoginProvider } from "./globalState/logingContex";
+import { LoginRule } from "./globalState/loginRule";
+import { PrivateRoute } from "./globalState/PrivateRoute";
+
 import CreateUser from "./admin/components/createUser";
 import Login from "./admin/components/login";
 import Header from "./components/common/header";
@@ -32,36 +34,15 @@ class App extends Component {
     });
   }
   render() {
-    var x = this.state.auth;
-    console.log(this.state.auth);
-    const PrivateRoute = ({ component: Component, ...rest }) => (
-      <Route
-        {...rest}
-        render={props =>
-          x ? (
-            <Component {...props} />
-          ) : (
-            <Redirect
-              to={{
-                pathname: "/login",
-                state: { from: props.location }
-              }}
-            />
-          )
-        }
-      />
-    );
     return (
       <div>
         <Router>
           <Switch>
             <Route path="/login" component={Login} />
             <Route path="/create_user" component={CreateUser} />
-            <PrivateRoute
-              exact
-              path="/profile"
-              component={() => <Dashboard />}
-            />
+            <LoginProvider>
+              <PrivateRoute path="/profile" component={() => <Dashboard />} />
+            </LoginProvider>
 
             <Route path="/">
               <div className="container">
