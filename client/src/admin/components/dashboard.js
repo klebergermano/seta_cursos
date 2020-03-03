@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import { isAuthenticated } from "../../routes/auth";
-import FormAddResponsavel from "./formAddResponsavel";
+import FormAddResponsavel from "./AddResponsavel";
 import Responsaveis from "./Reponsaveis";
 import {
   BrowserRouter as Router,

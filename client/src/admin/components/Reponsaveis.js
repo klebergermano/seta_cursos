@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 class Responsaveis extends Component {
   state = {};
+
   render() {
     return (
       <div className="page_dashboard">

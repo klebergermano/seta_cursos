@@ -36,6 +36,36 @@ app.post("/check_cookie", async (req, res, next) => {
   res.send(200, { result: true });
 });
 
+//-------------------------------CADASTRAR RESPONSAVEL---------------------
+
+app.post("/cadastrar_responsavel", (req, res) => {
+  let new_responsavel = {
+    nome: req.body.nome,
+    genero: req.body.genero,
+    endereco: req.body.endereco,
+    bairro: req.body.bairro,
+    email: req.body.email,
+    rg: req.body.rg,
+    cpf: req.body.cpf,
+    data_nasc: req.body.data_nasc,
+    created: req.body.created,
+    modified: new Date()
+  };
+
+  connection.query(
+    "INSERT INTO responsavel SET?",
+    new_responsavel,
+    (err, res) => {
+      if (!err) {
+        console.log("cadastrado:" + new_responsavel);
+      } else {
+        console.log(err);
+      }
+    }
+  );
+});
+
+//----------------------------------------------------------------
 //Create User
 app.post("/form_create_user", async (req, res, next) => {
   let username = req.body.username;

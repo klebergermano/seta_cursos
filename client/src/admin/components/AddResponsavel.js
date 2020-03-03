@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import axios from "axios";
+
 class FormAddResponsavel extends Component {
   state = {
     nome: "",
@@ -15,9 +17,31 @@ class FormAddResponsavel extends Component {
   handleChange = ({ target: { value, name } }) => {
     this.setState({ [name]: value });
   };
+
+  showStatus = () => {
+    console.log(this.state);
+  };
+
+  cadastrar = e => {
+    const data = this.state;
+    fetch("/cadastrar_responsavel", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.text())
+      .then(text => {
+        //this.setState({ msg_send: text });
+      });
+
+    e.preventDefault();
+  };
   render() {
     return (
       <div>
+        <button onClick={this.showStatus}>Show State</button>
         <form className="form_add" id="form_add_responsavel">
           <h1>Cadastro de Responsável</h1>
 
@@ -57,7 +81,7 @@ class FormAddResponsavel extends Component {
             <label>Data Cadastro</label>
             <input type="text" name="created" onChange={this.handleChange} />
           </div>
-          <button>Cadastrar Responsável</button>
+          <button onClick={this.cadastrar}> Cadastrar Responsável</button>
         </form>
       </div>
     );
