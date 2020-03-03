@@ -1,0 +1,20 @@
+.table_general {
+  width: 100%;
+  border: 1px solid #ccc;
+
+  thead {
+    background: $primary-color;
+
+    th {
+      color: #fff;
+    }
+  }
+  tbody {
+    tr {
+      td {
+        padding: 5px;
+        border: 1px solid #ccc;
+      }
+    }
+  }
+}

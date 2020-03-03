@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/style.css";
 import Users from "./users";
+import { Session_id } from "../../globalState/session_id";
+
 import {
   BrowserRouter as Router,
   Route,
@@ -69,6 +71,7 @@ class Login extends Component {
   render() {
     return (
       <div className="pages" id="bg_login">
+        <Session_id />
         <h1>Login</h1>
         {this.redirect()}
         <form id="form_login">

@@ -2,6 +2,17 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import { isAuthenticated } from "../../routes/auth";
+import FormAddResponsavel from "./formAddResponsavel";
+import Responsaveis from "./Reponsaveis";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
+
+import GeradorBoleto from "./boleto/GeradorBoleto";
+import HeaderDashboard from "./common/headerDashboard";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -16,28 +27,49 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="dashboard_container">
-        <header id="header_dash">
-          <div id="bg_logo">
-            <img src={require("../../admin/assets/img/logo.png")} />
-          </div>
-          <nav id="nav_header">
+        <HeaderDashboard />
+        <div id="bg_main_nav">
+          <nav id="nav_dashboard">
             <ul>
               <li>
-                <a>Usuário: </a>
+                <span>Boletos</span>
+                <ul>
+                  <li>
+                    <Link to="/gerador_boleto">Gerar Carnê</Link>
+                  </li>
+                  <li>
+                    <Link to="/gerador_boleto">Carnês</Link>
+                  </li>
+                  <li>
+                    <Link to="/gerador_boleto">Contratos</Link>
+                  </li>
+                </ul>
               </li>
 
               <li>
-                <Link to="/user">Sair</Link>
+                <span>Cadastros</span>
+                <ul>
+                  <li>
+                    <Link to="/profile/responsaveis">Responsáveis</Link>
+                  </li>
+                  <li>
+                    <Link to="/gerador_boleto">Alunos</Link>
+                  </li>
+                  <li>
+                    <Link to="/gerador_boleto">Cursos</Link>
+                  </li>
+                </ul>
               </li>
             </ul>
           </nav>
-        </header>
-
-        <div id="bg_main_nav">
-          <nav id="nav_dashboard"></nav>
         </div>
         <div id="dashboard_content">
-          <div id="bg_blocks"></div>
+          <Route
+            exact
+            path="/profile/cadastrar_responsavel"
+            component={FormAddResponsavel}
+          />
+          <Route exact path="/profile/responsaveis" component={Responsaveis} />
         </div>
       </div>
     );

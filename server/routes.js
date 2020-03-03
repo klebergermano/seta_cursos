@@ -32,8 +32,7 @@ app.use(
   })
 );
 
-app.post("/check_session", async (req, res, next) => {
-  console.log("check_session: " + req.body.sid);
+app.post("/check_cookie", async (req, res, next) => {
   res.send(200, { result: true });
 });
 
@@ -89,6 +88,8 @@ app.post("/form_login", async (req, res, next) => {
                 name: userInfo.name,
                 privilege: userInfo.privilege
               });
+
+              console.log(req.sessionID);
             } else {
               res.send(false); //TODO:
             }

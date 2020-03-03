@@ -13,7 +13,10 @@ class NavUser extends Component {
         <nav id="nav_user">
           <ul>
             <li>
+              {/*
               <Link to="login">Logar</Link>
+              */}
+              <Link to="profile">Admin</Link>
             </li>
           </ul>
         </nav>

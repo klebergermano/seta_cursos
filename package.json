@@ -30,7 +30,10 @@
     "nodemailer": "^6.4.2",
     "react-router-dom": "^5.1.2",
     "react-scroll": "^1.7.15",
-    "react-scrollable-anchor": "^0.6.1"
+    "react-scrollable-anchor": "^0.6.1",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "html-pdf": "^2.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.1"
