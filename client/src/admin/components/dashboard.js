@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import { isAuthenticated } from "../../routes/auth";
-import FormAddResponsavel from "./AddResponsavel";
-import Responsaveis from "./Reponsaveis";
+import AlunoAdd from "./AlunoAdd";
+import ResponsavelAdd from "./ResponsavelAdd";
+import ResponsaveisView from "./ReponsaveisView";
 import {
   BrowserRouter as Router,
   Route,
@@ -53,7 +54,7 @@ class Dashboard extends Component {
                     <Link to="/profile/responsaveis">Responsáveis</Link>
                   </li>
                   <li>
-                    <Link to="/gerador_boleto">Alunos</Link>
+                    <Link to="/profile/cadastrar_aluno">Alunos</Link>
                   </li>
                   <li>
                     <Link to="/gerador_boleto">Cursos</Link>
@@ -67,9 +68,14 @@ class Dashboard extends Component {
           <Route
             exact
             path="/profile/cadastrar_responsavel"
-            component={FormAddResponsavel}
+            component={ResponsavelAdd}
           />
-          <Route exact path="/profile/responsaveis" component={Responsaveis} />
+          <Route exact path="/profile/cadastrar_aluno" component={AlunoAdd} />
+          <Route
+            exact
+            path="/profile/responsaveis"
+            component={ResponsaveisView}
+          />
         </div>
       </div>
     );

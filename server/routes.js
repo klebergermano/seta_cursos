@@ -4,6 +4,7 @@ const sendNodemailer = require("./nodemailer/sendNodemailer");
 var session = require("express-session");
 var MySQLStore = require("express-mysql-session")(session);
 const bcrypt = require("bcrypt");
+const db = require("./db");
 
 var sessionStore = new MySQLStore({} /* session store options */, connection);
 
@@ -36,6 +37,43 @@ app.post("/check_cookie", async (req, res, next) => {
   res.send(200, { result: true });
 });
 
+//-------------------------------CADASTRAR ALUNO---------------------
+
+app.post("/cadastrar_aluno", (req, res) => {
+  let new_aluno = {
+    nome: req.body.nome,
+    genero: req.body.genero,
+    endereco: req.body.endereco,
+    bairro: req.body.bairro,
+    email: req.body.email,
+
+    data_nasc: req.body.data_nasc,
+    created: req.body.created,
+    modified: new Date()
+  };
+
+  connection.query("INSERT INTO aluno SET?", new_aluno, err => {
+    if (!err) {
+      0;
+      res.send({ msg_send: "Cadastrado com Sucesso!" });
+    } else {
+      console.log(err);
+    }
+  });
+});
+
+//----------------------------RESPONSAVEL VIEW----------------------------------------------
+app.get("/api/clients", async (req, res) => {
+  try {
+    let results = await db.responsavelTable.all();
+
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
 //-------------------------------CADASTRAR RESPONSAVEL---------------------
 
 app.post("/cadastrar_responsavel", (req, res) => {
@@ -52,17 +90,65 @@ app.post("/cadastrar_responsavel", (req, res) => {
     modified: new Date()
   };
 
-  connection.query(
-    "INSERT INTO responsavel SET?",
-    new_responsavel,
-    (err, res) => {
-      if (!err) {
-        console.log("cadastrado:" + new_responsavel);
-      } else {
-        console.log(err);
-      }
+  connection.query("INSERT INTO responsavel SET?", new_responsavel, err => {
+    if (!err) {
+      //-----------------Cadastra Telefones e Celulares
+      connection.query(
+        "SELECT max(id) as id from responsavel",
+        (err, results) => {
+          let maxId = results[0].id;
+
+          //---------------------Telefone Looping cadastro
+          for (let prop_tel in req.body.telefones) {
+            let new_telefone = {
+              id_resp: maxId,
+              telefone: req.body.telefones[prop_tel],
+              created: req.body.created,
+              modified: new Date()
+            };
+
+            connection.query(
+              "INSERT INTO resp_telefone SET?",
+              new_telefone,
+              err => {}
+            );
+          }
+
+          for (let prop_cel in req.body.celulares) {
+            let whatsapp = "";
+            let messenger = "";
+            if (typeof req.body.celulares[prop_cel].whatsapp != "undefined") {
+              whatsapp = req.body.celulares[prop_cel].whatsapp;
+            }
+            if (typeof req.body.celulares[prop_cel].messenger != "undefined") {
+              messenger = req.body.celulares[prop_cel].messenger;
+            }
+            let app = whatsapp + " " + messenger;
+            let new_celular = {
+              ddd: req.body.celulares[prop_cel].ddd,
+              id_resp: maxId,
+              celular: req.body.celulares[prop_cel].numero,
+              created: req.body.created,
+              app: app.trim(),
+              modified: new Date()
+            };
+            connection.query(
+              "INSERT INTO resp_celular SET?",
+              new_celular,
+              err => {}
+            );
+            console.log(prop_cel);
+          }
+        }
+      );
+
+      /*---------------------------- */
+
+      res.send({ msg_send: "Cadastrado com Sucesso!" });
+    } else {
+      console.log(err);
     }
-  );
+  });
 });
 
 //----------------------------------------------------------------

@@ -38,3 +38,6 @@ app.get("/fetch-pdf", (req, res) => {
   res.sendFile(`${__dirname}/result.pdf`);
 });
 //---------------------------------------------------------------------
+process.on("uncaughtException", function(err) {
+  console.log(err);
+});

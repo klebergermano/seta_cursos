@@ -476,6 +476,33 @@
   background: #1fa06e;
 }
 
+.nav_cadastros {
+  padding: 20px 0px;
+  background: #064a77;
+  color: #fff;
+  overflow: hidden;
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+.nav_cadastros li {
+  list-style: none;
+}
+.nav_cadastros li a {
+  color: #333;
+  text-decoration: none;
+  padding: 20px;
+}
+.nav_cadastros li a:hover {
+  background: #ddd;
+}
+
+.cadastro_sucesso {
+  display: none;
+  width: 100%;
+  text-align: center;
+  color: #0e881e;
+}
+
 .form_add {
   background: #fff;
   width: 100%;
@@ -487,22 +514,21 @@
   overflow: hidden;
   border-radius: 10px;
 }
-.form_add div {
+.form_add div div {
   margin-bottom: 10px;
   padding: 2px;
   overflow: hidden;
 }
-.form_add div label {
+.form_add div div label {
   float: left;
   display: block;
-  background: #f0f0f0;
-  color: #333;
-  min-width: 100px;
-  width: 25%;
-  padding: 6px 20px;
+  background: #eee;
+  color: #444;
+  width: 90px;
+  padding: 6px 15px;
 }
-.form_add div input {
-  width: 75%;
+.form_add div div input {
+  width: 84%;
   float: right;
   padding: 5px 10px;
 }
@@ -511,7 +537,7 @@
   font-size: 25px;
   margin-bottom: 40px;
 }
-.form_add button {
+.form_add .btn_cadastrar {
   width: 200px;
   background: #064a77;
   color: #fff;
@@ -522,8 +548,222 @@
   cursor: pointer;
   margin-top: 20px;
 }
-.form_add button:hover {
+.form_add .btn_cadastrar:hover {
   background: #07598f;
+}
+.form_add .add_nome {
+  float: left;
+  width: 70%;
+}
+.form_add .add_nome input {
+  width: 77%;
+}
+.form_add .add_celular {
+  min-height: 20px;
+  overflow: hidden;
+  margin-bottom: 0px;
+}
+.form_add .add_celular .bg_block_cel {
+  background: #fff;
+  border: 1px solid #999;
+  width: 68%;
+  float: left;
+  padding: 0px;
+  overflow: hidden;
+  min-height: 37px;
+}
+.form_add .add_celular .bg_block_cel .div {
+  border-top: 1px solid #ccc;
+}
+.form_add .add_celular .bg_block_cel .block_cel {
+  float: left;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px 0px 0px 0px;
+  padding-bottom: 0px;
+  overflow: hidden;
+}
+.form_add .add_celular .bg_block_cel .block_cel div:first-child {
+  padding: 0px;
+  margin: 0px;
+  padding-bottom: 0px;
+  overflow: hidden;
+}
+.form_add .add_celular .bg_block_cel .block_cel div:first-child span {
+  display: block;
+  float: left;
+  padding: 8px 10px;
+  font-size: 12px;
+  background: #f6f6f6;
+  color: #666;
+}
+.form_add .add_celular .bg_block_cel .block_cel input {
+  width: 40%;
+  float: left;
+  border: 0px;
+}
+.form_add .add_celular .bg_block_cel .block_cel .ddd_input {
+  width: 45px;
+  padding: 5px 0px 5px 15px;
+  float: left;
+  text-align: center;
+}
+.form_add .add_celular .bg_block_cel .block_cel .bg_checkbox_cel {
+  float: right !important;
+  overflow: hidden;
+  width: 30%;
+  height: 36px;
+  margin: 0px !important;
+}
+.form_add .add_celular .bg_block_cel .block_cel .bg_checkbox_cel label {
+  border-radius: 5px;
+  text-align: center;
+  float: right;
+  width: 28px;
+  height: 32px;
+  padding: 3px;
+  font-size: 12px;
+  overflow: hidden;
+  margin-left: 5px;
+  margin-top: -2px;
+  user-select: none;
+  cursor: pointer;
+}
+.form_add .add_celular .bg_block_cel .block_cel .bg_checkbox_cel .img_on_whatsapp {
+  background: url("../img/whatsapp-on.png") no-repeat;
+  background-size: 25px;
+  background-position: 0 6px;
+  opacity: 1;
+}
+.form_add .add_celular .bg_block_cel .block_cel .bg_checkbox_cel .img_off_whatsapp {
+  background: url("../img/whatsapp-off.png") no-repeat;
+  opacity: 0.7;
+  background-size: 25px;
+  background-position: 0 6px;
+}
+.form_add .add_celular .bg_block_cel .block_cel .bg_checkbox_cel .img_on_messenger {
+  background: url("../img/messenger-on.png") no-repeat;
+  background-size: 25px;
+  background-position: 0 6px;
+  opacity: 1;
+}
+.form_add .add_celular .bg_block_cel .block_cel .bg_checkbox_cel .img_off_messenger {
+  background: url("../img/messenger-off.png") no-repeat;
+  background-size: 25px;
+  background-position: 0 6px;
+  opacity: 0.7;
+}
+.form_add .add_celular .bg_block_cel .block_cel .bg_checkbox_cel input {
+  display: block;
+  float: left;
+  padding: 50px;
+  background: #f90;
+}
+.form_add .add_telefone {
+  margin: 0px;
+}
+.form_add .add_telefone .bg_block_tel {
+  width: 68%;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #999;
+  min-height: 37px;
+  overflow: hidden;
+  margin: 0px;
+  float: left;
+  padding: 0px;
+}
+.form_add .add_telefone .bg_block_tel .div {
+  margin: 0px;
+  padding: 0px;
+  border-bottom: 1px solid #ddd;
+  margin-top: -1px;
+}
+.form_add .add_telefone .bg_block_tel .block_tel {
+  float: left;
+  width: 50%;
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+}
+.form_add .add_telefone .bg_block_tel .block_tel input {
+  width: 70%;
+  border: 0px;
+}
+.form_add .add_telefone .bg_block_tel .block_tel span {
+  display: block;
+  padding: 9px 10px;
+  font-size: 12px;
+  background: #f6f6f6;
+  float: left;
+  color: #666;
+}
+.form_add .bg_btn_inputs {
+  width: 15%;
+  float: right;
+  height: 38px;
+  overflow: hidden;
+  background: #f0f0f0;
+  padding: 6px 0px;
+}
+.form_add .bg_btn_inputs .btn_add_input,
+.form_add .bg_btn_inputs .btn_del_input {
+  background: #064a77;
+  color: #fff;
+  width: 25px;
+  height: 25px;
+  float: right;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 0px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.form_add .bg_btn_inputs .btn_add_input:hover {
+  background: #07598f;
+}
+.form_add .bg_btn_inputs .btn_del_input {
+  background: #ccc;
+}
+.form_add .bg_btn_inputs .btn_del_input:hover {
+  background: red;
+}
+.form_add .add_genero {
+  float: right;
+  width: 30%;
+}
+.form_add .add_genero select {
+  width: 76px;
+  padding: 5px;
+}
+.form_add .add_genero select option:first-child {
+  display: none;
+}
+.form_add .add_rg,
+.form_add .add_cpf,
+.form_add .add_data_nasc,
+.form_add .add_created {
+  width: 50%;
+  float: left;
+}
+.form_add .add_rg label,
+.form_add .add_cpf label,
+.form_add .add_data_nasc label,
+.form_add .add_created label {
+  min-width: auto;
+  display: block;
+}
+.form_add .add_rg input,
+.form_add .add_cpf input,
+.form_add .add_data_nasc input,
+.form_add .add_created input {
+  width: 67.8%;
+}
+.form_add .add_endereco {
+  width: 100%;
 }
 
 .table_general {
