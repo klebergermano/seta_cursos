@@ -144,23 +144,10 @@ class GeradorBoleto extends Component {
       });
   };
 
-  gerarBoleto() {
-    alert("ok");
-  }
-
-  handleTesteChange = e => {
-    this.setState({ teste: e.target.value });
-  };
-  changeValueTeste = () => {
-    this.setState({ teste: "xxxxxxxxxxxxxxx" });
-  };
-
   showMasterStatus = () => {
     console.log(this.state);
   };
-  setValues = () => {
-    this.setState({ boleto_1: { responsavel: "okkkkk22222k" } });
-  };
+
   insertBoleto = () => {
     let max_boletos = 12;
     let num_boletos = this.state.boleto_master.parcela;

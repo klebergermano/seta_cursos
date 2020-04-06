@@ -1,18 +1,13 @@
 import React, { Component } from "react";
 import InputMask from "react-input-mask";
+
+import { dateFormatDB, dateFormatReverse } from "./helpers/helpers";
+
 import ReactDOM from "react-dom";
 
-import {
-  dateFormatDB,
-  dateFormatBR,
-  dateFormatReverse
-} from "./helpers/helpers";
-
-class AlunoAdd extends Component {
+class AlunoEdit extends Component {
   state = {
     responsaveis: [],
-    vinculado_resp: "",
-
     telefones: [],
     celulares: {},
     nome: "",
@@ -29,14 +24,53 @@ class AlunoAdd extends Component {
   };
 
   componentDidMount() {
-    let data_created = dateFormatDB(new Date());
-    this.setState({ created: data_created });
     fetch("/api/resp_aluno")
       .then(res => res.json())
       .then(responsaveis => this.setState({ responsaveis }))
       .then(() => {
         console.log(this.state);
       });
+
+    let url = window.location.href;
+    let url_array = url.split("/");
+    let i = url_array.length - 1;
+    let id = url_array[i];
+
+    fetch(`/profile/aluno_edit/${id}`)
+      .then(res => res.json())
+      .then(aluno =>
+        this.setState({
+          telefones: aluno.telefones,
+          celulares: aluno.celulares,
+          vinculado_resp: aluno.vinculado_resp,
+          nome: aluno.nome,
+          id_resp: aluno.id_resp,
+          genero: aluno.genero,
+          endereco: aluno.endereco,
+          bairro: aluno.bairro,
+          email: aluno.email,
+
+          data_nasc: aluno.data_nasc,
+          temp_celular: aluno.temp_celular,
+          created: aluno.created,
+          msg_send: ""
+        })
+      )
+      .then(() => {
+        this.renderStateCel();
+        this.renderStateTel();
+
+        let data_created = dateFormatDB(this.state.created);
+        let data_nasc = dateFormatDB(this.state.data_nasc);
+        this.setState({ created: data_created });
+        this.setState({ data_nasc: data_nasc });
+
+        this.setState({ id: id });
+        this.set_pre_state_vinculo_aluno_responsavel();
+        console.log(this.state);
+      });
+    let block_btn_vincular = document.querySelector(".block_btn_vincular");
+    block_btn_vincular.style.display = "none";
   }
 
   handleChange = ({ target: { value, name } }) => {
@@ -50,18 +84,35 @@ class AlunoAdd extends Component {
   delCel = e => {
     e.preventDefault();
     let num = document.querySelectorAll(".input_cel").length;
+    let celular = "celular_" + num;
     let num_array = parseInt(num - 1);
 
-    if (num > 0) {
-      let target = document.getElementById("block_cel_" + num);
-      ReactDOM.unmountComponentAtNode(target);
+    if (
+      typeof this.state.celulares[num_array] != "undefined" &&
+      typeof this.state.celulares[num_array].id != "undefined" &&
+      typeof this.state.celulares[num_array].id_aluno != "undefined"
+    ) {
+      let id = this.state.celulares[num_array].id;
+      let id_aluno = this.state.celulares[num_array].id_aluno;
 
+      this.setState(prevState => ({
+        celulares: {
+          ...prevState.celulares,
+          [num_array]: { id: id, id_aluno: id_aluno, numero: "delete" }
+        }
+      }));
+    } else {
       this.setState(prevState => ({
         celulares: {
           ...prevState.celulares,
           [num_array]: {}
         }
       }));
+    }
+
+    if (num > 0) {
+      let target = document.getElementById("block_cel_" + num);
+      ReactDOM.unmountComponentAtNode(target);
 
       num--;
 
@@ -71,13 +122,13 @@ class AlunoAdd extends Component {
       }
     }
   };
-
   handleSelectClick = e => {
     let id = e.target.id;
     let split = id.split("_");
     let num = split[1];
     let num_array = parseInt(num - 1);
     let campo = split[0];
+    let celular = "celular_" + num;
 
     let value;
     let btn = e.currentTarget;
@@ -103,6 +154,121 @@ class AlunoAdd extends Component {
     }));
   };
 
+  renderStateTel = () => {
+    let num = this.state.telefones.length;
+    for (let i = 0; i < num; i++) {
+      let j = i + 1;
+      let target = document.querySelector("#block_tel_" + j);
+
+      ReactDOM.render(
+        <div className="div">
+          <span>Tel {j}: </span>
+          <InputMask
+            className="input_tel"
+            id={"telefone_" + j}
+            {...this.props}
+            maskChar="0"
+            name="telefone"
+            onChange={this.handleChangeTel}
+          />
+        </div>,
+        target,
+        () => {
+          let value = this.state.telefones[i].telefone;
+          let element = document.querySelector("#telefone_" + j);
+
+          element.value = value;
+        }
+      );
+
+      if (num > 0) {
+        let btn_del = document.querySelector(".btn_delTel_input");
+        btn_del.style.background = "#e22";
+      }
+    }
+  };
+  renderStateCel = () => {
+    let num = this.state.celulares.length;
+    for (let i = 0; i < num; i++) {
+      let j = i + 1;
+      let target = document.querySelector("#block_cel_" + j);
+
+      ReactDOM.render(
+        <div className="div">
+          <span>Cel {j}:</span>
+          <InputMask
+            {...this.props}
+            className="ddd_input"
+            id={"ddd_" + j}
+            // mask="99"
+            maskChar="1"
+            name="ddd"
+            onChange={this.handleChangeCel}
+            placeholder="DDD"
+            //value={this.state.celulares[i].ddd}
+          />
+          <InputMask
+            {...this.props}
+            className="input_cel"
+            id={"numero_" + j}
+            // mask="99999-9999"
+            name="celular"
+            maskChar="0"
+            onChange={this.handleChangeCel}
+            //value={this.state.celulares[i].numero}
+          />
+          <div className="bg_checkbox_cel">
+            <div></div>
+            <label
+              id={"whatsapp_" + j}
+              className="img_off_whatsapp"
+              onClick={this.handleSelectClick}
+            ></label>
+            <label
+              id={"messenger_" + j}
+              className="img_off_messenger"
+              onClick={this.handleSelectClick}
+            ></label>
+          </div>
+        </div>,
+        target,
+        () => {
+          let ddd = this.state.celulares[i].ddd;
+          let ddd_element = document.querySelector("#ddd_" + j);
+          ddd_element.value = ddd;
+          let numero = this.state.celulares[i].numero;
+          let numero_element = document.querySelector("#numero_" + j);
+          numero_element.value = numero;
+        }
+      );
+
+      if (num > 0) {
+        let btn_del = document.querySelector(".btn_delCel_input");
+        btn_del.style.background = "#e22";
+      }
+      //--------------------------------------------------------------------
+      if (
+        typeof this.state.celulares[i].app != "undefined" &&
+        this.state.celulares[i].app != ""
+      ) {
+        let app = this.state.celulares[i].app;
+        let app_array = app.split(" ");
+
+        for (let k = 0; k < app_array.length; k++) {
+          let campo = app_array[k];
+          let element = document.querySelector("#" + campo + "_" + [j]);
+          element.className = "img_on_" + [campo];
+          this.setState(prevState => ({
+            celulares: {
+              ...prevState.celulares,
+              [i]: { ...prevState.celulares[i], [campo]: campo }
+            }
+          }));
+        }
+      }
+      //-------------------------------------------------------
+    }
+  };
   addCel = e => {
     e.preventDefault();
     let num = document.querySelectorAll(".input_cel").length + 1;
@@ -156,6 +322,7 @@ class AlunoAdd extends Component {
       btn_del.style.background = "#e22";
     }
   };
+
   handleChangeCel = e => {
     let id = e.target.id;
     let split = id.split("_");
@@ -175,6 +342,11 @@ class AlunoAdd extends Component {
       }
     }));
   };
+
+  handleSelectRespChange = e => {
+    this.setState({ id_resp: e.target.value });
+  };
+
   //------------------------------------Tel----------------------------
   handleChangeTel = e => {
     let id = e.target.id;
@@ -185,7 +357,6 @@ class AlunoAdd extends Component {
 
     let tel = e.target.id;
     let value = e.target.value;
-
     e.preventDefault();
 
     this.setState(prevState => ({
@@ -213,7 +384,7 @@ class AlunoAdd extends Component {
           {...this.props}
           mask="9999-9999"
           maskChar="0"
-          name="telefone"
+          name="rg"
           onChange={this.handleChangeTel}
           placeholder="0000.0000"
         />
@@ -235,14 +406,29 @@ class AlunoAdd extends Component {
     if (num > 0) {
       let target = document.getElementById("block_tel_" + num);
       ReactDOM.unmountComponentAtNode(target);
-      let tel = "tel_" + num;
-      this.setState(prevState => ({
-        telefones: {
-          // object that we want to update
-          ...prevState.telefones, // keep all other key-value pairs
-          [num_array]: {}
-        }
-      }));
+
+      if (
+        typeof this.state.telefones[num_array] != "undefined" &&
+        typeof this.state.telefones[num_array].id != "undefined" &&
+        typeof this.state.telefones[num_array].id_aluno != "undefined"
+      ) {
+        let id = this.state.telefones[num_array].id;
+        let id_aluno = this.state.telefones[num_array].id_aluno;
+        this.setState(prevState => ({
+          telefones: {
+            ...prevState.telefones,
+            [num_array]: { id: id, id_aluno: id_aluno, telefone: "delete" }
+          }
+        }));
+      } else {
+        this.setState(prevState => ({
+          telefones: {
+            // object that we want to update
+            ...prevState.telefones, // keep all other key-value pairs
+            [num_array]: {}
+          }
+        }));
+      }
 
       num--;
 
@@ -253,11 +439,12 @@ class AlunoAdd extends Component {
     }
   };
 
-  cadastrar = e => {
+  atualizarCadastro = e => {
     if (this.state.nome === "" || this.state.nome === " ") {
     } else {
       const data = this.state;
-      fetch("/profile/cadastrar_aluno", {
+
+      fetch("/profile/aluno_update", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -284,12 +471,24 @@ class AlunoAdd extends Component {
     if (this.state.vinculado_resp == "sim") {
       this.setState({ vinculado_resp: "" });
       let btn_vincular = document.querySelector(".btn_vincular_on");
+
       btn_vincular.className = "btn_vincular_off";
       btn_vincular.innerHTML = "Vincular como Aluno";
-
       this.clear_vinculo_aluno_responsavel();
       let block_fields = document.querySelector(".block_fields");
       block_fields.style.display = "none";
+    }
+  };
+
+  set_pre_state_vinculo_aluno_responsavel = () => {
+    if (this.state.vinculado_resp == "sim") {
+      let btn = document.querySelector(".btn_vincular_off");
+
+      let block_fields = document.querySelector(".block_fields");
+      block_fields.style.display = "block";
+
+      btn.className = "btn_vincular_on";
+      btn.innerHTML = "Vinculado como Aluno  	&#10004;";
     }
   };
 
@@ -299,25 +498,18 @@ class AlunoAdd extends Component {
     for (let props in this.state.responsaveis) {
       if (id_resp == this.state.responsaveis[props].id) {
         let responsavel = this.state.responsaveis[props];
-
         this.setState({
           vinculado_resp: "sim",
           nome: responsavel.nome,
-          /*
-          telefones: responsavel.telefones,
-          celulares: responsavel.celulares,
-          */
-          email: responsavel.email,
           genero: responsavel.genero,
           endereco: responsavel.endereco,
           bairro: responsavel.bairro,
           data_nasc: dateFormatDB(responsavel.data_nasc),
-          create: dateFormatReverse(responsavel.created)
+          created: dateFormatReverse(responsavel.created)
         });
       }
     }
   };
-
   clear_vinculo_aluno_responsavel = () => {
     this.setState({
       vinculado_resp: "",
@@ -326,7 +518,7 @@ class AlunoAdd extends Component {
       endereco: "",
       bairro: "",
       data_nasc: "",
-      create: ""
+      created: ""
     });
   };
   vincular_responsavel = e => {
@@ -353,25 +545,30 @@ class AlunoAdd extends Component {
     return (
       <div>
         <button onClick={this.showStatus}>Show Status</button>
-        <form className="form_add" id="form_add_responsavel">
+        <div id="teste"></div>
+        <form className="form_add" id="form_add_aluno">
           <div className="cadastro_sucesso">
             <h3>{this.state.msg_send}</h3>
           </div>
-
           <div className="bg_inputs">
-            <h1>Cadastro de Aluno</h1>
+            <h1>Editar Aluno</h1>
+
             <div id="bg_responsavel_aluno">
               <div className="add_nome">
                 <label>Responsável:</label>
-                <select onChange={this.handleSelectRespChange}>
-                  <option value="" selected disabled></option>
-                  {this.state.responsaveis.reverse().map(responsaveis => (
+                <select
+                  name="responsavel_aluno"
+                  onChange={this.handleSelectRespChange}
+                  value={this.state.id_resp}
+                >
+                  {this.state.responsaveis.map(responsaveis => (
                     <option key={responsaveis.id} value={responsaveis.id}>
                       {responsaveis.id} - {responsaveis.nome}
                     </option>
                   ))}
                 </select>
                 <div className="block_btn_vincular"></div>
+
                 <button
                   onClick={this.vincular_responsavel}
                   className="btn_vincular_off"
@@ -400,10 +597,11 @@ class AlunoAdd extends Component {
                 onChange={this.handleChange}
                 value={this.state.genero}
               >
-                <option disabled selected></option>
-                <option>M</option>
-                <option>F</option>
-                <option>Outro</option>
+                <option disabled></option>
+
+                <option value="M">M</option>
+                <option value="F">F</option>
+                <option value="outro">Outro</option>
               </select>
             </div>
             <div className="add_telefone">
@@ -500,9 +698,9 @@ class AlunoAdd extends Component {
                 value={this.state.created}
               />
             </div>
-            <button className="btn_cadastrar" onClick={this.cadastrar}>
+            <button className="btn_cadastrar" onClick={this.atualizarCadastro}>
               {" "}
-              Cadastrar Aluno
+              Atualizar Aluno
             </button>
           </div>
         </form>
@@ -511,4 +709,4 @@ class AlunoAdd extends Component {
   }
 }
 
-export default AlunoAdd;
+export default AlunoEdit;

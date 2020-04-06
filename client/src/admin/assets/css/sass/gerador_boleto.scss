@@ -41,6 +41,8 @@
   min-height: 100vh;
   background: #fff;
   margin: 0 auto;
+  margin-top: 50px;
+  outline: 20px solid #fff;
 }
 #load_img {
   width: 100%;
@@ -56,6 +58,7 @@
     width: 80px;
     margin-top: 18%;
     opacity: 1;
+    margin-left: 47%;
   }
 }
 .boletos {
@@ -147,7 +150,7 @@
 
 /*----------------Master----------*/
 #boleto_master {
-  border-top: 0px solid #444;
+  border: 1px solid #ccc;
   display: block;
   margin-top: 0px;
   background: #f0f0f0;
@@ -202,8 +205,9 @@
   display: none;
   overflow: hidden;
   padding: 10px 30px;
-  position: fixed;
+  position: absolute;
   width: 1170px;
+  margin: 0px 0px 0px 0px;
 
   #btn_download_pdf {
     display: block;

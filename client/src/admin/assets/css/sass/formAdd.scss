@@ -187,8 +187,7 @@
             background-position: 0 6px;
             opacity: 0.7;
           }
-          label:hover {
-          }
+
           input {
             display: block;
             float: left;
@@ -307,3 +306,258 @@
     width: 100%;
   }
 }
+//----------Responsavel Aluno
+#bg_responsavel_aluno {
+  width: 100%;
+  height: auto;
+  background: $primary-color;
+  padding: 0px;
+
+  div {
+    width: 100%;
+    select {
+      padding: 5px !important;
+    }
+    margin-bottom: 0px;
+  }
+
+  label {
+    width: 120px;
+  }
+
+  .btn_vincular_off {
+    float: right;
+    background: #f3f3f3;
+    color: #333;
+    border-radius: 3px;
+    border: 0px;
+    font-size: 14px;
+    margin: 5px;
+    padding: 3px 10px;
+  }
+  .btn_vincular_on {
+    float: right;
+    background: #e63a51;
+    color: #fff;
+    border-radius: 3px;
+
+    border: 0px;
+    font-size: 14px;
+    margin: 5px;
+    padding: 3px 10px;
+  }
+}
+
+.block_fields {
+  display: none;
+  background: #fff;
+  padding: 40px;
+  width: 570px;
+  min-height: 360px;
+  position: absolute;
+  opacity: 0.4;
+}
+.block_btn_vincular {
+  float: right;
+  width: 150px !important;
+  height: 36px;
+  margin-left: -150px;
+  z-index: 10 !important;
+  background: $primary-color;
+  opacity: 0.3;
+  position: relative;
+}
+
+//----------------------------------CURSO-----------------
+.form_curso {
+  .add_curso {
+    width: 60%;
+    float: left;
+    input {
+      width: 73% !important;
+    }
+  }
+  .add_valor {
+    float: left;
+    width: 50%;
+
+    input {
+      width: 67% !important;
+    }
+  }
+  .add_created {
+    float: right;
+  }
+  .add_duracao {
+    width: 40%;
+    float: right;
+    label {
+      width: 65% !important;
+    }
+    input {
+      width: 75px !important;
+    }
+  }
+  .add_curso {
+    width: 60%;
+    float: left;
+    input {
+      width: 73% !important;
+    }
+  }
+  .add_valor {
+    float: left;
+    width: 50%;
+
+    input {
+      width: 67% !important;
+    }
+  }
+  .add_created {
+    float: right;
+  }
+}
+
+//------------------------------Contratos--------------------------
+.form_contrato {
+  .add_responsavel,
+  .add_aluno {
+    width: 100%;
+    label {
+      width: 18%;
+    }
+    select {
+      width: 82%;
+      padding: 5px;
+      option:first-child {
+        display: none;
+      }
+    }
+  }
+
+  .add_curso {
+    width: 100%;
+    float: left;
+    label {
+      width: 18%;
+    }
+    select {
+      min-width: 82%;
+      padding: 5px;
+      option:first-child {
+        display: none;
+      }
+    }
+  }
+  .add_hora_aula {
+    label {
+    }
+    input {
+    }
+  }
+
+  .add_hora_aula,
+  .add_duracao,
+  .add_parcelas {
+    float: left !important;
+    width: 33.333333% !important;
+    label {
+      width: 55% !important;
+      float: left;
+      font-size: 14px;
+      padding: 8px 15px;
+    }
+    input {
+      float: left;
+      width: 45%;
+    }
+  }
+  .add_parcelas {
+    label {
+    }
+    input {
+    }
+  }
+
+  .add_valor,
+  .add_desconto,
+  .add_valor_total {
+    overflow: hidden;
+    width: 33.333333333%;
+    background: #eee;
+    float: left;
+    label {
+      width: 55%;
+      font-size: 14px;
+      background: transparent !important;
+      color: #444;
+      float: left;
+      padding-right: 0px;
+    }
+    input {
+      width: 45% !important;
+      float: left;
+    }
+  }
+  .add_valor {
+    label {
+      background: #556655;
+    }
+    input {
+    }
+  }
+  .add_desconto {
+    label {
+    }
+    input {
+      color: rgb(206, 18, 18);
+    }
+  }
+  .add_valor_total {
+    label {
+    }
+    input {
+      color: rgb(54, 163, 44);
+      font-weight: bold;
+    }
+  }
+
+  .add_obs {
+    width: 100%;
+    label {
+      width: 18%;
+    }
+    input {
+      width: 82%;
+    }
+  }
+  .add_data_contrato {
+    float: left !important;
+    width: 50% !important;
+    label {
+      width: 130px;
+      float: left;
+      margin-left: 0px;
+    }
+    input {
+      width: 150px;
+      float: right;
+    }
+  }
+  .add_created {
+    width: 45%;
+    float: right;
+    label {
+      width: 40%;
+    }
+    input {
+      width: 60%;
+    }
+  }
+
+  .div_add {
+    margin-bottom: 15px;
+  }
+}
+
+//----------------------------------------------------------------------------------------

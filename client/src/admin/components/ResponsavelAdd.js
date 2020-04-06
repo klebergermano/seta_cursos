@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import InputMask from "react-input-mask";
 import ReactDOM from "react-dom";
+import { dateFormatDB } from "./helpers/helpers";
 
 class ResponsavelAdd extends Component {
   state = {
@@ -18,7 +19,10 @@ class ResponsavelAdd extends Component {
     msg_send: ""
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    let data_created = dateFormatDB(new Date());
+    this.setState({ created: data_created });
+  }
 
   handleChange = ({ target: { value, name } }) => {
     this.setState({ [name]: value });
@@ -31,7 +35,8 @@ class ResponsavelAdd extends Component {
   delCel = e => {
     e.preventDefault();
     let num = document.querySelectorAll(".input_cel").length;
-    let celular = "celular_" + num;
+    let num_array = parseInt(num - 1);
+
     if (num > 0) {
       let target = document.getElementById("block_cel_" + num);
       ReactDOM.unmountComponentAtNode(target);
@@ -39,16 +44,7 @@ class ResponsavelAdd extends Component {
       this.setState(prevState => ({
         celulares: {
           ...prevState.celulares,
-          [celular]: {}
-        }
-      }));
-
-      this.setState(prevState => ({
-        celulares: {
-          ...prevState.celulares,
-          ddd: "",
-          numero: "",
-          app: ""
+          [num_array]: {}
         }
       }));
 
@@ -60,12 +56,13 @@ class ResponsavelAdd extends Component {
       }
     }
   };
+
   handleSelectClick = e => {
     let id = e.target.id;
     let split = id.split("_");
     let num = split[1];
+    let num_array = parseInt(num - 1);
     let campo = split[0];
-    let celular = "celular_" + num;
 
     let value;
     let btn = e.currentTarget;
@@ -86,7 +83,7 @@ class ResponsavelAdd extends Component {
     this.setState(prevState => ({
       celulares: {
         ...prevState.celulares,
-        [celular]: { ...prevState.celulares[celular], [campo]: value }
+        [num_array]: { ...prevState.celulares[num_array], [campo]: value }
       }
     }));
   };
@@ -149,28 +146,37 @@ class ResponsavelAdd extends Component {
     let split = id.split("_");
     let num = split[1];
     let campo = split[0];
-    let celular = "celular_" + num;
+
+    // let celular = "celular_" + num;
     let value = e.target.value;
+    let num_array = parseInt(num - 1);
 
     e.preventDefault();
 
     this.setState(prevState => ({
       celulares: {
         ...prevState.celulares,
-        [celular]: { ...prevState.celulares[celular], [campo]: value }
+        [num_array]: { ...prevState.celulares[num_array], [campo]: value }
       }
     }));
   };
   //------------------------------------Tel----------------------------
   handleChangeTel = e => {
+    let id = e.target.id;
+    let split = id.split("_");
+    let num = split[1];
+    let num_array = parseInt(num - 1);
+    let campo = split[0];
+
     let tel = e.target.id;
     let value = e.target.value;
+
     e.preventDefault();
 
     this.setState(prevState => ({
       telefones: {
         ...prevState.telefones,
-        [tel]: value
+        [num_array]: { ...prevState.telefones[num_array], [campo]: value }
       }
     }));
   };
@@ -188,11 +194,11 @@ class ResponsavelAdd extends Component {
         <span>Tel {num}: </span>
         <InputMask
           className="input_tel"
-          id={"tel_" + num}
+          id={"telefone_" + num}
           {...this.props}
           mask="9999-9999"
           maskChar="0"
-          name="rg"
+          name="telefone"
           onChange={this.handleChangeTel}
           placeholder="0000.0000"
         />
@@ -209,6 +215,7 @@ class ResponsavelAdd extends Component {
   delTel = e => {
     e.preventDefault();
     let num = document.querySelectorAll(".input_tel").length;
+    let num_array = parseInt(num - 1);
 
     if (num > 0) {
       let target = document.getElementById("block_tel_" + num);
@@ -218,7 +225,7 @@ class ResponsavelAdd extends Component {
         telefones: {
           // object that we want to update
           ...prevState.telefones, // keep all other key-value pairs
-          [tel]: "" // update the value of specific key
+          [num_array]: {}
         }
       }));
 
@@ -230,6 +237,7 @@ class ResponsavelAdd extends Component {
       }
     }
   };
+
   cadastrar = e => {
     if (this.state.nome === "" || this.state.nome === " ") {
     } else {
@@ -371,7 +379,12 @@ class ResponsavelAdd extends Component {
             </div>
             <div className="add_created">
               <label>Cadastro</label>
-              <input type="date" name="created" onChange={this.handleChange} />
+              <input
+                type="date"
+                name="created"
+                onChange={this.handleChange}
+                value={this.state.created}
+              />
             </div>
             <button className="btn_cadastrar" onClick={this.cadastrar}>
               {" "}

@@ -15,7 +15,6 @@ class Responsaveis extends Component {
       .then(res => res.json())
       .then(responsaveis => this.setState({ responsaveis }))
       .then(() => {
-        console.log("okkkk");
         console.log(this.state);
       });
   }
@@ -48,18 +47,24 @@ class Responsaveis extends Component {
             </tr>
           </thead>
 
-          <tbody>
-            {this.state.responsaveis.map(responsaveis => (
+          <tbody cellspacing="0">
+            {this.state.responsaveis.reverse().map(responsaveis => (
               <tr key={responsaveis.id}>
                 <td>{responsaveis.id}</td>
                 <td>{responsaveis.nome}</td>
-                <td>{responsaveis.temp_telefone}</td>
-                <td>{responsaveis.temp_celular}</td>
+                <td>
+                  <input type="text" value={responsaveis.temp_telefone} />
+                </td>
+                <td>
+                  <input type="text" value={responsaveis.temp_celular} />
+                </td>
                 <td>{responsaveis.email}</td>
                 <td>{responsaveis.created}</td>
                 <td>
                   <Link to="/profile/responsaveis">Resumo</Link> -{" "}
-                  <Link to="/profile/responsaveis">Editar</Link>
+                  <Link to={"/profile/responsavel_edit/" + responsaveis.id}>
+                    Editar
+                  </Link>
                 </td>
                 <td>
                   <Link to="/profile/responsaveis">Deletar</Link>
