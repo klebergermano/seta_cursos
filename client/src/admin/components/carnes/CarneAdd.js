@@ -9,6 +9,7 @@ class ContratoAdd extends Component {
   state = {
     contratos: [],
     contrato: "",
+    folhas_pdf: "",
     carne: {
       curso: "",
       aluno: "",
@@ -163,6 +164,44 @@ class ContratoAdd extends Component {
 
   //---------------------------------------------RENDER FOLHAS------------------------------------
 
+  gerarTemplatePDF = folha => {
+    for (let i in this.state.carne_folhas) {
+      let n_lanc = this.state.carne_folhas[i].n_lanc;
+      let responsavel = this.state.carne_folhas[i].responsavel;
+      let curso = this.state.carne_folhas[i].curso;
+      let aluno = this.state.carne_folhas[i].aluno;
+      let parcela = this.state.carne_folhas[i].parcela;
+      let vencimento = this.state.carne_folhas[i].vencimento;
+      let valor = this.state.carne_folhas[i].valor;
+      let desconto = this.state.carne_folhas[i].desconto;
+      let valor_total = this.state.carne_folhas[i].valor_total;
+      let RA = this.state.carne_folhas[i].RA;
+
+      //invoc handleTemplate to create Template
+      let template = handleTemplate(
+        n_lanc,
+        responsavel,
+        aluno,
+        curso,
+        parcela,
+        vencimento,
+        valor,
+        desconto,
+        valor_total,
+        RA
+      );
+      this.setState(
+        prevState => ({
+          folhas_pdf: {
+            ...prevState.folhas_pdf,
+            [i]: template
+            // [i]: { template }
+          }
+        }),
+        () => {}
+      );
+    } //for in
+  };
   handleChangeFolhas = e => {
     let id = e.target.id;
     let id_split = id.split("-");
@@ -398,6 +437,11 @@ class ContratoAdd extends Component {
               valor.value = this.state.carne_folhas[i].valor;
               desconto.value = this.state.carne_folhas[i].desconto;
               valor_total.value = this.state.carne_folhas[i].valor_total;
+
+              //----------------------------------------------------
+
+              //renderiza o template pdf das folhas
+              this.gerarTemplatePDF();
             }
           );
         }
@@ -417,8 +461,8 @@ class ContratoAdd extends Component {
     //  document.querySelector("#load_img").style.display = "block";
 
     axios
-      .post("http://localhost:3000/create-pdf", this.state)
-      .then(() => axios.get("fetch-pdf", { responseType: "blob" }))
+      .post("/profile/create-pdf", this.state)
+      .then(() => axios.get("/fetch-pdf", { responseType: "blob" }))
       .then(res => {
         const pdfBlob = new Blob([res.data], { type: "application/pdf" });
 
