@@ -106,6 +106,8 @@ class ContratoAdd extends Component {
       .then(() => {});
   }
   handleSelectContratoChange = e => {
+    let folhas_anteriores = this.state.carne_folhas;
+
     let id_contrato = e.target.value;
     this.setState({ id_contrato: e.target.value });
     let contratos = this.state.contratos;

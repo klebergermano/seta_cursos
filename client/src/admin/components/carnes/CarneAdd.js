@@ -49,6 +49,7 @@ class ContratoAdd extends Component {
       .then(() => {});
   }
   handleSelectContratoChange = e => {
+    this.setState({ carne_folhas: "" });
     let id_contrato = e.target.value;
     this.setState({ id_contrato: e.target.value });
     let contratos = this.state.contratos;
@@ -190,17 +191,16 @@ class ContratoAdd extends Component {
         valor_total,
         RA
       );
-      this.setState(
-        prevState => ({
-          folhas_pdf: {
-            ...prevState.folhas_pdf,
-            [i]: template
-            // [i]: { template }
-          }
-        }),
-        () => {}
-      );
+      this.setState(prevState => ({
+        folhas_pdf: {
+          ...prevState.folhas_pdf,
+          [i]: template
+          // [i]: { template }
+        }
+      }));
     } //for in
+
+    folha();
   };
   handleChangeFolhas = e => {
     let id = e.target.id;
@@ -441,7 +441,7 @@ class ContratoAdd extends Component {
               //----------------------------------------------------
 
               //renderiza o template pdf das folhas
-              this.gerarTemplatePDF();
+              //this.gerarTemplatePDF();
             }
           );
         }
@@ -458,19 +458,21 @@ class ContratoAdd extends Component {
 
     let docName = "Carnê-" + n_carne + "-" + nomeResp;
 
-    //  document.querySelector("#load_img").style.display = "block";
+    this.gerarTemplatePDF(() => {
+      //  document.querySelector("#load_img").style.display = "block";
+      alert("ok");
+      axios
+        .post("/profile/create-pdf", this.state)
+        .then(() => axios.get("/fetch-pdf", { responseType: "blob" }))
+        .then(res => {
+          const pdfBlob = new Blob([res.data], { type: "application/pdf" });
 
-    axios
-      .post("/profile/create-pdf", this.state)
-      .then(() => axios.get("/fetch-pdf", { responseType: "blob" }))
-      .then(res => {
-        const pdfBlob = new Blob([res.data], { type: "application/pdf" });
-
-        saveAs(pdfBlob, docName + ".pdf");
-      })
-      .then(() => {
-        // document.querySelector("#load_img").style.display = "none";
-      });
+          saveAs(pdfBlob, docName + ".pdf");
+        })
+        .then(() => {
+          // document.querySelector("#load_img").style.display = "none";
+        });
+    });
   };
 
   //------------------------------------------------------------------------------------------

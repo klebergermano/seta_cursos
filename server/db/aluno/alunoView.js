@@ -1,27 +1,24 @@
-const connection = require("../config/connection");
-const util = require("util");
+const connection = require("../../config/connection");
 
-let responsavelTable = {};
-
-responsavelTable.all = async () => {
+async function alunoView(req) {
   return new Promise((resolve, reject) => {
     var tel = {};
     var cel = {};
 
     connection.query(
-      " SELECT nome, celular, id_resp, ddd, app FROM responsavel,  resp_celular WHERE responsavel.id = id_resp",
+      " SELECT nome, numero, id_aluno, ddd, app FROM aluno,  aluno_celular WHERE aluno.id = id_aluno",
       (err, results) => {
         cel = results;
       }
     );
     connection.query(
-      " SELECT nome, telefone, id_resp, ddd FROM responsavel, resp_telefone WHERE responsavel.id = id_resp",
+      " SELECT nome, telefone, id_aluno, ddd FROM aluno, aluno_telefone WHERE aluno.id = id_aluno",
       (err, results) => {
         tel = results;
       }
     );
 
-    connection.query(" SELECT * FROM responsavel", (err, results) => {
+    connection.query(" SELECT * FROM aluno", (err, results) => {
       if (err) {
         return reject(err);
       }
@@ -33,18 +30,18 @@ responsavelTable.all = async () => {
         var dia = data.getDate();
         var mes = data.getMonth() + 1;
         var ano = data.getFullYear();
-        //----------------------------------------------------------
+        //-----------------------------------------------------
         results[i].created = dia + "/" + mes + "/" + ano;
 
         for (let l = 0; l < cel.length; l++) {
-          if (results[i].id == cel[l].id_resp) {
+          if (results[i].id == cel[l].id_aluno) {
             results[i].temp_celular +=
-              "(" + cel[l].ddd + ") " + cel[l].celular + " " + cel[l].app + " ";
+              "(" + cel[l].ddd + ") " + cel[l].numero + " " + cel[l].app + " ";
           }
         }
 
         for (let j = 0; j < tel.length; j++) {
-          if (results[i].id == tel[j].id_resp) {
+          if (results[i].id == tel[j].id_aluno) {
             results[i].temp_telefone +=
               "(" + tel[j].ddd + ") " + tel[j].telefone + " ";
           }
@@ -53,6 +50,6 @@ responsavelTable.all = async () => {
       return resolve(results);
     });
   });
-};
+}
 
-module.exports = responsavelTable;
+module.exports = alunoView;

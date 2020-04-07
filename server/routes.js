@@ -13,7 +13,6 @@ const saltRounds = 10;
 const app = express.Router();
 
 const TWO_HOURS = 1000 * 60 * 60 * 2; // 2 HOURS
-const IN_PRODUCTION = false; // Developing stage if is False or true for Production state
 const SESS_NAME = "sid";
 const SESS_SECRET = "setaLogSpK";
 
@@ -37,35 +36,32 @@ app.post("/check_cookie", async (req, res, next) => {
   res.send(200, { result: true });
 });
 
-//-------------------------------CADASTRAR ALUNO---------------------
+//=================================== CARNÊ TABLE ====================================
 
-app.post("/cadastrar_aluno", (req, res) => {
-  let new_aluno = {
-    nome: req.body.nome,
-    genero: req.body.genero,
-    endereco: req.body.endereco,
-    bairro: req.body.bairro,
-    email: req.body.email,
+//-- UPDATE EDIT CARNÊ--------------------------------
 
-    data_nasc: req.body.data_nasc,
-    created: req.body.created,
-    modified: new Date()
-  };
+app.post("/profile/carne_update", async (req, res) => {
+  try {
+    let results = await db.carneTable.update(req);
 
-  connection.query("INSERT INTO aluno SET?", new_aluno, err => {
-    if (!err) {
-      0;
-      res.send({ msg_send: "Cadastrado com Sucesso!" });
-    } else {
-      console.log(err);
+    if (results) {
+      res.send({ msg_send: "Carnê atualizado com Sucesso!" });
     }
-  });
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
 });
 
-//----------------------------RESPONSAVEL VIEW----------------------------------------------
-app.get("/api/clients", async (req, res) => {
+//----EDIT VIEW CARNÊ ----------------------
+
+app.get("/profile/carne_edit/:id", async (req, res) => {
+  var id = req.params.id;
+
   try {
-    let results = await db.responsavelTable.all();
+    let results = {};
+    results.carne = await db.carneTable.editView(id);
+    results.folhas = await db.carneTable.folhaEditView(id);
 
     res.json(results);
   } catch (e) {
@@ -74,7 +70,314 @@ app.get("/api/clients", async (req, res) => {
   }
 });
 
-//-------------------------------CADASTRAR RESPONSAVEL---------------------
+//-INSERT CARNÊS  ----------------------------------
+
+app.post("/profile/cadastrar_carne", async (req, res) => {
+  try {
+    let results = await db.carneTable.add(req);
+    if (results) {
+      res.send({ msg_send: "Carnê Cadastrado com Sucesso!" });
+    } else {
+    }
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+//-----CARNÊ FOLHAS LAST ID VIEW-------------------------------------
+app.get("/profile/last_id_folhas", async (req, res) => {
+  try {
+    let results = await db.carneTable.folhaView();
+    let num = results.length - 1;
+
+    res.json(results[num].id);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+//-----CARNÊ FOLHAS VIEW-------------------------------------
+app.get("/profile/carne_folhas", async (req, res) => {
+  try {
+    let results = await db.carneTable.folhaView();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+//-----CARNÊ VIEW-------------------------------------
+app.get("/profile/carnes", async (req, res) => {
+  try {
+    let results = await db.carneTable.view();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+//=================================== CONTRATO TABLE ====================================
+
+//-- UPDATE EDIT CONTRATO--------------------------------
+
+app.post("/profile/contrato_update", async (req, res) => {
+  try {
+    let results = await db.contratoTable.update(req);
+
+    if (results) {
+      res.send({ msg_send: "Contrato atualizado com Sucesso!" });
+    }
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+//----EDIT VIEW CONTRATO ----------------------
+
+app.get("/profile/contrato_edit/:id", async (req, res) => {
+  var id = req.params.id;
+
+  try {
+    let results = await db.contratoTable.editView(id);
+
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//-INSERT CONTRATO  ----------------------------------
+
+app.post("/profile/cadastrar_contrato", async (req, res) => {
+  try {
+    let results = await db.contratoTable.add(req);
+    if (results) {
+      res.send({ msg_send: "Curso cadastrado com Sucesso!" });
+    } else {
+    }
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//-----CONTRATO Aluno -------------------------------------
+app.get("/profile/aluno_contrato", async (req, res) => {
+  try {
+    console.log("ok");
+    let results = await db.alunoTable.view();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+//-----CONTRATO CURSO -------------------------------------
+app.get("/profile/curso_contrato", async (req, res) => {
+  try {
+    let results = await db.cursoTable.view();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+//-----CONTRATO RESP -------------------------------------
+app.get("/profile/resp_contrato", async (req, res) => {
+  try {
+    console.log("ok");
+    let results = await db.responsavelTable.view();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//-----CONTRATO VIEW-------------------------------------
+app.get("/profile/contratos", async (req, res) => {
+  try {
+    let results = await db.contratoTable.view();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//-------------------------------------------------------------------------------------
+//=================================== CURSO TABLE =======================================
+
+//-- UPDATE EDIT CURSO--------------------------------
+
+app.post("/profile/curso_update", async (req, res) => {
+  try {
+    let results = await db.cursoTable.update(req);
+
+    if (results) {
+      res.send({ msg_send: "Curso atualizado com Sucesso!" });
+    }
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//----EDIT VIEW CURSO ----------------------
+
+app.get("/profile/curso_edit/:id", async (req, res) => {
+  var id = req.params.id;
+
+  try {
+    let results = await db.cursoTable.edit(id);
+
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//-INSERT CURSO  ----------------------------------
+
+app.post("/profile/cadastrar_curso", async (req, res) => {
+  console.log("ok");
+  try {
+    let results = await db.cursoTable.insert(req);
+    if (results) {
+      res.send({ msg_send: "Curso cadastrado com Sucesso!" });
+    } else {
+    }
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//-----CURSO VIEW-------------------------------------
+app.get("/profile/cursos", async (req, res) => {
+  try {
+    let results = await db.cursoTable.view();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+//----------------------------------------------------------------------------------------- */
+
+//======================================= ALUNO TABLE =======================================
+
+//--UPDATE EDIT ALUNO  ----------------------------------
+
+app.post("/profile/aluno_update", async (req, res) => {
+  try {
+    let results = await db.alunoTable.put(req);
+
+    if (results) {
+      res.send({ msg_send: "Aluno atualizado com Sucesso!" });
+    }
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//--EDIT VIEW ALUNO  ------------------------------------
+
+app.get("/profile/aluno_edit/:id", async (req, res) => {
+  var id = req.params.id;
+
+  try {
+    let results = await db.alunoTable.edit(id);
+
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//---ALUNO VIEW------------------------------------------
+app.get("/api/alunos", async (req, res) => {
+  try {
+    let results = await db.alunoTable.view();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//================================= RESPONSAVEL TABLE =======================================
+
+//--CADASTRAR ALUNO-----------------------------------------
+
+app.post("/profile/cadastrar_aluno", async (req, res) => {
+  try {
+    let results = await db.alunoTable.cadastrar(req);
+
+    res.send({ msg_send: "Atualizado com Sucesso!" });
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//---RESP_ALUNO----------------------------------------------
+app.get("/api/resp_aluno", async (req, res) => {
+  try {
+    let results = await db.responsavelTable.view();
+
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//------UPDATE EDIT RESPONSÁVEL  --------------------------------
+app.post("/profile/responsavel_update", async (req, res) => {
+  try {
+    let results = await db.responsavelTable.put(req);
+    if (results) {
+      res.send({ msg_send: "Atualizado com Sucesso!" });
+    }
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//-----EDIT VIEW RESPONSÁVEL  ---------------------------------
+
+app.get("/profile/responsavel_edit/:id", async (req, res) => {
+  var id = req.params.id;
+
+  try {
+    let results = await db.responsavelTable.edit(id);
+
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//----RESPONSAVEL VIEW--------------------------------------
+app.get("/api/clients", async (req, res) => {
+  try {
+    let results = await db.responsavelTable.view();
+
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//--CADASTRAR RESPONSAVEL-----------------------------
 
 app.post("/cadastrar_responsavel", (req, res) => {
   let new_responsavel = {
@@ -102,13 +405,13 @@ app.post("/cadastrar_responsavel", (req, res) => {
           for (let prop_tel in req.body.telefones) {
             let new_telefone = {
               id_resp: maxId,
-              telefone: req.body.telefones[prop_tel],
+              telefone: req.body.telefones[prop_tel].telefone,
               created: req.body.created,
               modified: new Date()
             };
 
             connection.query(
-              "INSERT INTO resp_telefone SET?",
+              "INSERT INTO resp_telefone SET ?",
               new_telefone,
               err => {}
             );
@@ -123,17 +426,18 @@ app.post("/cadastrar_responsavel", (req, res) => {
             if (typeof req.body.celulares[prop_cel].messenger != "undefined") {
               messenger = req.body.celulares[prop_cel].messenger;
             }
+            console.log("*PROP CEL------------------" + prop_cel);
             let app = whatsapp + " " + messenger;
             let new_celular = {
               ddd: req.body.celulares[prop_cel].ddd,
               id_resp: maxId,
-              celular: req.body.celulares[prop_cel].numero,
+              numero: req.body.celulares[prop_cel].numero,
               created: req.body.created,
               app: app.trim(),
               modified: new Date()
             };
             connection.query(
-              "INSERT INTO resp_celular SET?",
+              "INSERT INTO resp_celular SET ?",
               new_celular,
               err => {}
             );
@@ -151,7 +455,10 @@ app.post("/cadastrar_responsavel", (req, res) => {
   });
 });
 
-//----------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------
+
+//================================= USER TABLE =======================================================
+
 //Create User
 app.post("/form_create_user", async (req, res, next) => {
   let username = req.body.username;
@@ -227,6 +534,8 @@ app.post("/logout", (req, res, next) => {
     }
   });
 });
+
+//================================= FORM SEND =======================================
 
 //receive the form POST and call nodemailer to send
 app.post("/form_send", async (req, res, next) => {
