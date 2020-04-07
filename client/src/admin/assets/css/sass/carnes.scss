@@ -135,11 +135,12 @@
 .bg_folhas_carne {
   width: 100%;
   max-width: 1170px;
-  padding: 20px;
+  padding: 40px;
   margin: 0 auto;
   min-height: 500px;
   background: #fff !important;
   overflow: hidden;
+  border: 1px solid #ccc;
 
   .folhas {
     border: 1px solid #ccc;
@@ -149,7 +150,7 @@
     h3 {
       width: 100%;
       text-align: right;
-      background: #888;
+      background: #555;
       color: #fff;
       padding: 5px 20px;
       margin-top: 0px;
@@ -183,19 +184,19 @@
       width: 20%;
     }
     input {
-      width: 70%;
+      width: 80%;
       padding: 5px;
     }
   }
   .row_1 {
     .folha_div {
-      width: 33%;
+      width: 33.333%;
       float: left;
     }
   }
   .row_2 {
     .folha_div {
-      width: 14.2%;
+      width: 14.285%;
       float: left;
     }
     label {
