@@ -5,11 +5,13 @@
   "dependencies": {
     "animate.css": "^3.7.2",
     "axios": "^0.19.2",
+    "chart.js": "^2.9.3",
     "css-loader": "^3.3.2",
     "file-saver": "^2.0.2",
     "js-cookie": "^2.2.1",
     "react": "^16.12.0",
     "react-animated-css": "^1.2.1",
+    "react-chartjs-2": "^2.9.0",
     "react-dom": "^16.13.0",
     "react-input-mask": "^2.0.4",
     "react-player": "^1.14.2",

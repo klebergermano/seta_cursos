@@ -9,6 +9,7 @@ async function alunoCadastrar(req) {
         console.log(err);
       }
       maxId = parseInt(results[0].id) + 1;
+
       //---------------------Telefone Looping cadastro
 
       for (let prop_tel in req.body.telefones) {
@@ -16,14 +17,14 @@ async function alunoCadastrar(req) {
           id_aluno: maxId,
           telefone: req.body.telefones[prop_tel].telefone,
           created: req.body.created,
-          modified: new Date()
+          modified: new Date(),
         };
 
         connection.query(
           "INSERT INTO aluno_telefone SET ?",
 
           new_telefone,
-          err => {
+          (err) => {
             console.log(err);
           }
         );
@@ -46,12 +47,12 @@ async function alunoCadastrar(req) {
           numero: req.body.celulares[prop_cel].numero,
           created: req.body.created,
           app: app.trim(),
-          modified: new Date()
+          modified: new Date(),
         };
         connection.query(
           "INSERT INTO aluno_celular SET ?",
           new_celular,
-          err => {
+          (err) => {
             console.log(err);
           }
         );
@@ -61,18 +62,44 @@ async function alunoCadastrar(req) {
     let new_aluno = {
       vinculado_resp: req.body.vinculado_resp,
       nome: req.body.nome,
+      responsavel: req.body.responsavel,
       id_resp: req.body.id_resp,
       genero: req.body.genero,
       endereco: req.body.endereco,
       bairro: req.body.bairro,
+      parentesco: req.body.parentesco,
       email: req.body.email,
+      obs: req.body.obs,
 
       data_nasc: req.body.data_nasc,
       created: req.body.created,
-      modified: new Date()
+      modified: new Date(),
     };
-    connection.query("INSERT INTO aluno SET ?", new_aluno, err => {
+
+    connection.query("INSERT INTO aluno SET ?", new_aluno, (err) => {
       if (!err) {
+        let vinculo_aluno = req.body.vinculado_resp;
+        if (vinculo_aluno === "sim") {
+          connection.query(
+            "SELECT * FROM aluno ORDER BY ID DESC LIMIT 1",
+            (err, results) => {
+              if (!err) {
+                let id_resp = req.body.id_resp;
+                let id_aluno = results[0].id;
+                console.log(id_resp);
+                connection.query(
+                  "UPDATE responsavel SET vinculado_aluno = ?, id_aluno = ? WHERE id = ?",
+                  [vinculo_aluno, id_aluno, id_resp],
+                  (err) => {
+                    if (err) {
+                      return console.log(err);
+                    }
+                  }
+                );
+              }
+            }
+          );
+        } //if vinculo
       } else {
         console.log(err);
         return reject(err);

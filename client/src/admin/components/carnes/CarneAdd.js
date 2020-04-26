@@ -22,46 +22,52 @@ class ContratoAdd extends Component {
       valor_total: "",
       data_contrato: "",
       created: "",
-      obs: ""
+      obs: "",
     },
     carne_folhas: [],
-    msg_send: ""
+    msg_send: "",
   };
 
   componentDidMount() {
     fetch("/profile/last_id_folhas")
-      .then(res => res.json())
-      .then(last_id_folhas =>
+      .then((res) => res.json())
+      .then((last_id_folhas) =>
         this.setState({ last_id_folhas: last_id_folhas + 1 })
       );
 
     fetch("/profile/carnes")
-      .then(res => res.json())
-      .then(carnesDB => this.setState({ carnesDB }))
+      .then((res) => res.json())
+      .then((carnesDB) => this.setState({ carnesDB }))
       .then(() => {
-        let x = this.state.carnesDB.length - 1;
-        let id_carne = this.state.carnesDB[x].id;
-        this.setState({ novo_id_carne: id_carne + 1 });
+        if (
+          typeof this.state.carnesDB[0] !== "undefined" &&
+          typeof this.state.carnesDB[0].novo_id !== "undefined"
+        ) {
+          this.setState({ novo_id_carne: this.state.carnesDB[0].novo_id });
+        } else {
+          this.setState({ novo_id_carne: 1 });
+        }
       });
+
     fetch("/profile/contratos")
-      .then(res => res.json())
-      .then(contratos => this.setState({ contratos }))
+      .then((res) => res.json())
+      .then((contratos) => this.setState({ contratos }))
       .then(() => {});
   }
-  handleSelectContratoChange = e => {
+  handleSelectContratoChange = (e) => {
     this.setState({ carne_folhas: "" });
     let id_contrato = e.target.value;
     this.setState({ id_contrato: e.target.value });
     let contratos = this.state.contratos;
 
-    contratos.forEach(contrato => {
+    contratos.forEach((contrato) => {
       if (id_contrato == contrato.id) {
         this.handleCarneInputs(contrato);
       }
     });
   };
 
-  handleCarneInputs = contratos => {
+  handleCarneInputs = (contratos) => {
     this.setState(
       {
         carne: {
@@ -78,8 +84,9 @@ class ContratoAdd extends Component {
           valor_total: contratos.valor_total,
           desconto: contratos.desconto,
           data_contrato: helpers.dateFormatDB(contratos.data_contrato),
-          created: helpers.dateFormatDB(contratos.created)
-        }
+          vencimento: helpers.dateFormatDB(contratos.vencimento),
+          created: new Date(),
+        },
       },
       () => {
         this.renderCarneFolhas();
@@ -87,7 +94,7 @@ class ContratoAdd extends Component {
     );
   };
 
-  valorTotal = index => {
+  valorTotal = (index) => {
     let i = index;
     let valor = this.state.carne_folhas[i].valor;
 
@@ -100,19 +107,19 @@ class ContratoAdd extends Component {
     let valorFormatado = valor_total
       .toLocaleString("pt-BR", {
         style: "currency",
-        currency: "BRL"
+        currency: "BRL",
       })
       .replace("R$", "");
 
     this.setState(
-      prevState => ({
+      (prevState) => ({
         carne_folhas: {
           ...prevState.carne_folhas,
           [i]: {
             ...prevState.carne_folhas[i],
-            valor_total: valorFormatado
-          }
-        }
+            valor_total: valorFormatado,
+          },
+        },
       }),
       () => {
         let input_valor_total = document.querySelector(
@@ -128,36 +135,40 @@ class ContratoAdd extends Component {
   showStatus = () => {
     console.log(this.state);
   };
-  handleChangeObs = e => {
+  handleChangeObs = (e) => {
     let value = e.target.value;
 
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       carne: {
         ...prevState.carne,
-        obs: value
-      }
+        obs: value,
+      },
     }));
   };
 
-  cadastrarCarne = e => {
+  cadastrarCarne = (e) => {
     if (this.state.carne.id_resp === "") {
     } else {
       const data = this.state;
       fetch("/profile/cadastrar_carne", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       })
-        .then(res => res.json())
-        .then(res => {
+        .then((res) => res.json())
+        .then((res) => {
           this.setState({ msg_send: res.msg_send });
           console.log("Text: " + res.msg_send);
           document.querySelector(".bg_inputs").style.display = "none";
+          document.querySelector(".bg_btn_download_pdf").style.display =
+            "block";
+          document.querySelector(".bg_folhas_carne").style.display = "none";
           document.querySelector(".cadastro_sucesso").style.display = "block";
         })
-        .then(res => {});
+        //
+        .then((res) => {});
     }
 
     e.preventDefault();
@@ -165,14 +176,18 @@ class ContratoAdd extends Component {
 
   //---------------------------------------------RENDER FOLHAS------------------------------------
 
-  gerarTemplatePDF = folha => {
-    for (let i in this.state.carne_folhas) {
+  gerarTemplatePDF = (folha) => {
+    let folhas_num = this.state.carne_folhas;
+    folhas_num = Object.keys(folhas_num).length;
+    for (let i = 0; i < folhas_num; i++) {
       let n_lanc = this.state.carne_folhas[i].n_lanc;
       let responsavel = this.state.carne_folhas[i].responsavel;
       let curso = this.state.carne_folhas[i].curso;
       let aluno = this.state.carne_folhas[i].aluno;
       let parcela = this.state.carne_folhas[i].parcela;
-      let vencimento = this.state.carne_folhas[i].vencimento;
+      let vencimento = helpers.dateFormatBR(
+        this.state.carne_folhas[i].vencimento
+      );
       let valor = this.state.carne_folhas[i].valor;
       let desconto = this.state.carne_folhas[i].desconto;
       let valor_total = this.state.carne_folhas[i].valor_total;
@@ -191,32 +206,41 @@ class ContratoAdd extends Component {
         valor_total,
         RA
       );
-      this.setState(prevState => ({
-        folhas_pdf: {
-          ...prevState.folhas_pdf,
-          [i]: template
-          // [i]: { template }
+      this.setState(
+        (prevState) => ({
+          folhas_pdf: {
+            ...prevState.folhas_pdf,
+            [i]: template,
+          },
+        }),
+        () => {
+          //executa o código somente depois do ultimo looping do for
+          if (i === folhas_num - 1) {
+            if (this.state.folhas_pdf !== "") {
+              folha();
+            } else {
+              alert("Ouve um erro, tente novamente!");
+            }
+          }
         }
-      }));
+      );
     } //for in
-
-    folha();
   };
-  handleChangeFolhas = e => {
+  handleChangeFolhas = (e) => {
     let id = e.target.id;
     let id_split = id.split("-");
     let name = e.target.name;
     let value = e.target.value;
     let i = parseInt(id_split[1]) - 1;
     this.setState(
-      prevState => ({
+      (prevState) => ({
         carne_folhas: {
           ...prevState.carne_folhas,
           [i]: {
             ...prevState.carne_folhas[i],
-            [name]: value
-          }
-        }
+            [name]: value,
+          },
+        },
       }),
       () => {
         if (name == "valor" || name == "desconto") {
@@ -226,7 +250,9 @@ class ContratoAdd extends Component {
     );
   };
 
-  renderCarneFolhas = e => {
+  renderCarneFolhas = (e) => {
+    let bg_folhas = document.querySelector(".bg_folhas_carne_add");
+    bg_folhas.style.display = "block";
     let parcelas_num = parseInt(this.state.carne.parcelas);
     //Removo folhas previamente renderizadas de inser folhas com o unmoutComponent...
     let insert_folhas = document.getElementsByClassName("insert_folhas");
@@ -241,17 +267,17 @@ class ContratoAdd extends Component {
       let n_lanc =
         "C" +
         (this.state.novo_id_carne + "").padStart(3, "0") +
-        "B" +
-        (parseInt(this.state.last_id_folhas) + i + "").padStart(3, "0");
+        "F" +
+        (1 + i + "").padStart(3, "0");
       let RA = "RA" + (this.state.carne.id_aluno + "").padStart(3, "0");
 
       //adiciona os meses na data contrato nas folhas do carne
-      let date = this.state.carne.data_contrato;
+      let date = this.state.carne.vencimento;
       let vencimento = helpers.AddDateMonth(i, date);
 
       //------------------------------------------------------------------------------
       this.setState(
-        prevState => ({
+        (prevState) => ({
           carne_folhas: {
             ...prevState.carne_folhas,
             [i]: {
@@ -271,9 +297,9 @@ class ContratoAdd extends Component {
               valor_total: this.state.carne.valor_total,
               RA: RA,
               id_carne: this.state.novo_id_carne,
-              created: new Date()
-            }
-          }
+              created: new Date(),
+            },
+          },
         }),
         () => {
           //Executa após o setState setar as propriedades das folhas
@@ -357,7 +383,7 @@ class ContratoAdd extends Component {
 
                   <input
                     id={"input_vencimento-" + j}
-                    onChange={event => this.handleChangeFolhas(event)}
+                    onChange={(event) => this.handleChangeFolhas(event)}
                     type="date"
                     name={"vencimento"}
                     //value={this.state.carne_folhas[i].vencimento}
@@ -375,7 +401,7 @@ class ContratoAdd extends Component {
                     id={"input_valor-" + j}
                     type="text"
                     name={"valor"}
-                    onChangeEvent={event => this.handleChangeFolhas(event)}
+                    onChangeEvent={(event) => this.handleChangeFolhas(event)}
                   />
                 </div>
 
@@ -391,7 +417,7 @@ class ContratoAdd extends Component {
                     id={"input_desconto-" + j}
                     type="text"
                     name={"desconto"}
-                    onChangeEvent={event => this.handleChangeFolhas(event)}
+                    onChangeEvent={(event) => this.handleChangeFolhas(event)}
                   />
                 </div>
                 <div
@@ -449,44 +475,62 @@ class ContratoAdd extends Component {
     }
   };
 
-  createAndDownloadPdf = e => {
+  createAndDownloadPdf = (e) => {
     e.preventDefault();
-    //let nomeResp = this.state.boleto_master.responsavel.trim();
-    //let n_carne = this.state.boleto_master.n_carne.trim();
-    let nomeResp = "teste";
-    let n_carne = "teste";
+    let nomeResp = this.state.carne.responsavel.trim();
+    let n_carne = this.state.carne.id_contrato;
 
     let docName = "Carnê-" + n_carne + "-" + nomeResp;
 
     this.gerarTemplatePDF(() => {
-      //  document.querySelector("#load_img").style.display = "block";
-      alert("ok");
+      document.querySelector("#load_img").style.display = "block";
       axios
         .post("/profile/create-pdf", this.state)
         .then(() => axios.get("/fetch-pdf", { responseType: "blob" }))
-        .then(res => {
+        .then((res) => {
           const pdfBlob = new Blob([res.data], { type: "application/pdf" });
 
           saveAs(pdfBlob, docName + ".pdf");
         })
         .then(() => {
-          // document.querySelector("#load_img").style.display = "none";
+          document.querySelector("#load_img").style.display = "none";
         });
     });
   };
 
   //------------------------------------------------------------------------------------------
+  vinculoContrato = (id_carne) => {
+    if (id_carne !== null && id_carne !== 0) {
+      return "vinculado_carne";
+    }
+  };
+  vinculoContratoText = (id_carne) => {
+    if (id_carne !== null && id_carne !== 0) {
+      return " - carne " + id_carne;
+    }
+  };
+  vinculoContratoOptionDisabled = (id_carne) => {
+    if (id_carne !== null && id_carne !== 0) {
+      return "disabled";
+    }
+  };
+  //------------------------------------------------------------------------------------------
+
   render() {
     return (
       <div>
+        <div id="load_img">
+          <img alt="loader" src={require("../../assets/img/loader_pdf.gif")} />
+        </div>
         <button onClick={this.showStatus}>Show Status</button>
+
         <form className="form_add form_carne" id="form_add_carne">
           <div className="cadastro_sucesso">
             <h3>{this.state.msg_send}</h3>
           </div>
-          <div className="">
+          <div className="bg_btn_download_pdf">
             <button id="" onClick={this.createAndDownloadPdf}>
-              Download PDF
+              Baixar <b>Folhas PDF</b>
             </button>
           </div>
           <div className="bg_inputs">
@@ -497,13 +541,18 @@ class ContratoAdd extends Component {
                 <label>Contrato:</label>
                 <select onChange={this.handleSelectContratoChange}>
                   <option id="option" value="" selected disabled></option>
-                  {this.state.contratos.reverse().map(contratos => (
+                  {this.state.contratos.reverse().map((contratos) => (
                     <option
                       className="curso_options"
                       key={contratos.id}
                       value={contratos.id}
+                      className={this.vinculoContrato(contratos.id_carne)}
+                      disabled={this.vinculoContratoOptionDisabled(
+                        contratos.id_carne
+                      )}
                     >
                       {contratos.id} - {contratos.responsavel}
+                      {this.vinculoContratoText(contratos.id_carne)}
                     </option>
                   ))}
                 </select>
@@ -593,7 +642,7 @@ class ContratoAdd extends Component {
                 />
               </div>
               <div className="div_add add_data_contrato">
-                <label>Data Inicio</label>
+                <label>Data Contrato</label>
                 <input
                   type="date"
                   name="data_contrato"
@@ -601,12 +650,12 @@ class ContratoAdd extends Component {
                   readOnly
                 />
               </div>
-              <div className="div_add add_created">
-                <label>Cadastrado</label>
+              <div className="div_add add_vencimento">
+                <label>Vencimento</label>
                 <input
                   type="date"
-                  name="created"
-                  value={this.state.carne.created}
+                  name="vencimento"
+                  value={this.state.carne.vencimento}
                   readOnly
                 />
               </div>
@@ -615,7 +664,7 @@ class ContratoAdd extends Component {
         </form>
         {/*-----------------------------------Folhas Carnê--------------------------------------------- */}
         <br />
-        <div className="bg_folhas_carne">
+        <div className="bg_folhas_carne bg_folhas_carne_add ">
           <div className="insert_folhas" id="insert_folha_1"></div>
           <div className="insert_folhas" id="insert_folha_2"></div>
           <div className="insert_folhas" id="insert_folha_3"></div>

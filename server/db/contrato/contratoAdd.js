@@ -22,10 +22,11 @@ async function contratoAdd(req) {
       obs: req.body.obs,
 
       data_contrato: req.body.data_contrato,
+      vencimento: req.body.vencimento,
       created: req.body.created,
-      modified: new Date()
+      modified: new Date(),
     };
-    connection.query("INSERT INTO contrato SET ?", new_contrato, err => {
+    connection.query("INSERT INTO contrato SET ?", new_contrato, (err) => {
       if (!err) {
       } else {
         console.log(err);

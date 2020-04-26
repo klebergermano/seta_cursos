@@ -9,9 +9,7 @@ async function carneFolhaEditView(id) {
       if (err) {
         return reject(err);
       }
-      console.log(
-        "------------------------------------------------------" + id
-      );
+
       //--------------------------------------------
       return resolve(results);
     });

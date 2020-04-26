@@ -10,6 +10,6 @@ module.exports = {
   alunoTable,
   cursoTable,
   contratoTable,
-  carneTable
+  carneTable,
   // carneFolhasTable
 };

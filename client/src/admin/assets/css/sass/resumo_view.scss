@@ -1,0 +1,280 @@
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  -ms-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+}
+
+.bg_resumo_view {
+  background: #eee;
+  padding-bottom: 100px;
+  h1 {
+    text-align: center;
+    color: #444;
+  }
+
+  h2 {
+    background: #333;
+    height: 70px;
+    display: block;
+    padding: 20px 20px;
+    margin: 0px;
+    margin-bottom: -20px;
+    color: #fff;
+    font-size: 18px;
+  }
+  .label {
+    color: #777;
+    padding: 0px 10px;
+  }
+  p {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+  }
+  //Alunos---
+
+  .resumo_block {
+    max-width: 1170px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background: #fff;
+    box-shadow: 0em 0.05em 0.1em #666;
+
+    overflow: hidden;
+
+    .info_table {
+      margin-top: 20px;
+      background: #fff;
+      width: auto !important;
+
+      p {
+        background: #f0f0f0;
+        border-bottom: 1px solid #ccc;
+        padding: 10px;
+      }
+      p:nth-child(odd) {
+        background: #f6f6f6;
+      }
+    }
+
+    .line_nome {
+      .id_aluno,
+      .id_resp {
+        width: 15%;
+        float: right;
+        padding: 10px 20px;
+        text-align: right;
+        color: #666;
+        background: #f0f0f0;
+      }
+      .nome {
+        float: left;
+        width: 75%;
+        min-width: 300px;
+      }
+      .genero {
+        float: right;
+        width: 10%;
+        min-width: 100px;
+      }
+    }
+    .line_endereco {
+      .endereco {
+        float: left;
+        width: 65%;
+        min-width: 300px;
+      }
+      .bairro {
+        float: right;
+        width: 35%;
+        min-width: 200px;
+      }
+    }
+    .line_3 {
+      .rg {
+        float: right;
+        width: 50%;
+        min-width: 250px;
+      }
+      .cpf {
+        float: left;
+        width: 50%;
+        min-width: 250px;
+      }
+    }
+    .line_4 {
+      .email {
+        float: left;
+        width: 100%;
+        min-width: 250px;
+      }
+    }
+    .line_telefones {
+      #p_cel {
+        float: left;
+        width: 100%;
+        min-width: 250px;
+
+        .span_cel_block {
+          margin-right: 20px;
+        }
+      }
+      #p_tel {
+        float: left;
+        width: 100%;
+        min-width: 250px;
+        .span_tel_block {
+          margin-right: 20px;
+        }
+      }
+    }
+    .line_5 {
+      .data_nasc {
+        float: left;
+        width: 50%;
+        min-width: 250px;
+      }
+      .cadastrado {
+        float: left;
+        width: 50%;
+        min-width: 250px;
+      }
+    }
+  }
+
+  .lines {
+    overflow: hidden;
+    width: 100%;
+    clear: both;
+    p {
+      float: left;
+    }
+  }
+
+  //responsavel ----
+  .bg_info_table_resp {
+    background: $resp-color !important;
+
+    h2 {
+      margin-top: -20px;
+      margin-bottom: 0px;
+
+      background: $resp-color !important;
+    }
+  }
+  //alunos -----
+  .bg_info_table_alunos {
+    .nome {
+      background: rgba($aluno-color, 0.2) !important;
+
+      span {
+      }
+    }
+    h2 {
+      background: $aluno-color !important;
+    }
+    background: $aluno-color !important;
+
+    overflow: hidden;
+    padding: 0px 0px;
+  }
+
+  //contrato
+  .bg_info_table_contratos {
+    background: $contrato-color !important;
+
+    .contrato_table {
+      margin-top: 20px !important;
+      overflow: hidden;
+    }
+
+    h2 {
+      background: $contrato-color !important;
+    }
+
+    p {
+      float: left;
+    }
+    .id_contrato {
+      width: 12%;
+      float: right;
+    }
+    .nome {
+      width: 88%;
+      background: rgba($contrato-color, 0.2) !important;
+    }
+    .aluno {
+      width: 50%;
+    }
+    .curso {
+      width: 30%;
+    }
+    .horas_aula {
+      width: 20%;
+    }
+
+    .parcelas,
+    .duracao,
+    .desconto,
+    .valor,
+    .valor_total {
+      width: 20%;
+    }
+    .data_contrato,
+    .vencimento,
+    .cadastrado {
+      width: 33.333333333333333%;
+    }
+  }
+}
+//carnes
+.bg_info_table_carnes {
+  overflow: hidden;
+
+  h2 {
+    background: $carne-color !important;
+  }
+  background: $carne-color !important;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+
+    td,
+    th {
+      padding: 20px 5px;
+      max-width: 200px;
+      overflow: hidden;
+    }
+    th {
+      background: #fff;
+      border: 1px solid #ccc;
+      margin: 0px;
+      color: #666;
+    }
+
+    td {
+      margin: 0px;
+      text-align: center;
+      border: 1px solid #ccc;
+      a {
+        text-decoration: none;
+        padding: 5px;
+        background: #444;
+        color: #fff;
+        border-radius: 5px;
+        display: block;
+        float: left;
+        margin: 0px 0.5%;
+        width: 49%;
+        &:hover {
+          background: $primary-color;
+        }
+      }
+    }
+  }
+}

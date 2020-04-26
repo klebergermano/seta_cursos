@@ -3,21 +3,20 @@ const util = require("util");
 const editViewAluno = require("./alunoViewEdit");
 const cadastrarAluno = require("./alunoCadastrar");
 const alunoView = require("./alunoView");
-const updateAluno = require("./alunoupdate");
-
+const updateAluno = require("./alunoUpdate");
 let alunoTable = {};
 //----------------------------------------UPDATE aluno------------------------------------------
-alunoTable.put = async req => {
+alunoTable.put = async (req) => {
   return updateAluno(req);
 };
 
 //-------------------------------------- EDIT VIEW ALUNO ----------------------------------------
-alunoTable.edit = async id => {
+alunoTable.edit = async (id) => {
   return editViewAluno(id);
 };
 
 //---------------------------------------CADASTRO ALUNO------------------------------------------
-alunoTable.cadastrar = async req => {
+alunoTable.cadastrar = async (req) => {
   return cadastrarAluno(req);
 };
 //---------------------------------------ALL ALUNO-----------------------------------------------

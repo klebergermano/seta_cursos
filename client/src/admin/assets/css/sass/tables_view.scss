@@ -1,0 +1,135 @@
+.img_whatsapp_celular {
+  background: url("../img/whatsapp-on.png") no-repeat;
+  background-size: 20px;
+  background-position: 0 6px;
+  padding: 5px 10px;
+  margin-left: 3px;
+  opacity: 0.8;
+}
+.img_messenger_celular {
+  background: url("../img/messenger-on.png") no-repeat;
+  background-size: 20px;
+  background-position: 0 6px;
+  padding: 5px 10px;
+  margin-left: 3px;
+}
+.table_general {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  width: 99%;
+  margin: 0 auto;
+  .vinculado_sim {
+    background: rgb(229, 229, 238) !important;
+  }
+
+  thead {
+    background: $primary-color;
+
+    th {
+      color: #fff;
+      padding: 5px;
+      border: 1px solid rgb(4, 49, 100);
+    }
+  }
+  tbody {
+    tr {
+      &:nth-child(odd) {
+        background: #f8f8f8;
+      }
+      &:hover {
+        background: #fffff6 !important;
+        cursor: default;
+        td input {
+          box-shadow: 0em 0em 0.1em #ccc;
+          cursor: default;
+        }
+      }
+      td {
+        font-size: 14px;
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        input {
+          width: 100%;
+          border: 0px solid #fff;
+          padding: 0px 10px;
+        }
+      }
+    }
+  }
+  //contrato
+  .nao_vinculado_carne_view {
+    background: rgb(255, 239, 239) !important;
+  }
+  .td_vinculado {
+    width: 50px;
+    text-align: center;
+  }
+
+  .id_carne_contrato_view {
+    color: #333;
+    text-align: center;
+    width: 100px;
+  }
+  .td_obs {
+    text-align: center;
+    max-width: 200px;
+    overflow: hidden;
+  }
+  .td_cpf {
+    text-align: center;
+    width: 150px;
+  }
+  .td_cadastrado {
+    text-align: center;
+  }
+  .td_control {
+    width: 220px;
+    text-align: center;
+
+    a {
+      padding: 8px 10px 0px 10px;
+      border-radius: 5px;
+      box-shadow: 0em 0.05em 0em #333;
+      text-decoration: none;
+      font-size: 12px;
+      margin: 5px 5px;
+      height: 30px;
+      display: block;
+      float: left;
+    }
+    .btn_resumo {
+      background: #eee;
+      color: #333;
+      &:hover {
+        background: rgb(255, 255, 255);
+      }
+    }
+    .btn_edit {
+      background: rgb(43, 106, 177);
+      color: #fff;
+      &:hover {
+        background: rgb(1, 90, 255);
+      }
+    }
+    .btn_delete {
+      margin-left: 10px;
+      padding: 8px 15px 0px 15px;
+
+      background: rgb(240, 82, 130);
+      color: #fff;
+      &:hover {
+        background: rgb(255, 44, 96);
+      }
+    }
+  }
+
+  .td_parcelas {
+    width: 100px;
+    text-align: center;
+  }
+  .td_id {
+    width: 50px;
+    text-align: center;
+  }
+}

@@ -32,12 +32,12 @@ module.exports = ({ folhas_pdf }) => {
           .valor_total { font-size: 14px; }
           .seta_nome { padding: 10px 10px !important; }
           .seta_nome span { font-weight: normal;  height: 35px; }
-          .RA { font-size: 10px; }
+          .RA { font-size: 8px; }
           hr {  margin-top: 25px;}
           .ass {padding: 8px; border-bottom: 0px; border-left: 0px !important; }
           .ass_label { margin-top: 10px; float: left;  padding: 0 10px 0px 0px;}
           .data_destaque {margin-top: 10px; float: right; padding: 0px 10px; }
-          .curso { font-size: 14px;  padding: 0 5px;  text-transform: uppercase; }
+          .curso { font-size: 13px;  padding: 0 5px;  text-transform: uppercase; }
           h3 { padding: 0px; margin-top: 0px; margin-bottom: 0px;  float: left; font-weight: bolder; }
           b { letter-spacing: 0px; font-family: 'Open Sans'; font-size: 11px; color: #222; }
           .bloco_cliente td { font-size: 11px;  padding: 4px 5px 4px 5px; }
@@ -45,7 +45,9 @@ module.exports = ({ folhas_pdf }) => {
           .bloco_cliente b { font-size: 10px;}
           .data_cliente { height: 50px; }
           .RA_cliente { font-size: 9px !important;}
+          .n_lanc_cliente { font-size: 10px !important;}
           .n_lanc { font-size: 10px !important;}
+          .n_lanc b { font-weight:bold; font-size:9px;}
 
           .curso_cliente { font-size: 13px; padding: 0 5px; text-transform: uppercase;}
           .responsavel,.responsavel_cliente,.aluno,
@@ -54,6 +56,7 @@ module.exports = ({ folhas_pdf }) => {
     </head>
     <body>
       <div class="a4">
+
       ${folhas_template}
 
 

@@ -1,0 +1,666 @@
+button:disabled {
+  background: #ccc !important;
+}
+.nav_cadastros {
+  background: $primary-color;
+  color: #fff;
+  overflow: hidden;
+  background: #fff;
+  margin-bottom: -40px;
+  margin-right: 40px;
+  width: 100%;
+  float: right;
+  li {
+    list-style: none;
+    float: right;
+    overflow: hidden;
+    padding: 0px;
+
+    a {
+      border-radius: 10px;
+
+      background: $primary-color;
+      color: #fff;
+      text-decoration: none;
+      padding: 20px;
+      width: auto;
+      display: block;
+      text-align: center;
+    }
+    a:hover {
+      background: lighten($primary-color, 10%);
+    }
+    a:active {
+      background: darken($primary-color, 10%);
+    }
+  }
+}
+.cadastro_sucesso {
+  display: none;
+  width: 100%;
+  text-align: center;
+  color: rgb(14, 136, 30);
+}
+.form_add {
+  background: #fff;
+  width: 100%;
+  max-width: 700px;
+  margin: 20px auto;
+  display: block;
+  padding: 40px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  border-radius: 10px;
+  h1 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 40px;
+    color: $primary-color;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif !important;
+    letter-spacing: 0px;
+  }
+  div {
+    div {
+      margin-bottom: 10px;
+      padding: 2px;
+      overflow: hidden;
+      label {
+        float: left;
+        display: block;
+        background: #eee;
+        color: #444;
+
+        width: 15%;
+        padding: 6px 15px;
+      }
+      input {
+        width: 85%;
+        float: right;
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+      }
+    }
+  }
+
+  .btn_cadastrar {
+    width: 200px;
+    background: $primary-color;
+    color: #fff;
+    border: 0px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    float: right;
+    cursor: pointer;
+
+    margin-top: 20px;
+  }
+  .btn_cadastrar:hover {
+    background: lighten($primary-color, 5%);
+  }
+
+  .add_nome {
+    float: left;
+    width: 70%;
+    label {
+      width: 21.5%;
+    }
+    input {
+      width: 78.5%;
+    }
+  }
+  .add_genero {
+    float: right;
+    width: 30%;
+    label {
+      width: 50%;
+    }
+    select {
+      width: 50%;
+      padding: 5px;
+      option:first-child {
+        display: none;
+      }
+    }
+  }
+
+  //---------------------------------Celular-----------------------
+  .add_celular {
+    min-height: 20px;
+    overflow: hidden;
+    margin-bottom: 0px;
+
+    .bg_block_cel {
+      background: #fff;
+      border: 1px solid #ccc;
+      width: 68%;
+      float: left;
+      padding: 0px;
+      overflow: hidden;
+      min-height: 37px;
+
+      .div {
+        border-top: 1px solid #ccc;
+      }
+      .block_cel {
+        float: left;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        padding: 0px;
+        margin: 0px 0px -0px 0px;
+        padding-bottom: 0px;
+        overflow: hidden;
+
+        div:first-child {
+          padding: 0px;
+          margin: 0px;
+          padding-bottom: 0px;
+          overflow: hidden;
+
+          span {
+            display: block;
+            float: left;
+            padding: 8px 10px;
+            font-size: 12px;
+            background: #f6f6f6;
+            color: #666;
+          }
+        }
+
+        input {
+          width: 40%;
+          float: left;
+          border: 0px;
+        }
+        .ddd_input {
+          width: 45px;
+          padding: 5px 0px 5px 15px;
+          float: left;
+          text-align: center;
+        }
+
+        .bg_checkbox_cel {
+          float: right !important;
+          overflow: hidden;
+          width: 30%;
+          height: 36px;
+          margin: 0px !important;
+
+          label {
+            border-radius: 5px;
+            text-align: center;
+            float: right;
+            width: 28px;
+            height: 32px;
+
+            padding: 3px;
+            font-size: 12px;
+            overflow: hidden;
+            margin-left: 5px;
+            margin-top: -2px;
+            user-select: none;
+            cursor: pointer;
+          }
+          .img_on_whatsapp {
+            background: url("../img/whatsapp-on.png") no-repeat;
+            background-size: 25px;
+            background-position: 0 6px;
+            opacity: 1;
+          }
+
+          .img_off_whatsapp {
+            background: url("../img/whatsapp-off.png") no-repeat;
+            opacity: 0.7;
+            background-size: 25px;
+            background-position: 0 6px;
+          }
+          .img_on_messenger {
+            background: url("../img/messenger-on.png") no-repeat;
+            background-size: 25px;
+            background-position: 0 6px;
+            opacity: 1;
+          }
+
+          .img_off_messenger {
+            background: url("../img/messenger-off.png") no-repeat;
+            background-size: 25px;
+            background-position: 0 6px;
+            opacity: 0.7;
+          }
+
+          input {
+            display: block;
+            float: left;
+            padding: 50px;
+            background: #f90;
+          }
+        }
+      }
+    }
+  } //bg_block_cel
+  //--------------------------------------Telefone
+  .add_telefone {
+    margin: 0px;
+    .bg_block_tel {
+      width: 68%;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid #ccc;
+      min-height: 37px;
+      overflow: hidden;
+      margin: 0px;
+      float: left;
+      padding: 0px;
+
+      .div {
+        margin: 0px;
+        padding: 0px;
+        border-bottom: 1px solid #ddd;
+        margin-top: -1px;
+      }
+
+      .block_tel {
+        float: left;
+        width: 50%;
+        overflow: hidden;
+        padding: 0px;
+        margin: 0px;
+
+        input {
+          width: 70%;
+          border: 0px;
+        }
+
+        span {
+          display: block;
+          padding: 9px 10px;
+          font-size: 12px;
+          background: #f6f6f6;
+          float: left;
+          color: #666;
+        }
+      }
+    }
+  } //add_tel
+
+  .bg_btn_inputs {
+    width: 15%;
+    float: right;
+    height: 38px;
+    overflow: hidden;
+    background: #f0f0f0;
+    padding: 6px 0px;
+
+    .btn_add_input,
+    .btn_del_input {
+      background: $primary-color;
+      color: #fff;
+      width: 25px;
+      height: 25px;
+      float: right;
+      margin-right: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      border: 0px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .btn_add_input:hover {
+      background: lighten($primary-color, 5%);
+    }
+    .btn_del_input {
+      background: #ccc;
+    }
+    .btn_del_input:hover {
+      background: red;
+    }
+  }
+
+  .add_rg,
+  .add_cpf,
+  .add_data_nasc,
+  .add_created {
+    width: 50%;
+    float: left;
+    label {
+      min-width: 30%;
+      display: block;
+    }
+    input {
+      width: 70%;
+    }
+  }
+
+  .add_endereco {
+    width: 100%;
+  }
+}
+
+//-----------------FORM ADD ALUNO
+#form_add_aluno {
+  .add_parentesco {
+    width: 70%;
+    float: left;
+    margin-bottom: 0px;
+    label {
+      width: 21.5%;
+      font-size: 15px;
+      letter-spacing: 0px;
+    }
+    select {
+      width: 78.5%;
+      padding: 5px !important;
+      option:first-child {
+        display: none;
+      }
+    }
+  }
+  .add_nome {
+    width: 100%;
+
+    label {
+      width: 15%;
+    }
+
+    input {
+      width: 85% !important;
+    }
+  }
+  .add_genero {
+    float: right;
+  }
+}
+
+#bg_responsavel_aluno {
+  width: 100%;
+  height: auto;
+  background: $primary-color;
+  padding: 0px;
+
+  div {
+    width: 100%;
+    margin-bottom: 0px;
+
+    select {
+      max-width: 340px;
+      overflow: hidden;
+      padding: 5px !important;
+      option:first-child {
+        display: none;
+      }
+    }
+  }
+
+  .vinculado_aluno {
+    color: rgb(39, 39, 39);
+  }
+
+  .nao_vinculado_aluno {
+    color: rgb(0, 4, 245);
+  }
+  #btn_vincular {
+    background: #fff;
+    &:hover {
+      background: #ff475f !important;
+      color: #fff;
+    }
+  }
+  .btn_vincular_off {
+    float: right;
+    color: #333;
+    border-radius: 3px;
+    border: 0px;
+    font-size: 14px;
+    margin: 5px;
+    padding: 3px 10px;
+  }
+  .btn_vincular_on {
+    float: right;
+    background: #e63a51 !important;
+    color: #fff;
+    border-radius: 3px;
+
+    border: 0px;
+    font-size: 14px;
+    margin: 5px;
+    padding: 3px 10px;
+  }
+} //--------------------------------------------------bg_resp_aluno
+
+.block_fields {
+  display: none;
+  background: #fff;
+  padding: 40px;
+  width: 570px;
+  min-height: 360px;
+  position: absolute;
+  opacity: 0.4;
+}
+.block_btn_vincular {
+  float: right;
+  width: 150px !important;
+  height: 36px;
+  margin-left: -150px;
+  z-index: 10 !important;
+  background: $primary-color;
+  opacity: 0.3;
+  position: relative;
+}
+
+//----------------------------------CURSO-----------------
+.form_curso {
+  .add_curso {
+    width: 60%;
+    float: left;
+    label {
+      width: 25%;
+    }
+    input {
+      width: 75%;
+    }
+  }
+  .add_valor {
+    float: left;
+    width: 50%;
+
+    label {
+      width: 30% !important;
+    }
+    input {
+      width: 70% !important;
+    }
+  }
+  .add_created {
+    float: right;
+  }
+  .add_duracao {
+    width: 40%;
+    float: right;
+    label {
+      width: 65% !important;
+    }
+    input {
+      width: 35% !important;
+    }
+  }
+
+  .add_created {
+    float: right;
+  }
+}
+
+//------------------------------Contratos--------------------------
+.btn_disabled {
+  background: #bbb !important;
+}
+.form_contrato {
+  .selectAluno {
+    background: #eee;
+    border: 0px solid #ccc;
+    padding: 3px;
+    option {
+      display: none;
+    }
+  }
+  .add_responsavel,
+  .add_aluno {
+    width: 100%;
+    label {
+      width: 18%;
+    }
+    select {
+      width: 82%;
+      padding: 5px;
+      option:first-child {
+        display: none;
+      }
+    }
+  }
+
+  .add_curso {
+    width: 100%;
+    float: left;
+    label {
+      width: 18%;
+    }
+    select {
+      min-width: 82%;
+      padding: 5px;
+      option:first-child {
+        display: none;
+      }
+    }
+  }
+
+  .add_hora_aula,
+  .add_duracao,
+  .add_parcelas {
+    float: left !important;
+    width: 33.333333% !important;
+    label {
+      width: 55% !important;
+      float: left;
+      font-size: 14px;
+      padding: 8px 15px;
+    }
+    input {
+      float: left;
+      width: 45%;
+    }
+  }
+  .add_parcelas {
+    label {
+    }
+    input {
+    }
+  }
+
+  .add_valor,
+  .add_desconto,
+  .add_valor_total {
+    overflow: hidden;
+    width: 33.333333333%;
+    background: #eee;
+    float: left;
+    label {
+      width: 55%;
+      background: transparent !important;
+      color: #444;
+      float: left;
+      padding-right: 0px;
+    }
+    input {
+      width: 45% !important;
+      float: left;
+    }
+  }
+  .add_valor {
+    label {
+      background: #556655;
+    }
+    input {
+    }
+  }
+  .add_desconto {
+    label {
+    }
+    input {
+      color: rgb(206, 18, 18);
+    }
+  }
+  .add_valor_total {
+    label {
+    }
+    input {
+      color: rgb(54, 163, 44);
+      font-weight: bold;
+    }
+  }
+
+  .add_obs {
+    width: 100%;
+    label {
+      width: 18%;
+    }
+    input {
+      width: 82%;
+    }
+  }
+  .add_data_contrato {
+    float: left !important;
+    width: 50% !important;
+    label {
+      width: 42%;
+      float: left;
+      margin-left: 0px;
+    }
+    input {
+      width: 58%;
+      float: right;
+    }
+  }
+  .add_vencimento {
+    width: 45%;
+    float: right;
+    label {
+      width: 40%;
+    }
+    input {
+      width: 60%;
+    }
+  }
+  .add_created {
+    width: 45%;
+    float: right;
+    label {
+      width: 40%;
+    }
+    input {
+      width: 50%;
+    }
+  }
+  .data_creado_em {
+    background: #f0f0f0;
+    opacity: 0.8;
+    width: 50%;
+    label {
+      background: transparent;
+      width: 40%;
+    }
+    input {
+      width: 60%;
+      border: 0px;
+      background: transparent;
+    }
+  }
+
+  .div_add {
+    margin-bottom: 15px;
+    label {
+      font-size: 16px;
+    }
+  }
+}
+
+//----------------------------------------------------------------------------------------

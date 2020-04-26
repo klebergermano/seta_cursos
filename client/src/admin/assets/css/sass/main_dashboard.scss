@@ -1,0 +1,178 @@
+#bg_main {
+  background: #f0f0f0;
+  position: relative;
+  min-height: 100vh;
+  #wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 200px;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    padding: 80px;
+  }
+
+  .blocks {
+    border-radius: 5px;
+    overflow: hidden;
+    overflow: hidden;
+
+    .last_results {
+      a {
+        text-decoration: none;
+        border-radius: 3px;
+        padding: 10px 20px;
+        color: #ffb !important;
+        display: block;
+        overflow: hidden;
+        &:hover {
+          background: #ffffff10;
+        }
+      }
+      max-width: 80%;
+      .nome {
+        margin-left: 10px;
+      }
+      .label {
+        float: left;
+        color: #fff;
+      }
+      .created {
+        float: right;
+      }
+    }
+    p {
+      span {
+        overflow: hidden;
+        width: auto;
+      }
+      padding: 0px;
+      .result {
+        margin-left: 10px;
+        color: #ffa;
+      }
+
+      padding: 10px 20px;
+      margin: 0px;
+      border-bottom: 1px solid #ffffff30;
+      &:hover {
+        cursor: default;
+      }
+    }
+
+    h3 {
+      margin: 0px;
+      overflow: hidden;
+
+      .icon {
+        fill: #fff;
+        float: left;
+        opacity: 0.2;
+        width: 18px;
+        height: 18px;
+        margin-left: -30px;
+        margin-right: 10px;
+        margin-top: 5px !important;
+
+        &:hover {
+          fill: red;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        padding: 20px 40px;
+      }
+    }
+    border: 1px solid #ccc;
+    float: left;
+    padding: 0px;
+    color: #fff;
+    .b_content {
+      padding: 10px 20px !important;
+    }
+  }
+}
+#block_resp {
+  h3 {
+    a {
+      background: $resp-color;
+      color: #fff;
+      &:hover {
+        background: saturate($resp-color, 50%);
+      }
+    }
+  }
+
+  background: $resp-color;
+}
+#block_alunos {
+  h3 {
+    a {
+      background: $aluno-color;
+      color: #fff;
+      &:hover {
+        background: saturate($aluno-color, 50%);
+      }
+    }
+  }
+  background: $aluno-color;
+}
+#block_contratos {
+  h3 {
+    a {
+      background: $contrato-color;
+      color: #fff;
+      &:hover {
+        background: saturate($contrato-color, 100%);
+      }
+    }
+  }
+  background: $contrato-color;
+}
+#block_carnes {
+  h3 {
+    a {
+      background: $carne-color;
+      color: #fff;
+      &:hover {
+        background: saturate($carne-color, 50%);
+      }
+    }
+  }
+  background: $carne-color;
+}
+
+#block_cursos {
+  h3 {
+    a {
+      background: $curso-color;
+      color: #fff;
+      &:hover {
+        background: saturate($curso-color, 10%);
+      }
+    }
+  }
+  background: $curso-color;
+}
+#block_outros {
+  h3 {
+    background: #ccc;
+    color: #fff;
+    padding: 20px;
+  }
+  background: #ddd;
+}
+
+#bg_main::after {
+  content: "";
+  background: url("https://cdn.pixabay.com/photo/2019/07/19/12/00/network-4348652_960_720.png");
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}

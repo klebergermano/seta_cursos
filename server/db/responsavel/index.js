@@ -4,7 +4,7 @@ const alunoUpdate = require("../aluno/alunoUpdate");
 let responsavelTable = {};
 
 //------------------------------------------UPDATE RESPONSAVEL-----------------------
-responsavelTable.put = async req => {
+responsavelTable.put = async (req) => {
   return new Promise((resolve, reject) => {
     let tel = {};
     let cel = {};
@@ -18,14 +18,15 @@ responsavelTable.put = async req => {
       email: req.body.email,
       rg: req.body.rg,
       cpf: req.body.cpf,
+      obs: req.body.obs,
       data_nasc: req.body.data_nasc,
       created: req.body.created,
-      modified: new Date()
+      modified: new Date(),
     };
 
     let sql = "UPDATE responsavel SET ? WHERE id = ?";
 
-    connection.query(sql, [update_responsavel, id_resp], err => {
+    connection.query(sql, [update_responsavel, id_resp], (err) => {
       if (err) {
         return reject(err);
       }
@@ -44,13 +45,13 @@ responsavelTable.put = async req => {
             id_resp: id_resp,
             telefone: req.body.telefones[i].telefone,
             created: req.body.telefones[i].created,
-            modified: new Date()
+            modified: new Date(),
           };
 
           connection.query(
             "INSERT INTO resp_telefone SET ?",
             new_telefone,
-            err => {
+            (err) => {
               if (!err) {
               } else {
                 console.log(err);
@@ -59,7 +60,7 @@ responsavelTable.put = async req => {
           );
         } else if (telefones[i].telefone === "delete") {
           let sql = "DELETE FROM resp_telefone WHERE id= ?;";
-          connection.query(sql, [id_tel], err => {
+          connection.query(sql, [id_tel], (err) => {
             if (err) {
               return reject(err);
             }
@@ -68,11 +69,11 @@ responsavelTable.put = async req => {
           let update_telefone = {
             telefone: telefones[i].telefone,
             created: telefones[i].created,
-            modified: new Date()
+            modified: new Date(),
           };
 
           let sql = "UPDATE resp_telefone SET ? WHERE id_resp = ? AND id = ?";
-          connection.query(sql, [update_telefone, id_resp, id_tel], err => {
+          connection.query(sql, [update_telefone, id_resp, id_tel], (err) => {
             if (err) {
               return reject(err);
             }
@@ -110,13 +111,13 @@ responsavelTable.put = async req => {
             numero: celulares[i_cel].numero,
             app: app.trim(),
             created: celulares[i_cel].created,
-            modified: new Date()
+            modified: new Date(),
           };
 
           connection.query(
             "INSERT INTO resp_celular SET ?",
             new_celular,
-            err => {
+            (err) => {
               if (!err) {
               } else {
                 console.log(err);
@@ -125,7 +126,7 @@ responsavelTable.put = async req => {
           );
         } else if (celulares[i_cel].numero === "delete") {
           let sql = "DELETE FROM resp_celular WHERE id= ?;";
-          connection.query(sql, [id_cel], err => {
+          connection.query(sql, [id_cel], (err) => {
             if (err) {
               return reject(err);
             }
@@ -137,11 +138,11 @@ responsavelTable.put = async req => {
             app: app.trim(),
 
             created: celulares[i_cel].created,
-            modified: new Date()
+            modified: new Date(),
           };
 
           let sql = "UPDATE resp_celular SET ? WHERE id_resp = ? AND id = ?";
-          connection.query(sql, [update_celular, id_resp, id_cel], err => {
+          connection.query(sql, [update_celular, id_resp, id_cel], (err) => {
             if (err) {
               return reject(err);
             }
@@ -169,8 +170,6 @@ responsavelTable.put = async req => {
         results[0].body.celulares = [];
         results[0].body.telefones = [];
 
-        console.log(results[0].body.celulares);
-
         alunoUpdate(results[0]);
       });
       //---------------------------------------------------------------------------------------------
@@ -182,7 +181,7 @@ responsavelTable.put = async req => {
 };
 
 //-------------------------------------- EDIT VIEW RESPONSAVEL----------------------------------------
-responsavelTable.edit = async id => {
+responsavelTable.edit = async (id) => {
   return new Promise((resolve, reject) => {
     let tel_edit_view = {};
     let cel_edit_view = {};

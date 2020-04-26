@@ -10,6 +10,7 @@ class ContratoAdd extends Component {
   state = {
     contratos: [],
     contrato: "",
+    folhas_pdf: "",
     carne: {
       curso: "",
       aluno: "",
@@ -22,10 +23,10 @@ class ContratoAdd extends Component {
       valor_total: "",
       vencimento: "",
       created: "",
-      obs: ""
+      obs: "",
     },
     carne_folhas: [],
-    msg_send: ""
+    msg_send: "",
   };
 
   componentDidMount() {
@@ -35,15 +36,17 @@ class ContratoAdd extends Component {
     let id = url_array[i];
 
     fetch(`/profile/carne_edit/${id}`)
-      .then(res => res.json())
-      .then(results => {
+      .then((res) => res.json())
+      .then((results) => {
+        console.log(results.folhas);
         this.setState({
           carne: results.carne,
           carne_folhas: results.folhas,
           folhas_DB: results.folhas,
-          id_carne: results.carne.id
+          id_carne: results.carne.id,
         });
       })
+
       .then(() => {
         this.renderCarneFolhas();
       })
@@ -66,60 +69,56 @@ class ContratoAdd extends Component {
           desconto.value = this.state.folhas_DB[i].desconto;
           valor_total.value = this.state.folhas_DB[i].valor_total;
           console.log(this.state.folhas_DB[i].vencimento);
-          this.setState(prevState => ({
+          this.setState((prevState) => ({
             carne_folhas: {
               ...prevState.carne_folhas,
               [i]: {
                 ...prevState.carne_folhas[i],
-                n_lanc: this.state.folhas_DB[i].n_lanc
-              }
-            }
+                n_lanc: this.state.folhas_DB[i].n_lanc,
+              },
+            },
           }));
         }
       })
       .then(() => {
-        this.setState(prevState => ({
+        this.setState((prevState) => ({
           carne: {
             ...prevState.carne,
             vencimento: helpers.dateFormatDB(this.state.carne.vencimento),
-            created: helpers.dateFormatDB(this.state.carne.created)
-          }
+            created: helpers.dateFormatDB(this.state.carne.created),
+          },
         }));
       });
 
     fetch("/profile/last_id_folhas")
-      .then(res => res.json())
-      .then(last_id_folhas =>
+      .then((res) => res.json())
+      .then((last_id_folhas) =>
         this.setState({ last_id_folhas: last_id_folhas + 1 })
       );
     fetch("/profile/carnes")
-      .then(res => res.json())
-      .then(carnesDB => this.setState({ carnesDB }))
-      .then(() => {
-        let x = this.state.carnesDB.length - 1;
-        let id_carne = this.state.carnesDB[x].id;
-        this.setState({ novo_id_carne: id_carne + 1 });
-      });
+      .then((res) => res.json())
+      .then((carnesDB) => this.setState({ carnesDB }));
+
     fetch("/profile/contratos")
-      .then(res => res.json())
-      .then(contratos => this.setState({ contratos }))
+      .then((res) => res.json())
+      .then((contratos) => this.setState({ contratos }))
       .then(() => {});
   }
-  handleSelectContratoChange = e => {
+  handleSelectContratoChange = (e) => {
     let folhas_anteriores = this.state.carne_folhas;
 
     let id_contrato = e.target.value;
     this.setState({ id_contrato: e.target.value });
     let contratos = this.state.contratos;
 
-    contratos.forEach(contrato => {
+    contratos.forEach((contrato) => {
       if (id_contrato == contrato.id) {
         this.handleCarneInputs(contrato);
       }
     });
   };
 
-  handleCarneInputs = contratos => {
+  handleCarneInputs = (contratos) => {
     this.setState(
       {
         carne: {
@@ -135,9 +134,9 @@ class ContratoAdd extends Component {
           valor: contratos.valor,
           valor_total: contratos.valor_total,
           desconto: contratos.desconto,
-          vencimento: helpers.dateFormatDB(contratos.data_contrato),
-          created: helpers.dateFormatDB(contratos.created)
-        }
+          vencimento: helpers.dateFormatDB(contratos.vencimento),
+          created: helpers.dateFormatDB(contratos.created),
+        },
       },
       () => {
         this.renderCarneFolhas();
@@ -145,7 +144,7 @@ class ContratoAdd extends Component {
     );
   };
 
-  valorTotal = index => {
+  valorTotal = (index) => {
     let i = index;
     let valor = this.state.carne_folhas[i].valor;
 
@@ -158,19 +157,19 @@ class ContratoAdd extends Component {
     let valorFormatado = valor_total
       .toLocaleString("pt-BR", {
         style: "currency",
-        currency: "BRL"
+        currency: "BRL",
       })
       .replace("R$", "");
 
     this.setState(
-      prevState => ({
+      (prevState) => ({
         carne_folhas: {
           ...prevState.carne_folhas,
           [i]: {
             ...prevState.carne_folhas[i],
-            valor_total: valorFormatado
-          }
-        }
+            valor_total: valorFormatado,
+          },
+        },
       }),
       () => {
         let input_valor_total = document.querySelector(
@@ -186,36 +185,36 @@ class ContratoAdd extends Component {
   showStatus = () => {
     console.log(this.state);
   };
-  handleChangeObs = e => {
+  handleChangeObs = (e) => {
     let value = e.target.value;
 
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       carne: {
         ...prevState.carne,
-        obs: value
-      }
+        obs: value,
+      },
     }));
   };
 
-  atualizarCarne = e => {
+  atualizarCarne = (e) => {
     if (this.state.carne.id_resp === "") {
     } else {
       const data = this.state;
       fetch("/profile/carne_update", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       })
-        .then(res => res.json())
-        .then(res => {
+        .then((res) => res.json())
+        .then((res) => {
           this.setState({ msg_send: res.msg_send });
           console.log("Text: " + res.msg_send);
           document.querySelector(".bg_inputs").style.display = "none";
           document.querySelector(".cadastro_sucesso").style.display = "block";
         })
-        .then(res => {});
+        .then((res) => {});
     }
 
     e.preventDefault();
@@ -223,21 +222,21 @@ class ContratoAdd extends Component {
 
   //---------------------------------------------RENDER FOLHAS------------------------------------
 
-  handleChangeFolhas = e => {
+  handleChangeFolhas = (e) => {
     let id = e.target.id;
     let id_split = id.split("-");
     let name = e.target.name;
     let value = e.target.value;
     let i = parseInt(id_split[1]) - 1;
     this.setState(
-      prevState => ({
+      (prevState) => ({
         carne_folhas: {
           ...prevState.carne_folhas,
           [i]: {
             ...prevState.carne_folhas[i],
-            [name]: value
-          }
-        }
+            [name]: value,
+          },
+        },
       }),
       () => {
         if (name == "valor" || name == "desconto") {
@@ -247,46 +246,105 @@ class ContratoAdd extends Component {
     );
   };
 
-  createAndDownloadPdf = () => {
-    let nomeResp = this.state.boleto_master.responsavel.trim();
-    let n_carne = this.state.boleto_master.n_carne.trim();
-    let docName = "Carnê-" + n_carne + "-" + nomeResp;
+  gerarTemplatePDF = (folha) => {
+    let folhas_num = this.state.carne_folhas;
+    folhas_num = Object.keys(folhas_num).length;
+    for (let i = 0; i < folhas_num; i++) {
+      let n_lanc = this.state.carne_folhas[i].n_lanc;
+      let responsavel = this.state.carne_folhas[i].responsavel;
+      let curso = this.state.carne_folhas[i].curso;
+      let aluno = this.state.carne_folhas[i].aluno;
+      let parcela = this.state.carne_folhas[i].parcela;
+      let vencimento = helpers.dateFormatBR(
+        this.state.carne_folhas[i].vencimento
+      );
+      let valor = this.state.carne_folhas[i].valor;
+      let desconto = this.state.carne_folhas[i].desconto;
+      let valor_total = this.state.carne_folhas[i].valor_total;
+      let RA = this.state.carne_folhas[i].RA;
 
-    nomeResp = "teste";
-    n_carne = "teste";
-    docName = "teste";
-    // document.querySelector("#load_img").style.display = "block";
-
-    axios
-      .post("http://localhost:3000/create-pdf", this.state)
-      .then(() => axios.get("fetch-pdf", { responseType: "blob" }))
-      .then(res => {
-        const pdfBlob = new Blob([res.data], { type: "application/pdf" });
-
-        saveAs(pdfBlob, docName + ".pdf");
-      })
-      .then(() => {
-        document.querySelector("#load_img").style.display = "none";
-      });
-  };
-
-  renderCarneFolhas = e => {
-    let parcelas_num = parseInt(this.state.carne.parcelas);
-    let insert_folhas = document.getElementsByClassName("insert_folhas");
-
-    let folhas_num = insert_folhas.length;
-    //Removo folhas previamente renderizadas de inser folhas com o unmoutComponent...
-    for (let k = 0; k < folhas_num; k++) {
+      //invoc handleTemplate to create Template
+      let template = handleTemplate(
+        n_lanc,
+        responsavel,
+        aluno,
+        curso,
+        parcela,
+        vencimento,
+        valor,
+        desconto,
+        valor_total,
+        RA
+      );
       this.setState(
-        {
-          carne_folhas: {}
-        },
+        (prevState) => ({
+          folhas_pdf: {
+            ...prevState.folhas_pdf,
+            [i]: template,
+          },
+        }),
         () => {
-          let target = document.querySelector("#insert_folha_" + (k + 1));
-
-          ReactDOM.unmountComponentAtNode(target);
+          //executa o código somente depois do ultimo looping do for
+          if (i === folhas_num - 1) {
+            if (this.state.folhas_pdf !== "") {
+              folha();
+            } else {
+              alert("Ouve um erro, tente novamente!");
+            }
+          }
         }
       );
+    } //for in
+  };
+
+  createAndDownloadPdf = (e) => {
+    e.preventDefault();
+    let nomeResp = this.state.carne.responsavel.trim();
+    let n_carne = this.state.carne.id_contrato;
+
+    let docName = "Carnê-" + n_carne + "-" + nomeResp;
+
+    this.gerarTemplatePDF(() => {
+      document.querySelector("#load_img").style.display = "block";
+      axios
+        .post("/profile/create-pdf", this.state)
+        .then(() => axios.get("/fetch-pdf", { responseType: "blob" }))
+        .then((res) => {
+          const pdfBlob = new Blob([res.data], { type: "application/pdf" });
+
+          saveAs(pdfBlob, docName + ".pdf");
+        })
+        .then(() => {
+          document.querySelector("#load_img").style.display = "none";
+        });
+    });
+  };
+
+  renderCarneFolhas = (e) => {
+    let parcelas_num = parseInt(this.state.carne.parcelas);
+
+    //seta o campo delete nas folhas que sobraram para serem removidas
+    let folhas_DB = this.state.folhas_DB;
+    let folhas_DB_num = folhas_DB.length;
+
+    for (let i = parcelas_num; i < folhas_DB_num; i++) {
+      this.setState((prevState) => ({
+        carne_folhas: {
+          ...prevState.carne_folhas,
+          [i]: {
+            ...prevState.carne_folhas[i],
+            delete: "delete",
+          },
+        },
+      }));
+    }
+    //Removo folhas previamente renderizadas de inser folhas com o unmoutComponent...
+    let insert_folhas = document.getElementsByClassName("insert_folhas");
+    let insert_folhas_num = insert_folhas.length;
+
+    for (let k = 0; k < insert_folhas_num; k++) {
+      let target = document.querySelector("#insert_folha_" + (k + 1));
+      ReactDOM.unmountComponentAtNode(target);
     }
     //renderiza as folhas do carne baseado no numero de parcelas
 
@@ -295,22 +353,36 @@ class ContratoAdd extends Component {
       let n_lanc =
         "C" +
         (this.state.novo_id_carne + "").padStart(3, "0") +
-        "B" +
-        (parseInt(this.state.last_id_folhas) + i + "").padStart(3, "0");
+        "F" +
+        (1 + i + "").padStart(3, "0");
       let RA = "RA" + (this.state.carne.id_aluno + "").padStart(3, "0");
 
       //adiciona os meses na data contrato nas folhas do carne
       let date = this.state.carne.vencimento;
       let vencimento = helpers.AddDateMonth(i, date);
 
+      let id_folha;
+
+      //determina qual folha vai ser editada ou inserida de a cordo com a mudança de quantidade
+      //id insert paras as folhas extras e  id com numero para as folhas que terão update;
+      if (
+        typeof this.state.folhas_DB[i] !== "undefined" &&
+        typeof this.state.folhas_DB[i].id !== "undefined"
+      ) {
+        id_folha = this.state.folhas_DB[i].id;
+      }
+      // id_folha = this.state.folhas_DB[i].id;
+
       //------------------------------------------------------------------------------
       this.setState(
-        prevState => ({
+        (prevState) => ({
           carne_folhas: {
             ...prevState.carne_folhas,
             [i]: {
               ...prevState.carne_folhas[i],
-              id: this.state.folhas_DB[i].id,
+
+              id: id_folha,
+
               id_carne: this.state.carne.id,
               id_aluno: this.state.carne.id_aluno,
               id_curso: this.state.carne.id_curso,
@@ -327,12 +399,15 @@ class ContratoAdd extends Component {
               desconto: this.state.carne.desconto,
               valor_total: this.state.carne.valor_total,
               RA: RA,
-              created: new Date()
-            }
-          }
+              created: new Date(),
+            },
+          },
         }),
         () => {
           //Executa após o setState setar as propriedades das folhas
+
+          //---------------------------------------------------------------------------
+
           let target = document.querySelector("#insert_folha_" + j);
           ReactDOM.render(
             <div className="folhas" id={"bg_folha_" + j}>
@@ -414,7 +489,7 @@ class ContratoAdd extends Component {
 
                   <input
                     id={"input_vencimento-" + j}
-                    onChange={event => this.handleChangeFolhas(event)}
+                    onChange={(event) => this.handleChangeFolhas(event)}
                     type="date"
                     name={"vencimento"}
                     //value={this.state.carne_folhas[i].vencimento}
@@ -432,7 +507,7 @@ class ContratoAdd extends Component {
                     id={"input_valor-" + j}
                     type="text"
                     name={"valor"}
-                    onChangeEvent={event => this.handleChangeFolhas(event)}
+                    onChangeEvent={(event) => this.handleChangeFolhas(event)}
                   />
                 </div>
 
@@ -448,7 +523,7 @@ class ContratoAdd extends Component {
                     id={"input_desconto-" + j}
                     type="text"
                     name={"desconto"}
-                    onChangeEvent={event => this.handleChangeFolhas(event)}
+                    onChangeEvent={(event) => this.handleChangeFolhas(event)}
                   />
                 </div>
                 <div
@@ -494,6 +569,19 @@ class ContratoAdd extends Component {
               valor.value = this.state.carne_folhas[i].valor;
               desconto.value = this.state.carne_folhas[i].desconto;
               valor_total.value = this.state.carne_folhas[i].valor_total;
+
+              this.setState((prevState) => ({
+                carne_folhas: {
+                  ...prevState.carne_folhas,
+                  [i]: {
+                    ...prevState.carne_folhas[i],
+                    valor: this.state.folhas_DB[i].valor,
+                    desconto: this.state.folhas_DB[i].desconto,
+                    vencimento: this.state.folhas_DB[i].vencimento,
+                    valor_total: this.state.folhas_DB[i].valor_total,
+                  },
+                },
+              }));
             }
           );
         }
@@ -504,24 +592,32 @@ class ContratoAdd extends Component {
   render() {
     return (
       <div>
+        <div id="load_img">
+          <img alt="loader" src={require("../../assets/img/loader_pdf.gif")} />
+        </div>
         <button onClick={this.showStatus}>Show Status</button>
+
         <form className="form_add form_carne" id="form_add_carne">
           <div className="cadastro_sucesso">
             <h3>{this.state.msg_send}</h3>
           </div>
+
+          <div className="bg_btn_edit_download_pdf">
+            <button id="" onClick={this.createAndDownloadPdf}>
+              Baixar <b>Folhas PDF</b>
+            </button>
+          </div>
           <div className="bg_inputs">
             <h1>Atualizar Carnê</h1>
             <div className="bg_contrato_obs">
-              <div className="div_add add_contrato">
+              <div className="div_add add_contrato edit_contrato ">
                 <label>Contrato:</label>
-                <div className="bg_buttons">
-                  <button
-                    id="btn_download_pdf"
-                    onClick={this.createAndDownloadPdf}
-                  >
-                    Download PDF
-                  </button>
-                </div>
+
+                <input readOnly value={this.state.carne.responsavel} />
+
+                {/*
+                  
+                  
                 <select
                   onChange={this.handleSelectContratoChange}
                   value={this.state.carne.id_contrato}
@@ -537,6 +633,9 @@ class ContratoAdd extends Component {
                     </option>
                   ))}
                 </select>
+                  
+                  
+                   */}
               </div>
               <div className="div_add add_obs">
                 <label>Obs.:</label>
@@ -623,7 +722,16 @@ class ContratoAdd extends Component {
                 />
               </div>
               <div className="div_add add_data_contrato">
-                <label>Data Inicio</label>
+                <label>Data Contrato</label>
+                <input
+                  type="date"
+                  name="data_contrato"
+                  value={this.state.carne.data_contrato}
+                  readOnly
+                />
+              </div>
+              <div className="div_add add_vencimento">
+                <label>Vencimento</label>
                 <input
                   type="date"
                   name="vencimento"

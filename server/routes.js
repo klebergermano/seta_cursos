@@ -27,13 +27,134 @@ app.use(
       httpOnly: false,
       maxAge: TWO_HOURS,
       sameSite: true, // strict
-      secure: false // Developing stage if is False or true for Production state
-    }
+      secure: false, // Developing stage if is False or true for Production state
+    },
   })
 );
 
 app.post("/check_cookie", async (req, res, next) => {
   res.send(200, { result: true });
+});
+
+//=================================== MAIN DASHBOARD TABLE ====================================
+
+app.get("/profile/cadastros_info", async (req, res) => {
+  console.log("testsets");
+  try {
+    let results = {};
+    responsaveis = await db.responsavelTable.view();
+    alunos = await db.alunoTable.view();
+    contratos = await db.contratoTable.view();
+    carnes = await db.carneTable.view();
+    cursos = await db.cursoTable.view();
+
+    let num_resp = parseInt(responsaveis.length);
+    let num_alunos = parseInt(alunos.length);
+    let num_contratos = parseInt(contratos.length);
+    let num_carnes = parseInt(carnes.length);
+    let num_cursos = parseInt(cursos.length);
+    console.log(num_carnes);
+
+    let last_carnes;
+    let last_contratos;
+    let last_alunos;
+    let last_resp;
+    if (num_carnes == 0) {
+      last_carnes = 0;
+    } else {
+      last_carnes = carnes[num_carnes - 1];
+    }
+    if (num_contratos == 0) {
+      last_contratos = 0;
+    } else {
+      last_contratos = contratos[num_contratos - 1];
+    }
+    if (num_alunos == 0) {
+      last_alunos = 0;
+    } else {
+      last_alunos = alunos[num_alunos - 1];
+    }
+    if (num_resp == 0) {
+      last_resp = 0;
+    } else {
+      last_resp = responsaveis[num_resp - 1];
+    }
+    if (num_cursos == 0) {
+      last_cursos = 0;
+    } else {
+      last_cursos = cursos[num_cursos - 1];
+    }
+
+    results.last_resp = last_resp;
+    results.last_alunos = last_alunos;
+    results.last_contratos = last_contratos;
+    results.last_carnes = last_carnes;
+    results.last_cursos = last_cursos;
+
+    results.num_resp = num_resp;
+    results.num_alunos = num_alunos;
+    results.num_contratos = num_contratos;
+    results.num_carnes = num_carnes;
+    results.num_cursos = num_cursos;
+
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+  }
+
+  //
+});
+
+//=================================== RESUMO ====================================
+
+//-- RESUMO--------------------------------
+
+app.get("/profile/resumo/:id", async (req, res) => {
+  let id_resp = req.params.id;
+  try {
+    let results = {};
+    alunos = await db.alunoTable.view();
+    contratos = await db.contratoTable.view();
+    carnes = await db.carneTable.view();
+
+    res_alunos = {};
+    res_contratos = {};
+    res_carnes = {};
+
+    let j = 0;
+    let j_contrato = 0;
+    let j_carne = 0;
+    //check alunos -----
+    for (let i = 0; i < alunos.length; i++) {
+      if (alunos[i].id_resp == id_resp) {
+        res_alunos[j] = alunos[i];
+        j++;
+      }
+    }
+    //check contratos ----
+    for (let i = 0; i < contratos.length; i++) {
+      if (contratos[i].id_resp == id_resp) {
+        res_contratos[j_contrato] = contratos[i];
+        j_contrato++;
+      }
+    }
+    //
+    //check carnes ----
+    for (let i = 0; i < carnes.length; i++) {
+      if (carnes[i].id_resp == id_resp) {
+        res_carnes[j_carne] = carnes[i];
+        j_carne++;
+      }
+    }
+    //
+    results.alunos = res_alunos;
+    results.contratos = res_contratos;
+    results.carnes = res_carnes;
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
 });
 
 //=================================== CARNÊ TABLE ====================================
@@ -89,8 +210,11 @@ app.get("/profile/last_id_folhas", async (req, res) => {
   try {
     let results = await db.carneTable.folhaView();
     let num = results.length - 1;
-
-    res.json(results[num].id);
+    if (typeof results[num] !== "undefined") {
+      res.json(results[num].id);
+    } else {
+      res.json(1);
+    }
   } catch (e) {
     console.log(e);
     res.sendStatus(500);
@@ -300,7 +424,7 @@ app.get("/profile/aluno_edit/:id", async (req, res) => {
 });
 
 //---ALUNO VIEW------------------------------------------
-app.get("/api/alunos", async (req, res) => {
+app.get("/profile/alunos", async (req, res) => {
   try {
     let results = await db.alunoTable.view();
     res.json(results);
@@ -309,8 +433,6 @@ app.get("/api/alunos", async (req, res) => {
     res.sendStatus(500);
   }
 });
-
-//================================= RESPONSAVEL TABLE =======================================
 
 //--CADASTRAR ALUNO-----------------------------------------
 
@@ -324,6 +446,8 @@ app.post("/profile/cadastrar_aluno", async (req, res) => {
     res.sendStatus(500);
   }
 });
+
+//================================= RESPONSAVEL TABLE =======================================
 
 //---RESP_ALUNO----------------------------------------------
 app.get("/api/resp_aluno", async (req, res) => {
@@ -366,7 +490,7 @@ app.get("/profile/responsavel_edit/:id", async (req, res) => {
 });
 
 //----RESPONSAVEL VIEW--------------------------------------
-app.get("/api/clients", async (req, res) => {
+app.get("/profile/responsaveis", async (req, res) => {
   try {
     let results = await db.responsavelTable.view();
 
@@ -390,10 +514,11 @@ app.post("/cadastrar_responsavel", (req, res) => {
     cpf: req.body.cpf,
     data_nasc: req.body.data_nasc,
     created: req.body.created,
-    modified: new Date()
+    obs: req.body.obs,
+    modified: new Date(),
   };
 
-  connection.query("INSERT INTO responsavel SET?", new_responsavel, err => {
+  connection.query("INSERT INTO responsavel SET?", new_responsavel, (err) => {
     if (!err) {
       //-----------------Cadastra Telefones e Celulares
       connection.query(
@@ -407,13 +532,13 @@ app.post("/cadastrar_responsavel", (req, res) => {
               id_resp: maxId,
               telefone: req.body.telefones[prop_tel].telefone,
               created: req.body.created,
-              modified: new Date()
+              modified: new Date(),
             };
 
             connection.query(
               "INSERT INTO resp_telefone SET ?",
               new_telefone,
-              err => {}
+              (err) => {}
             );
           }
 
@@ -434,12 +559,12 @@ app.post("/cadastrar_responsavel", (req, res) => {
               numero: req.body.celulares[prop_cel].numero,
               created: req.body.created,
               app: app.trim(),
-              modified: new Date()
+              modified: new Date(),
             };
             connection.query(
               "INSERT INTO resp_celular SET ?",
               new_celular,
-              err => {}
+              (err) => {}
             );
             console.log(prop_cel);
           }
@@ -466,13 +591,13 @@ app.post("/form_create_user", async (req, res, next) => {
   let privilege = req.body.privilege;
   var created = new Date();
 
-  bcrypt.hash(password, saltRounds, function(err, hash) {
+  bcrypt.hash(password, saltRounds, function (err, hash) {
     let new_user = {
       name: username,
       password: hash,
       privilege: privilege,
       created: created,
-      modified: created
+      modified: created,
     };
     connection.query("INSERT INTO user SET?", new_user, (err, res) => {
       if (err) {
@@ -492,12 +617,12 @@ app.post("/form_login", async (req, res, next) => {
           let hashpassword = results[0].password; //hashed password for comparison
           let password = req.body.password; //plain password from form login
 
-          bcrypt.compare(password, hashpassword, function(err, result) {
+          bcrypt.compare(password, hashpassword, function (err, result) {
             if (result) {
               let userInfo = {
                 id: results[0].id, //hashed password for comparison
                 name: results[0].name, //hashed password for comparison
-                privilege: results[0].privilege //hashed password for comparison
+                privilege: results[0].privilege, //hashed password for comparison
               };
 
               var sess = req.session;
@@ -509,7 +634,7 @@ app.post("/form_login", async (req, res, next) => {
                 result: true,
                 session_id: req.sessionID,
                 name: userInfo.name,
-                privilege: userInfo.privilege
+                privilege: userInfo.privilege,
               });
 
               console.log(req.sessionID);
@@ -526,7 +651,7 @@ app.post("/form_login", async (req, res, next) => {
 });
 // Logout
 app.post("/logout", (req, res, next) => {
-  req.session.destroy(err => {
+  req.session.destroy((err) => {
     if (err) {
       throw err;
     } else {
@@ -556,7 +681,7 @@ app.post("/form_send", async (req, res, next) => {
   //send the message by email using nodemailer
   // this function has a callback that send response message to client
   // its callback message can be configured in sendNodemailer.js
-  sendNodemailer(msg_html, msg => {
+  sendNodemailer(msg_html, (msg) => {
     res.send(msg);
   });
 });

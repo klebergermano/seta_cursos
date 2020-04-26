@@ -2,42 +2,43 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import { isAuthenticated } from "../../routes/auth";
-import ResponsavelAdd from "./ResponsavelAdd";
-import ResponsaveisView from "./ReponsaveisView";
-import ResponsavelEdit from "./ResponsavelEdit";
 
-import ContratoView from "./ContratoView";
-import ContratoAdd from "./ContratoAdd";
-import ContratoEdit from "./ContratoEdit";
+import Main from "./home/Main";
 
-import AlunoAdd from "./AlunoAdd";
+import ResponsavelAdd from "./responsavel/ResponsavelAdd";
+import ResponsaveisView from "./responsavel/ReponsaveisView";
+import ResponsavelEdit from "./responsavel/ResponsavelEdit";
+import ResponsavelResumo from "./responsavel/ResponsavelResumo";
 
-import AlunosView from "./AlunosView";
-import AlunoEdit from "./AlunoEdit";
+import ContratoView from "./contrato/ContratoView";
+import ContratoAdd from "./contrato/ContratoAdd";
+import ContratoEdit from "./contrato/ContratoEdit";
 
-import CursosView from "./CursosView";
-import CursoAdd from "./CursoAdd";
-import CursoEdit from "./CursoEdit";
+import AlunoAdd from "./aluno/AlunoAdd";
+import AlunosView from "./aluno/AlunosView";
+import AlunoEdit from "./aluno/AlunoEdit";
+
+import CursosView from "./curso/CursosView";
+import CursoAdd from "./curso/CursoAdd";
+import CursoEdit from "./curso/CursoEdit";
 
 import CarnesView from "./carnes/CarnesView";
 import CarneEdit from "./carnes/CarneEdit";
+import CarneResumo from "./carnes/CarneResumo";
 import CarneAdd from "./carnes/CarneAdd";
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import GeradorBoleto from "./boleto/GeradorBoleto";
 import HeaderDashboard from "./common/headerDashboard";
+import NavDashboard from "./common/navDashboard";
+import Test from "./teste/test";
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userInfo: ""
+      userInfo: "",
     };
   }
 
@@ -47,43 +48,14 @@ class Dashboard extends Component {
     return (
       <div className="dashboard_container">
         <HeaderDashboard />
-        <div id="bg_main_nav">
-          <nav id="nav_dashboard">
-            <ul>
-              <li>
-                <span>Boletos</span>
-                <ul>
-                  <li>
-                    <Link to="/gerador_boleto">Gerar Carnê</Link>
-                  </li>
-                  <li>
-                    <Link to="/profile/carnes">Carnês</Link>
-                  </li>
-                  <li>
-                    <Link to="/profile/contratos">Contratos</Link>
-                  </li>
-                </ul>
-              </li>
+        <NavDashboard />
 
-              <li>
-                <span>Cadastros</span>
-                <ul>
-                  <li>
-                    <Link to="/profile/responsaveis">Responsáveis</Link>
-                  </li>
-                  <li>
-                    <Link to="/profile/alunos">Alunos</Link>
-                  </li>
-                  <li>
-                    <Link to="/profile/cursos">Cursos</Link>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </nav>
-        </div>
         <div id="dashboard_content">
           <Switch>
+            <Route path="/profile/test" component={Test} />
+
+            <Route exact path="/profile" component={Main} />
+
             <Route
               exact
               path="/profile/cadastrar_responsavel"
@@ -98,6 +70,10 @@ class Dashboard extends Component {
             <Route
               path="/profile/responsavel_edit/"
               component={ResponsavelEdit}
+            />
+            <Route
+              path="/profile/responsavel_resumo/"
+              component={ResponsavelResumo}
             />
             <Route path="/profile/aluno_edit/" component={AlunoEdit} />
             <Route exact path="/profile/cadastrar_aluno" component={AlunoAdd} />
@@ -114,6 +90,7 @@ class Dashboard extends Component {
             <Route path="/profile/carnes" component={CarnesView} />
             <Route path="/profile/cadastrar_carne" component={CarneAdd} />
             <Route path="/profile/carne_edit/" component={CarneEdit} />
+            <Route path="/profile/carne_resumo/" component={CarneResumo} />
           </Switch>
         </div>
       </div>

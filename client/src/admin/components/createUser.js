@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "../assets/css/style.css";
+import "../../assets/css/style.css";
 
 class CreateUser extends Component {
   constructor(props) {
@@ -8,31 +8,31 @@ class CreateUser extends Component {
     this.state = {
       username: "Fulano",
       password: "123",
-      privilege: "student"
+      privilege: "student",
     };
   }
 
-  handleUserChange = event => {
+  handleUserChange = (event) => {
     this.setState({ username: event.target.value });
   };
-  handlePasswordChange = event => {
+  handlePasswordChange = (event) => {
     this.setState({ password: event.target.value });
   };
-  handlePrivilegeChange = event => {
+  handlePrivilegeChange = (event) => {
     this.setState({ privilege: event.target.value });
   };
 
-  createUser = e => {
+  createUser = (e) => {
     const data = this.state;
     fetch("/form_create_user", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     })
-      .then(res => res.text())
-      .then(text => {
+      .then((res) => res.text())
+      .then((text) => {
         //this.setState({ msg_send: text });
       });
 

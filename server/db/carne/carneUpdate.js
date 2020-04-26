@@ -22,12 +22,12 @@ async function carneUpdate(req) {
 
       vencimento: req.body.carne.vencimento,
       created: req.body.carne.created,
-      modified: new Date()
+      modified: new Date(),
     };
 
     let sql = "UPDATE carne SET ? WHERE id = ?";
 
-    connection.query(sql, [update_carne, id], err => {
+    connection.query(sql, [update_carne, id], (err) => {
       if (err) {
         return reject(err);
       } else {
@@ -53,23 +53,47 @@ async function carneUpdate(req) {
 
             vencimento: req.body.carne_folhas[index].vencimento,
             created: req.body.carne_folhas[index].created,
-            modified: new Date()
+            modified: new Date(),
           };
-
           connection.query(
             "UPDATE carne_folha SET ? WHERE id= ?",
             [update_folha, id_folha],
-            err => {
+            (err) => {
               if (!err) {
               } else {
                 console.log(err);
               }
             }
           );
-        }
+        } //for in
 
         return resolve(resolve);
       }
+      /*
+          if (req.body.carne_folhas[index].id === "insert") {
+            connection.query(
+              "INSERT INTO carne_folha SET ?",
+              update_folha,
+              (err) => {
+                if (!err) {
+                } else {
+                  console.log(err);
+                }
+              }
+            );
+          } else  if (typeof req.body.carne_folhas[index].delete !== "undefined") {
+            connection.query(
+              "DELETE FROM carne_folha WHERE id = ?",
+              id_folha,
+              (err) => {
+                if (!err) {
+                } else {
+                  console.log(err);
+                }
+              }
+            );
+          } else {}
+*/
     });
   });
 }

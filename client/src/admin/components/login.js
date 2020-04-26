@@ -8,7 +8,7 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect
+  Redirect,
 } from "react-router-dom";
 
 class Login extends Component {
@@ -21,44 +21,44 @@ class Login extends Component {
       user: {
         session_id: "",
         name: "",
-        privilege: ""
-      }
+        privilege: "",
+      },
     };
   }
 
   componentDidMount() {
     this.setState({ user: { session_id: true } });
   }
-  handleUserChange = event => {
+  handleUserChange = (event) => {
     this.setState({ username: event.target.value });
   };
-  handlePasswordChange = event => {
+  handlePasswordChange = (event) => {
     this.setState({ password: event.target.value });
   };
 
-  logar = e => {
+  logar = (e) => {
     e.preventDefault();
 
     const data = this.state;
     fetch("/form_login", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     })
-      .then(res => res.json())
-      .then(res => {
+      .then((res) => res.json())
+      .then((res) => {
         this.setState({
           user: {
             session_id: res.session_id,
             name: res.name,
-            privilege: res.privilege
-          }
+            privilege: res.privilege,
+          },
         });
         this.setState({ authenticated: res.result });
       })
-      .then(res => {
+      .then((res) => {
         console.log(this.state.user);
       });
   };
