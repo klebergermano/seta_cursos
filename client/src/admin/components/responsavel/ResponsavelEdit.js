@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import InputMask from "react-input-mask";
+import NavResponsaveis from "./NavResponsaveis";
 
-import { dateFormatDB } from "../helpers/helpers";
+import * as helpers from "../helpers/index";
 
 import ReactDOM from "react-dom";
 import {
@@ -11,6 +12,7 @@ import {
   Link,
   useParams,
 } from "react-router-dom";
+import NavAlunos from "../aluno/NavAlunos";
 
 class ResponsavelEdit extends Component {
   state = {
@@ -58,8 +60,8 @@ class ResponsavelEdit extends Component {
         this.renderStateCel();
         this.renderStateTel();
 
-        let data_created = dateFormatDB(this.state.created);
-        let data_nasc = dateFormatDB(this.state.data_nasc);
+        let data_created = helpers.dateFunc.dateFormatDB(this.state.created);
+        let data_nasc = helpers.dateFunc.dateFormatDB(this.state.data_nasc);
         this.setState({ created: data_created });
         this.setState({ data_nasc: data_nasc });
 
@@ -457,6 +459,7 @@ class ResponsavelEdit extends Component {
   render() {
     return (
       <div>
+        <NavAlunos />
         <button onClick={this.showStatus}>Show Status</button>
         <div id="teste"></div>
         <form className="form_add" id="form_add_responsavel">

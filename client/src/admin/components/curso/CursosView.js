@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
+import NavCursos from "./NavCursos";
 
 class CursosView extends Component {
   constructor() {
@@ -22,13 +23,7 @@ class CursosView extends Component {
   render() {
     return (
       <div className="page_dashboard">
-        <nav className="nav_cadastros">
-          <ul>
-            <li>
-              <Link to="/profile/cadastrar_curso">+ Cadastrar Curso</Link>
-            </li>
-          </ul>
-        </nav>
+        <NavCursos />
         <h1>Cursos</h1>
         <table className="table_general">
           <thead>

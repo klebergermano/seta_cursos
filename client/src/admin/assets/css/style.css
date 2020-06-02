@@ -1,63 +1,39 @@
-#bg_login {
-  background: #1e2849;
-  height: 100vh;
-  width: 100%;
+body {
+  background: #333 !important;
 }
-#bg_login h1 {
-  text-align: center;
-  margin-top: 8%;
+
+.loginForm {
+  display: block;
+  max-width: 500px;
+  width: 100%;
+  padding: 60px;
+  margin: 0px auto;
+  margin-top: 100px;
+  border-radius: 5px;
+}
+.loginForm h2 {
   color: #fff;
 }
-#bg_login #form_login {
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  width: 50%;
-  max-width: 400px;
-  height: 300px;
-  padding: 60px 50px;
+.loginForm input {
+  border-radius: 3px;
+  width: 100%;
+  margin: 5px 0px;
+  border: 2px solid #2b9de9;
+  padding: 10px;
   background: #fff;
-  display: block;
-  margin: 0 auto;
 }
-#bg_login #form_login div {
+.loginForm button {
+  width: 100%;
+  border-radius: 3px;
+  margin: 5px 0px;
+  border: 0px solid #0f77bd;
+  background: #0e5696;
+  color: #fff;
   padding: 10px;
 }
-#bg_login #form_login div label {
-  width: 20%;
-  display: block;
-  float: left;
-}
-#bg_login #form_login div input {
-  padding: 5px;
-  width: 80%;
-}
-#bg_login #form_login #btn_login {
-  background: #1f458b;
-  color: #fff;
-  border: 0px solid #ccc;
-  padding: 8px 20px;
-  position: relative;
-  display: block;
-  margin: 0 auto;
-  margin-top: 30px;
-  border-radius: 5px;
+.loginForm button:hover {
   cursor: pointer;
-  width: 50%;
-}
-#bg_login #form_login #btn_login:hover {
-  background: #1a5bd3;
-}
-#bg_login #form_login #btn_login:active {
-  background: #033aa0;
-}
-#bg_login #bg_link_goback {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 15px;
-}
-#bg_login #bg_link_goback a {
-  float: right;
-  color: #fff;
+  background: #016bc7;
 }
 
 .icon {
@@ -109,7 +85,6 @@
   padding: 0px 30px 0px 0px;
 }
 .dashboard_container #header_dash #bg_logo {
-  background: #103253;
   height: 60px;
   width: 15%;
   color: #fff;
@@ -142,6 +117,15 @@
   padding: 18px 20px;
   color: #fff;
 }
+.dashboard_container #header_dash #nav_header ul li .username {
+  padding: 0px 10px;
+  font-weight: bold;
+}
+.dashboard_container #header_dash #nav_header ul li button {
+  cursor: pointer;
+  margin-top: 15px;
+}
+
 #nav_dashboard {
   padding: 70px 20px 40px 40px;
   position: fixed;
@@ -249,39 +233,6 @@
 
 button:disabled {
   background: #ccc !important;
-}
-
-.nav_cadastros {
-  background: #064a77;
-  color: #fff;
-  overflow: hidden;
-  background: #fff;
-  margin-bottom: -40px;
-  margin-right: 40px;
-  width: 100%;
-  float: right;
-}
-.nav_cadastros li {
-  list-style: none;
-  float: right;
-  overflow: hidden;
-  padding: 0px;
-}
-.nav_cadastros li a {
-  border-radius: 10px;
-  background: #064a77;
-  color: #fff;
-  text-decoration: none;
-  padding: 20px;
-  width: auto;
-  display: block;
-  text-align: center;
-}
-.nav_cadastros li a:hover {
-  background: #0868a8;
-}
-.nav_cadastros li a:active {
-  background: #042c46;
 }
 
 .cadastro_sucesso {
@@ -861,6 +812,367 @@ button:disabled {
 }
 .form_contrato .div_add label {
   font-size: 16px;
+}
+
+.view_aluno_classe td {
+  height: 50px;
+}
+.view_aluno_classe .status {
+  text-align: center;
+  width: 130px;
+}
+.view_aluno_classe .cursando {
+  background: #dbffcd;
+}
+.view_aluno_classe .concluido {
+  background: #bfd0e6;
+}
+.view_aluno_classe .cancelado {
+  background: #ffcdcd;
+}
+.view_aluno_classe .pausado {
+  background: #ffe9cd;
+}
+.view_aluno_classe .td_control {
+  max-width: 100px;
+}
+
+#nav_aluno_classe {
+  width: 100%;
+  overflow: hidden;
+  clear: both;
+  padding: 0px 40px;
+}
+#nav_aluno_classe .icon {
+  fill: #fff;
+  width: 20px;
+  margin: 0px 10px -6px 0px;
+  opacity: 0.5;
+}
+#nav_aluno_classe ul {
+  float: right;
+}
+#nav_aluno_classe ul li {
+  list-style: none;
+  display: inline;
+}
+#nav_aluno_classe ul li a {
+  border-radius: 5px;
+  text-decoration: none;
+  margin-left: 5px;
+  display: block;
+  float: right;
+  background: #064a77;
+  color: #fff;
+  padding: 20px 20px;
+}
+#nav_aluno_classe ul li a:hover {
+  background: #07598f;
+}
+
+#page_status_aluno {
+  background: #eee;
+}
+#page_status_aluno h1 {
+  text-align: center;
+  color: #212529;
+  text-transform: uppercase;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.success_background {
+  background: #e0f7e0 !important;
+}
+
+.bg_aluno_contrato {
+  max-width: 95%;
+  margin: 0 auto;
+  background: #f8f8f8;
+  margin-bottom: 20px;
+  box-shadow: 0em 0.05em 0.1em #aaa;
+}
+.bg_aluno_contrato h3 {
+  margin-left: 40px;
+  border-left: 1px solid #c00;
+  border-bottom: 1px solid #c00;
+  padding: 20px 20px 0px 20px;
+  margin-bottom: 0px;
+  color: #c33;
+  text-transform: uppercase;
+  font-size: 16px;
+  background: #f9f9f9;
+}
+
+.form_aluno_status {
+  transition: background-color 0.5s ease-in-out;
+  overflow: hidden;
+  background: #fafafa;
+  padding: 20px 0px;
+  max-width: 100% !important;
+  display: grid;
+  grid-template-columns: 85% 15%;
+  position: relative;
+}
+.form_aluno_status .msg_update_sucesso {
+  overflow: hidden;
+  width: auto;
+  height: auto;
+  padding: 5px;
+  width: auto;
+  position: absolute;
+  color: #2e7e4c;
+  right: 20px;
+  top: 80px;
+  opacity: 0;
+}
+.form_aluno_status .msg_update_sucesso {
+  transition: opacity 0.3s ease-out;
+}
+.form_aluno_status:last-child {
+  border-bottom: 0px solid #aadbee;
+}
+.form_aluno_status:nth-child(odd) {
+  background: #f4f5f6;
+  border-top: 1px solid #ccc;
+}
+.form_aluno_status:hover {
+  background: #fafad190;
+  cursor: default;
+}
+.form_aluno_status .bg_inputs {
+  float: left;
+  overflow: hidden;
+  width: 100%;
+}
+.form_aluno_status p {
+  padding: 0px;
+  margin: 0px;
+}
+.form_aluno_status .red_line {
+  border-left: 1px solid #c00;
+  display: block;
+  padding: 20px;
+  position: absolute;
+  height: 60px;
+  left: 40px;
+  top: 0px;
+  height: 100%;
+}
+.form_aluno_status .line_1,
+.form_aluno_status .line_2 {
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 2px solid #ace;
+  padding: 15px 0px 0px 60px;
+}
+.form_aluno_status .line_1 .div_add,
+.form_aluno_status .line_2 .div_add {
+  float: left;
+  padding: 0px 0px;
+}
+.form_aluno_status .line_1 .div_add:hover input,
+.form_aluno_status .line_2 .div_add:hover input {
+  border: 1px solid #ccc !important;
+  border-top: 0px solid #00a !important;
+  border-bottom: 0px solid #00a !important;
+}
+.form_aluno_status .line_1 p,
+.form_aluno_status .line_2 p {
+  color: #00a;
+  width: auto;
+  float: left;
+  padding: 5px 10px;
+}
+.form_aluno_status .line_1 label,
+.form_aluno_status .line_2 label {
+  color: #999;
+  padding: 5px 10px;
+  width: auto;
+  float: left;
+  display: block;
+}
+.form_aluno_status .line_1 input,
+.form_aluno_status .line_2 input {
+  background: transparent;
+  max-width: 136px;
+  width: 55%;
+  float: left;
+  padding: 5px;
+  border: 1px solid transparent;
+  border-top: 0px solid #ddd;
+  border-bottom: 0px solid #ddd;
+  border-right: 0px solid #ddd;
+}
+.form_aluno_status .line_1 .div_add {
+  width: 20%;
+}
+.form_aluno_status .line_2 .div_add input {
+  min-width: 150px;
+}
+.form_aluno_status .line_3 .add_obs {
+  width: 100%;
+  padding: 0px 0px 0px 70px;
+  margin: 0 auto;
+}
+.form_aluno_status .line_3 .add_obs label {
+  width: 15%;
+  display: block;
+  margin-top: 0px;
+  color: #999;
+  padding: 20px 0px 10px 0px;
+}
+.form_aluno_status .line_3 .add_obs textarea {
+  border: 0px;
+  display: block;
+  font-family: "Marck Script", cursive;
+  font-size: 16px;
+  resize: none;
+  padding: 5px 0px;
+  height: 60px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+  border: 1px solid transparent;
+  color: #666;
+  background-color: transparent;
+  border-bottom: 2px solid #ace;
+}
+.form_aluno_status .line_3 .add_obs textarea:hover {
+  border: 1px solid #ccc;
+  border-bottom: 2px solid #ace;
+}
+.form_aluno_status .add_curso p {
+  color: #00a;
+}
+.form_aluno_status .add_status {
+  border-bottom: 2px solid #ace;
+  top: 6px;
+  right: 20px;
+  position: absolute;
+  overflow: hidden;
+  padding: 5px 10px;
+  width: 180px;
+}
+.form_aluno_status .add_status label {
+  float: left;
+  width: 50px;
+  padding: 5px;
+}
+.form_aluno_status .add_status select {
+  float: right;
+  border: 0px solid #ccc;
+  padding: 2px;
+}
+.form_aluno_status .add_status select option {
+  padding: 5px;
+}
+.form_aluno_status .cursando,
+.form_aluno_status .option_cursando {
+  background: #cff7cf !important;
+}
+.form_aluno_status .concluido,
+.form_aluno_status .option_concluido {
+  background: #b7d1df !important;
+}
+.form_aluno_status .pausado,
+.form_aluno_status .option_pausado {
+  background: #e0e3eb !important;
+}
+.form_aluno_status .cancelado,
+.form_aluno_status .option_cancelado {
+  background: #f87575 !important;
+}
+.form_aluno_status .bg_button {
+  float: right;
+  overflow: hidden;
+  width: 100%;
+  padding: 20px;
+  position: relative;
+}
+.form_aluno_status .bg_button input {
+  text-align: center !important;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-top: 2px;
+}
+.form_aluno_status .bg_button button {
+  position: absolute;
+  bottom: 5px;
+  right: 20px;
+  display: block;
+  width: auto;
+  background: #064a77;
+  color: #fff;
+  border: 0px;
+  padding: 10px 36px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0em 0.1em 0.06em #aaa;
+}
+.form_aluno_status .bg_button button:not(:disabled):hover {
+  background: #0868a8 !important;
+  cursor: pointer;
+}
+.form_aluno_status .bg_button button:not(:disabled):active {
+  background: #042c46 !important;
+}
+
+#page_aluno_classe {
+  width: 100%;
+  height: auto;
+  padding: 25px;
+  overflow: hidden;
+}
+#page_aluno_classe h1 {
+  text-align: center;
+}
+#page_aluno_classe #wrap_classe {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+}
+#page_aluno_classe #wrap_classe .blocks {
+  background: #fff;
+  padding: 20px;
+}
+
+.nav_cadastros {
+  overflow: hidden;
+  color: #fff;
+  margin-top: 20px;
+  margin-bottom: -30px;
+  margin-right: 40px;
+  width: 100%;
+  float: right;
+}
+.nav_cadastros .icon {
+  margin: 0px 10px -5px 0px;
+  fill: #fff;
+  opacity: 0.5;
+  width: 20px;
+}
+.nav_cadastros li {
+  float: right;
+  list-style: none;
+}
+.nav_cadastros li a {
+  border-radius: 3px;
+  background: #064a77;
+  color: #fff;
+  text-decoration: none;
+  padding: 15px 15px;
+  width: auto;
+  display: block;
+  text-align: center;
+  margin-left: 10px;
+}
+.nav_cadastros li a:hover {
+  background: #0868a8;
+}
+.nav_cadastros li a:active {
+  background: #042c46;
 }
 
 .img_whatsapp_celular {
@@ -1539,26 +1851,113 @@ button:disabled {
 }
 
 #bg_main {
-  background: #f0f0f0;
   position: relative;
   min-height: 100vh;
+  height: auto;
+  padding: 0px 0px 50px 0px;
 }
 #bg_main #wrap {
+  margin-top: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 200px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "nav nav nav nav" "b1 b2 b3 b4" "b5 b5 b6 b6";
+  grid-auto-rows: auto auto 400px;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  padding: 80px;
+  padding: 0px 80px;
+}
+#bg_main .bg_charts_main {
+  background: #fff;
+  height: auto;
+  padding: 20px;
+  overflow: hidden;
+}
+#bg_main #chart-1 {
+  grid-area: b5;
+}
+#bg_main #chart-2 {
+  grid-area: b6;
+}
+#bg_main #nav_utilitarios {
+  background: #fff;
+  grid-area: nav;
+  overflow: hidden;
+  height: auto;
+  margin-top: 0px;
+}
+#bg_main #nav_utilitarios .block {
+  width: auto;
+  height: auto;
+  float: right;
+}
+#bg_main #nav_utilitarios #block_cursos {
+  background: #064a77;
+}
+#bg_main #nav_utilitarios #block_cursos:hover {
+  background: #07598f;
+}
+#bg_main #nav_utilitarios a {
+  border-right: 5px solid #f0f0f0;
+  text-decoration: none;
+  color: #fff;
+  padding: 20px 40px;
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+}
+#bg_main #nav_utilitarios a:hover {
+  color: #ff0;
+}
+#bg_main #nav_utilitarios a:hover .icon {
+  fill: #fff;
+  opacity: 1;
+}
+#bg_main #nav_utilitarios a .icon {
+  fill: #fff;
+  float: left;
+  opacity: 0.2;
+  width: 25px;
+  height: 25px;
+  margin-left: 0px;
+  margin-right: 10px;
+  margin-top: 0px !important;
+}
+#bg_main h3 {
+  margin: 0px;
+  overflow: hidden;
+}
+#bg_main h3 .icon {
+  fill: #666;
+  float: left;
+  opacity: 1;
+  width: 18px;
+  height: 18px;
+  margin-left: -30px;
+  margin-right: 10px;
+  margin-top: 5px !important;
+}
+#bg_main h3 a {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  padding: 20px 40px;
+  background: #f8f8f8;
+  color: #444;
+}
+#bg_main h3 a .result {
+  color: #eb1e44;
+}
+#bg_main h3 a:hover {
+  background: #f0f0f0;
 }
 #bg_main .blocks {
-  border-radius: 5px;
+  margin-top: 0px;
+  border-radius: 0px;
   overflow: hidden;
-  overflow: hidden;
+  background: #fff;
   border: 1px solid #ccc;
   float: left;
   padding: 0px;
-  color: #fff;
 }
 #bg_main .blocks .last_results {
   max-width: 80%;
@@ -1566,129 +1965,54 @@ button:disabled {
 #bg_main .blocks .last_results a {
   text-decoration: none;
   border-radius: 3px;
-  padding: 10px 20px;
+  padding: 20px 40px;
   color: #ffb !important;
   display: block;
   overflow: hidden;
+  color: #9b8c8c;
 }
 #bg_main .blocks .last_results a:hover {
-  background: #ffffff10;
+  background: #f0f0f0;
+}
+#bg_main .blocks .last_results a:hover .nome {
+  color: #333;
+  text-decoration: underline;
 }
 #bg_main .blocks .last_results .nome {
-  margin-left: 10px;
+  color: #333;
+  padding-top: 10px;
+  clear: both;
+  width: 100%;
+  display: block;
 }
 #bg_main .blocks .last_results .label {
   float: left;
-  color: #fff;
+  color: #999;
 }
 #bg_main .blocks .last_results .created {
+  color: #999;
   float: right;
 }
-#bg_main .blocks p {
-  padding: 0px;
-  padding: 10px 20px;
-  margin: 0px;
-  border-bottom: 1px solid #ffffff30;
-}
-#bg_main .blocks p span {
-  overflow: hidden;
-  width: auto;
-}
-#bg_main .blocks p .result {
-  margin-left: 10px;
-  color: #ffa;
-}
-#bg_main .blocks p:hover {
-  cursor: default;
-}
-#bg_main .blocks h3 {
-  margin: 0px;
-  overflow: hidden;
-}
-#bg_main .blocks h3 .icon {
-  fill: #fff;
-  float: left;
-  opacity: 0.2;
-  width: 18px;
-  height: 18px;
-  margin-left: -30px;
-  margin-right: 10px;
-  margin-top: 5px !important;
-}
-#bg_main .blocks h3 .icon:hover {
-  fill: red;
-}
-#bg_main .blocks h3 a {
-  text-decoration: none;
-  display: block;
-  width: 100%;
-  padding: 20px 40px;
-}
 #bg_main .blocks .b_content {
-  padding: 10px 20px !important;
+  padding: 0px 0px !important;
 }
 
 #block_resp {
+  grid-area: b1;
   background: #212529e0;
 }
-#block_resp h3 a {
-  background: #212529e0;
-  color: #fff;
-}
-#block_resp h3 a:hover {
-  background: rgba(15, 37, 60, 0.8784313725);
-}
-
 #block_alunos {
+  grid-area: b2;
   background: #d45d18e0;
 }
-#block_alunos h3 a {
-  background: #d45d18e0;
-  color: #fff;
-}
-#block_alunos h3 a:hover {
-  background: rgba(236, 87, 0, 0.8784313725);
-}
-
 #block_contratos {
+  grid-area: b3;
   background: #04465ae0;
 }
-#block_contratos h3 a {
-  background: #04465ae0;
-  color: #fff;
-}
-#block_contratos h3 a:hover {
-  background: rgba(0, 72, 94, 0.8784313725);
-}
-
 #block_carnes {
-  background: #05916ee0;
-}
-#block_carnes h3 a {
-  background: #05916ee0;
-  color: #fff;
-}
-#block_carnes h3 a:hover {
-  background: rgba(0, 150, 113, 0.8784313725);
-}
-
-#block_cursos {
-  background: #9c2d36e0;
-}
-#block_cursos h3 a {
-  background: #9c2d36e0;
-  color: #fff;
-}
-#block_cursos h3 a:hover {
-  background: rgba(166, 35, 46, 0.8784313725);
-}
-
-#block_outros {
-  background: #ddd;
+  grid-area: b4;
 }
 #block_outros h3 {
-  background: #ccc;
-  color: #fff;
   padding: 20px;
 }
 

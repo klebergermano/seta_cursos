@@ -1,0 +1,19 @@
+#page_aluno_classe {
+  width: 100%;
+  height: auto;
+  padding: 25px;
+  overflow: hidden;
+  h1 {
+    text-align: center;
+  }
+  #wrap_classe {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    .blocks {
+      background: #fff;
+      padding: 20px;
+    }
+  }
+}

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
-import { dateFormatDB } from "../helpers/helpers";
+import * as helpers from "../helpers/index";
 import CurrencyInput from "react-currency-input";
+import NavContratos from "./NavContratos";
 
 class ContratoEdit extends Component {
   state = {
@@ -69,9 +70,13 @@ class ContratoEdit extends Component {
         )
       )
       .then(() => {
-        let data_created = dateFormatDB(this.state.created);
-        let data_contrato = dateFormatDB(this.state.data_contrato);
-        let data_vencimento = dateFormatDB(this.state.vencimento);
+        let data_created = helpers.dateFunc.dateFormatDB(this.state.created);
+        let data_contrato = helpers.dateFunc.dateFormatDB(
+          this.state.data_contrato
+        );
+        let data_vencimento = helpers.dateFunc.dateFormatDB(
+          this.state.vencimento
+        );
         this.setState({
           created: data_created,
           data_contrato: data_contrato,
@@ -274,6 +279,7 @@ class ContratoEdit extends Component {
   render() {
     return (
       <div>
+        <NavContratos />
         <button onClick={this.showStatus}>Show Status</button>
         <div id="teste"></div>
         <form className="form_add form_contrato" id="form_add_contrato">
@@ -289,13 +295,7 @@ class ContratoEdit extends Component {
                 onChange={this.handleSelectRespChange}
                 value={this.state.id_resp}
               >
-                <option
-                  id="option"
-                  value=""
-                  data-duracao="data-teste"
-                  selected
-                  disabled
-                ></option>
+                <option id="option" value="" selected disabled></option>
                 {this.state.responsaveis.reverse().map((responsaveis) => (
                   <option
                     className="curso_options"
@@ -333,11 +333,7 @@ class ContratoEdit extends Component {
               >
                 <option value="" selected disabled></option>
                 {this.state.cursos.reverse().map((cursos) => (
-                  <option
-                    data-duracao="teste"
-                    key={cursos.id}
-                    value={cursos.id}
-                  >
+                  <option key={cursos.id} value={cursos.id}>
                     {cursos.id} - {cursos.nome}
                   </option>
                 ))}

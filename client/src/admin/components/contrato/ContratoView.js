@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
-import * as helpers from "../helpers/helpers";
+import * as helpers from "../helpers/index";
+import NavContratos from "./NavContratos";
 
 class Contratos extends Component {
   constructor() {
@@ -30,15 +31,7 @@ class Contratos extends Component {
   render() {
     return (
       <div className="page_dashboard">
-        <nav className="nav_cadastros">
-          <ul>
-            <li>
-              <Link to="/profile/cadastrar_contrato">
-                + Cadastrar contratos
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <NavContratos />
         <h1>Contratos</h1>
         <table className="table_general view_contrato">
           <thead>
@@ -70,7 +63,7 @@ class Contratos extends Component {
                 <td className="td_parcelas">{contratos.parcelas}</td>
 
                 <td className="td_cadastrado">
-                  {helpers.dateFormatBR(contratos.created)}
+                  {helpers.dateFunc.dateFormatBR(contratos.created)}
                 </td>
                 <td className="id_carne_contrato_view">{contratos.id_carne}</td>
 

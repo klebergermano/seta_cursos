@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
+import NavResponsaveis from "./NavResponsaveis";
 
 import * as helpers from "../helpers/";
 const responsavel = [{ telefones: [] }];
@@ -345,6 +346,8 @@ class ResponsavelResumo extends Component {
   render() {
     return (
       <div className="bg_resumo_view">
+        <NavResponsaveis />
+
         <button onClick={this.showStatus}>Show Status</button>
         <h1>Resumos </h1>
 

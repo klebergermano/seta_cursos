@@ -1,3 +1,41 @@
+.nav_cadastros {
+  overflow: hidden;
+  color: #fff;
+  margin-top: 20px;
+  margin-bottom: -30px;
+  margin-right: 40px;
+  width: 100%;
+  float: right;
+  .icon {
+    margin: 0px 10px -5px 0px;
+    fill: #fff;
+    opacity: 0.5;
+    width: 20px;
+  }
+  li {
+    float: right;
+    list-style: none;
+    a {
+      border-radius: 3px;
+
+      background: $primary-color;
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 15px;
+      width: auto;
+      display: block;
+      text-align: center;
+      margin-left: 10px;
+    }
+    a:hover {
+      background: lighten($primary-color, 10%);
+    }
+    a:active {
+      background: darken($primary-color, 10%);
+    }
+  }
+}
+
 .img_whatsapp_celular {
   background: url("../img/whatsapp-on.png") no-repeat;
   background-size: 20px;

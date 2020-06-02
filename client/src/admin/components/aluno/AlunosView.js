@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
-import * as helpers from "../helpers/";
+import NavAlunos from "./NavAlunos";
 
+import * as helpers from "../helpers/";
+import config from "../../../config";
 class Alunos extends Component {
   constructor() {
     super();
@@ -23,13 +25,7 @@ class Alunos extends Component {
   render() {
     return (
       <div className="page_dashboard page_aluno_view">
-        <nav className="nav_cadastros">
-          <ul>
-            <li>
-              <Link to="/profile/cadastrar_aluno">+ Cadastrar Alunos</Link>
-            </li>
-          </ul>
-        </nav>
+        <NavAlunos />
         <h1>Alunos</h1>
         <div id="teste"></div>
         <table className="table_general">
@@ -64,17 +60,24 @@ class Alunos extends Component {
                 <td className="td_control">
                   <Link
                     className="btn_resumo"
-                    to={"/profile/responsavel_resumo/" + alunos.id_resp}
+                    to={
+                      config.BASE_URL_ADMIN +
+                      "/responsavel_resumo/" +
+                      alunos.id_resp
+                    }
                   >
                     Resumo
                   </Link>{" "}
                   <Link
                     className="btn_edit"
-                    to={"/profile/aluno_edit/" + alunos.id}
+                    to={config.BASE_URL_ADMIN + "/aluno_edit/" + alunos.id}
                   >
                     Editar
                   </Link>
-                  <Link className="btn_delete" to="/profile/alunos">
+                  <Link
+                    className="btn_delete"
+                    to={config.BASE_URL_ADMIN + "/alunos"}
+                  >
                     x
                   </Link>
                 </td>

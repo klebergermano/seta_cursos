@@ -1,0 +1,332 @@
+.view_aluno_classe {
+  td {
+    height: 50px;
+  }
+
+  .status {
+    text-align: center;
+    width: 130px;
+  }
+  .cursando {
+    background: #dbffcd;
+  }
+  .concluido {
+    background: #bfd0e6;
+  }
+  .cancelado {
+    background: #ffcdcd;
+  }
+  .pausado {
+    background: #ffe9cd;
+  }
+  .td_control {
+    max-width: 100px;
+  }
+}
+
+#nav_aluno_classe {
+  width: 100%;
+  overflow: hidden;
+  clear: both;
+  padding: 0px 40px;
+  .icon {
+    fill: #fff;
+    width: 20px;
+    margin: 0px 10px -6px 0px;
+    opacity: 0.5;
+  }
+  ul {
+    float: right;
+
+    li {
+      list-style: none;
+      display: inline;
+      a {
+        border-radius: 5px;
+        text-decoration: none;
+        margin-left: 5px;
+
+        display: block;
+        float: right;
+        background: $primary-color;
+
+        color: #fff;
+        padding: 20px 20px;
+        &:hover {
+          background: lighten($primary-color, 5%);
+        }
+      }
+    }
+  }
+}
+#page_status_aluno {
+  background: #eee;
+  h1 {
+    text-align: center;
+    color: #212529;
+    text-transform: uppercase;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+}
+.success_background {
+  background: #e0f7e0 !important;
+}
+
+.bg_aluno_contrato {
+  max-width: 95%;
+  margin: 0 auto;
+  background: #f8f8f8;
+  margin-bottom: 20px;
+  box-shadow: 0em 0.05em 0.1em #aaa;
+  h3 {
+    margin-left: 40px;
+    border-left: 1px solid #c00;
+    border-bottom: 1px solid #c00;
+    padding: 20px 20px 0px 20px;
+    margin-bottom: 0px;
+    color: #c33;
+    text-transform: uppercase;
+    font-size: 16px;
+    background: #f9f9f9;
+  }
+}
+
+.form_aluno_status {
+  transition: background-color 0.5s ease-in-out;
+  .msg_update_sucesso {
+    overflow: hidden;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    width: auto;
+    position: absolute;
+    color: rgb(46, 126, 76);
+    right: 20px;
+    top: 80px;
+    opacity: 0;
+  }
+
+  .msg_update_sucesso {
+    transition: opacity 0.3s ease-out;
+  }
+
+  //box-shadow: 0em 0.1em 0.1em #ccc;
+  overflow: hidden;
+  background: #fafafa;
+  padding: 20px 0px;
+  max-width: 100% !important;
+  display: grid;
+  grid-template-columns: 85% 15%;
+
+  position: relative;
+  &:last-child {
+    border-bottom: 0px solid rgb(170, 219, 238);
+  }
+  &:nth-child(odd) {
+    background: #f4f5f6;
+    border-top: 1px solid #ccc;
+  }
+  &:hover {
+    background: #fafad190;
+    cursor: default;
+  }
+  .bg_inputs {
+    float: left;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  p {
+    padding: 0px;
+    margin: 0px;
+  }
+  .red_line {
+    border-left: 1px solid #c00;
+    display: block;
+    padding: 20px;
+    position: absolute;
+    height: 60px;
+    left: 40px;
+    top: 0px;
+    height: 100%;
+  }
+
+  .line_1,
+  .line_2 {
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 2px solid #ace;
+    padding: 15px 0px 0px 60px;
+    .div_add {
+      float: left;
+      padding: 0px 0px;
+      &:hover {
+        input {
+          border: 1px solid #ccc !important;
+          border-top: 0px solid #00a !important;
+          border-bottom: 0px solid #00a !important;
+        }
+      }
+    }
+
+    p {
+      color: #00a;
+      width: auto;
+      float: left;
+      padding: 5px 10px;
+    }
+    label {
+      color: #999;
+      padding: 5px 10px;
+
+      width: auto;
+      float: left;
+      display: block;
+    }
+    input {
+      background: transparent;
+      max-width: 136px;
+      width: 55%;
+      float: left;
+      padding: 5px;
+      border: 1px solid transparent;
+      border-top: 0px solid #ddd;
+      border-bottom: 0px solid #ddd;
+      border-right: 0px solid #ddd;
+    }
+  }
+  .line_1 {
+    .div_add {
+      width: 20%;
+    }
+  }
+  .line_2 {
+    .div_add {
+      input {
+        min-width: 150px;
+      }
+    }
+  }
+  .line_3 {
+    .add_obs {
+      width: 100%;
+      padding: 0px 0px 0px 70px;
+      margin: 0 auto;
+      label {
+        width: 15%;
+        display: block;
+        margin-top: 0px;
+        color: #999;
+        padding: 20px 0px 10px 0px;
+      }
+      textarea {
+        border: 0px;
+        display: block;
+        font-family: "Marck Script", cursive;
+        font-size: 16px;
+        resize: none;
+        padding: 5px 0px;
+        height: 60px;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 20px;
+        border: 1px solid transparent;
+
+        color: #666;
+        background-color: transparent;
+
+        border-bottom: 2px solid #ace;
+        &:hover {
+          border: 1px solid #ccc;
+          border-bottom: 2px solid #ace;
+        }
+      }
+    }
+  }
+  .add_curso {
+    p {
+      color: #00a;
+    }
+  }
+
+  .add_status {
+    border-bottom: 2px solid #ace;
+    top: 6px;
+    right: 20px;
+    position: absolute;
+    overflow: hidden;
+    padding: 5px 10px;
+    width: 180px;
+    label {
+      float: left;
+      width: 50px;
+      padding: 5px;
+    }
+    select {
+      float: right;
+      border: 0px solid #ccc;
+      padding: 2px;
+      option {
+        padding: 5px;
+      }
+    }
+  }
+  .cursando,
+  .option_cursando {
+    background: #cff7cf !important;
+  }
+  .concluido,
+  .option_concluido {
+    background: rgb(183, 209, 223) !important;
+  }
+  .pausado,
+  .option_pausado {
+    background: rgb(224, 227, 235) !important;
+  }
+  .cancelado,
+  .option_cancelado {
+    background: rgb(248, 117, 117) !important;
+  }
+
+  .bg_button {
+    float: right;
+    overflow: hidden;
+    width: 100%;
+    padding: 20px;
+
+    input {
+      text-align: center !important;
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-top: 2px;
+    }
+
+    position: relative;
+    button {
+      position: absolute;
+      bottom: 5px;
+      right: 20px;
+      display: block;
+      width: auto;
+      background: $primary-color;
+      color: #fff;
+      border: 0px;
+
+      padding: 10px 36px;
+      text-align: center;
+      border-radius: 5px;
+      box-shadow: 0em 0.1em 0.06em #aaa;
+
+      &:not(:disabled) {
+        &:hover {
+          background: lighten($primary-color, 10%) !important;
+          cursor: pointer;
+        }
+        &:active {
+          background: darken($primary-color, 10%) !important;
+        }
+      }
+    }
+  }
+}

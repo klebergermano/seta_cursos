@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import InputMask from "react-input-mask";
 import ReactDOM from "react-dom";
+import * as helpers from "../helpers";
+import NavAlunos from "./NavAlunos";
 
 import {
   dateFormatDB,
   dateFormatBR,
   dateFormatReverse,
-} from "../helpers/helpers";
+} from "../helpers/index";
+import NavResponsaveis from "../responsavel/NavResponsaveis";
 
 class AlunoAdd extends Component {
   state = {
@@ -28,7 +31,7 @@ class AlunoAdd extends Component {
   };
 
   componentDidMount() {
-    let data_created = dateFormatDB(new Date());
+    let data_created = helpers.dateFunc.dateFormatDB(new Date());
     this.setState({ created: data_created });
     fetch("/api/resp_aluno")
       .then((res) => res.json())
@@ -330,8 +333,8 @@ class AlunoAdd extends Component {
           genero: responsavel.genero,
           endereco: responsavel.endereco,
           bairro: responsavel.bairro,
-          data_nasc: dateFormatDB(responsavel.data_nasc),
-          create: dateFormatReverse(responsavel.created),
+          data_nasc: helpers.dateFunc.dateFormatDB(responsavel.data_nasc),
+          create: helpers.dateFunc.dateFormatReverse(responsavel.created),
         });
       }
     }
@@ -384,6 +387,7 @@ class AlunoAdd extends Component {
   render() {
     return (
       <div>
+        <NavResponsaveis />
         <button onClick={this.showStatus}>Show Status</button>
         <form className="form_add" id="form_add_aluno">
           <div className="cadastro_sucesso">

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import InputMask from "react-input-mask";
 import ReactDOM from "react-dom";
-import { dateFormatDB } from "../helpers/helpers";
+import * as helpers from "../helpers/index";
 import CurrencyInput from "react-currency-input";
+import NavContratos from "./NavContratos";
 
 class ContratoAdd extends Component {
   state = {
@@ -32,8 +33,7 @@ class ContratoAdd extends Component {
   };
 
   componentDidMount() {
-    let data_created = dateFormatDB(new Date());
-
+    let data_created = helpers.dateFunc.dateFormatDB(new Date());
     this.setState({ created: data_created });
     this.setState({ vencimento: data_created });
     this.setState({ data_contrato: data_created });
@@ -160,7 +160,11 @@ class ContratoAdd extends Component {
   };
 
   cadastrar = (e) => {
-    if (this.state.id_resp === "") {
+    if (
+      this.state.id_resp === "" ||
+      this.state.aluno == "" ||
+      this.state.curso == ""
+    ) {
     } else {
       const data = this.state;
       fetch("/profile/cadastrar_contrato", {
@@ -186,7 +190,7 @@ class ContratoAdd extends Component {
     return (
       <div>
         <button onClick={this.showStatus}>Show Status</button>
-        <div id="teste"></div>
+        <NavContratos />
         <form className="form_add form_contrato" id="form_add_contrato">
           <div className="cadastro_sucesso">
             <h3>{this.state.msg_send}</h3>
@@ -197,13 +201,7 @@ class ContratoAdd extends Component {
             <div className="div_add add_responsavel">
               <label>Resp.:</label>
               <select onChange={this.handleSelectRespChange}>
-                <option
-                  id="option"
-                  value=""
-                  data-duracao="data-teste"
-                  selected
-                  disabled
-                ></option>
+                <option id="option" value="" selected disabled></option>
                 {this.state.responsaveis.reverse().map((responsaveis) => (
                   <option
                     className="curso_options"
@@ -238,11 +236,7 @@ class ContratoAdd extends Component {
               <select onChange={this.handleSelectCursoChange}>
                 <option value="" selected disabled></option>
                 {this.state.cursos.reverse().map((cursos) => (
-                  <option
-                    data-duracao="teste"
-                    key={cursos.id}
-                    value={cursos.id}
-                  >
+                  <option key={cursos.id} value={cursos.id}>
                     {cursos.id} - {cursos.nome}
                   </option>
                 ))}

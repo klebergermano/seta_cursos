@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import InputMask from "react-input-mask";
 import ReactDOM from "react-dom";
-import { dateFormatDB } from "../helpers/helpers";
+import * as helpers from "../helpers/";
+import NavResponsaveis from "./NavResponsaveis";
 
 class ResponsavelAdd extends Component {
   state = {
@@ -20,7 +21,7 @@ class ResponsavelAdd extends Component {
   };
 
   componentDidMount() {
-    let data_created = dateFormatDB(new Date());
+    let data_created = helpers.dateFunc.dateFormatDB(new Date());
     this.setState({ created: data_created });
   }
 
@@ -264,8 +265,9 @@ class ResponsavelAdd extends Component {
   render() {
     return (
       <div>
+        <NavResponsaveis />
+
         <button onClick={this.showStatus}>Show Status</button>
-        <div id="teste"></div>
         <form className="form_add" id="form_add_responsavel">
           <div className="cadastro_sucesso">
             <h3>{this.state.msg_send}</h3>

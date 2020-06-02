@@ -47,7 +47,6 @@
     border-bottom: 0px;
     padding: 0px 30px 0px 0px;
     #bg_logo {
-      background: #103253;
       height: 60px;
       width: 15%;
       color: #fff;
@@ -81,6 +80,14 @@
             color: #fff;
           }
           a:hover {
+          }
+          .username {
+            padding: 0px 10px;
+            font-weight: bold;
+          }
+          button {
+            cursor: pointer;
+            margin-top: 15px;
           }
         }
       }

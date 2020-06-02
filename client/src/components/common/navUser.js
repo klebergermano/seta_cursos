@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
+import config from "../../config";
 class NavUser extends Component {
   constructor() {
     super();
@@ -16,7 +16,7 @@ class NavUser extends Component {
               {/*
               <Link to="login">Logar</Link>
               */}
-              <Link to="profile">Admin</Link>
+              <Link to={config.BASE_URL_ADMIN}>Admin</Link>
             </li>
           </ul>
         </nav>

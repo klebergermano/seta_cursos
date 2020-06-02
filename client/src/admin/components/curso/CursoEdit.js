@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
-import { dateFormatDB } from "../helpers/helpers";
+import * as helpers from "../helpers/index";
+import NavCursos from "./NavCursos";
 
 class CursoEdit extends Component {
   state = {
@@ -33,7 +34,7 @@ class CursoEdit extends Component {
         })
       )
       .then(() => {
-        let data_created = dateFormatDB(this.state.created);
+        let data_created = helpers.dateFunc.dateFormatDB(this.state.created);
         this.setState({ created: data_created });
 
         this.setState({ id: id });
@@ -75,6 +76,7 @@ class CursoEdit extends Component {
   render() {
     return (
       <div>
+        <NavCursos />
         <button onClick={this.showStatus}>Show Status</button>
         <div id="teste"></div>
         <form className="form_add form_curso" id="form_add_curso">

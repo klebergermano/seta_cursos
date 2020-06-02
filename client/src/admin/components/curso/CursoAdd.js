@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import InputMask from "react-input-mask";
 import ReactDOM from "react-dom";
+import NavCursos from "./NavCursos";
 
 class CursoAdd extends Component {
   state = {
@@ -73,6 +74,7 @@ class CursoAdd extends Component {
   render() {
     return (
       <div>
+        <NavCursos />
         <button onClick={this.showStatus}>Show Status</button>
         <div id="teste"></div>
         <form className="form_add form_curso" id="form_add_curso">

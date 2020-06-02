@@ -1,40 +1,7 @@
 button:disabled {
   background: #ccc !important;
 }
-.nav_cadastros {
-  background: $primary-color;
-  color: #fff;
-  overflow: hidden;
-  background: #fff;
-  margin-bottom: -40px;
-  margin-right: 40px;
-  width: 100%;
-  float: right;
-  li {
-    list-style: none;
-    float: right;
-    overflow: hidden;
-    padding: 0px;
 
-    a {
-      border-radius: 10px;
-
-      background: $primary-color;
-      color: #fff;
-      text-decoration: none;
-      padding: 20px;
-      width: auto;
-      display: block;
-      text-align: center;
-    }
-    a:hover {
-      background: lighten($primary-color, 10%);
-    }
-    a:active {
-      background: darken($primary-color, 10%);
-    }
-  }
-}
 .cadastro_sucesso {
   display: none;
   width: 100%;

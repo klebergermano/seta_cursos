@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import * as helpers from "../helpers/helpers";
+import * as helpers from "../helpers/index";
 import CurrencyInput from "react-currency-input";
 import axios from "axios";
 import { saveAs } from "file-saver";
@@ -61,7 +61,7 @@ class ContratoAdd extends Component {
           let valor_total = document.querySelector("#input_valor_total-" + j);
           let n_lanc = document.querySelector("#input_n_lanc-" + j);
 
-          vencimento.value = helpers.dateFormatDB(
+          vencimento.value = helpers.dateFunc.dateFormatDB(
             this.state.folhas_DB[i].vencimento
           );
           n_lanc.value = this.state.folhas_DB[i].n_lanc;
@@ -84,8 +84,10 @@ class ContratoAdd extends Component {
         this.setState((prevState) => ({
           carne: {
             ...prevState.carne,
-            vencimento: helpers.dateFormatDB(this.state.carne.vencimento),
-            created: helpers.dateFormatDB(this.state.carne.created),
+            vencimento: helpers.dateFunc.dateFormatDB(
+              this.state.carne.vencimento
+            ),
+            created: helpers.dateFunc.dateFormatDB(this.state.carne.created),
           },
         }));
       });
@@ -134,8 +136,8 @@ class ContratoAdd extends Component {
           valor: contratos.valor,
           valor_total: contratos.valor_total,
           desconto: contratos.desconto,
-          vencimento: helpers.dateFormatDB(contratos.vencimento),
-          created: helpers.dateFormatDB(contratos.created),
+          vencimento: helpers.dateFunc.dateFormatDB(contratos.vencimento),
+          created: helpers.dateFunc.dateFormatDB(contratos.created),
         },
       },
       () => {
@@ -255,7 +257,7 @@ class ContratoAdd extends Component {
       let curso = this.state.carne_folhas[i].curso;
       let aluno = this.state.carne_folhas[i].aluno;
       let parcela = this.state.carne_folhas[i].parcela;
-      let vencimento = helpers.dateFormatBR(
+      let vencimento = helpers.dateFunc.dateFormatBR(
         this.state.carne_folhas[i].vencimento
       );
       let valor = this.state.carne_folhas[i].valor;
@@ -359,7 +361,7 @@ class ContratoAdd extends Component {
 
       //adiciona os meses na data contrato nas folhas do carne
       let date = this.state.carne.vencimento;
-      let vencimento = helpers.AddDateMonth(i, date);
+      let vencimento = helpers.dateFunc.AddDateMonth(i, date);
 
       let id_folha;
 

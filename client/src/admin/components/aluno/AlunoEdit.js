@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import InputMask from "react-input-mask";
 
-import { dateFormatDB, dateFormatReverse } from "../helpers/helpers";
+import * as helpers from "../helpers/index";
 
 import ReactDOM from "react-dom";
 
@@ -68,8 +68,8 @@ class AlunoEdit extends Component {
         this.renderStateCel();
         this.renderStateTel();
 
-        let data_created = dateFormatDB(this.state.created);
-        let data_nasc = dateFormatDB(this.state.data_nasc);
+        let data_created = helpers.dateFunc.dateFormatDB(this.state.created);
+        let data_nasc = helpers.dateFunc.dateFormatDB(this.state.data_nasc);
         this.setState({ created: data_created });
         this.setState({ data_nasc: data_nasc });
 
@@ -536,8 +536,8 @@ class AlunoEdit extends Component {
           genero: responsavel.genero,
           endereco: responsavel.endereco,
           bairro: responsavel.bairro,
-          data_nasc: dateFormatDB(responsavel.data_nasc),
-          create: dateFormatReverse(responsavel.created),
+          data_nasc: helpers.dateFunc.dateFormatDB(responsavel.data_nasc),
+          create: helpers.dateFunc.dateFormatReverse(responsavel.created),
         });
       }
     }

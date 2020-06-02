@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import Cookies from "js-cookie";
-import { isAuthenticated } from "../../routes/auth";
 
 import Main from "./home/Main";
 
@@ -18,6 +15,11 @@ import AlunoAdd from "./aluno/AlunoAdd";
 import AlunosView from "./aluno/AlunosView";
 import AlunoEdit from "./aluno/AlunoEdit";
 
+import ClasseView from "./classe/Classe";
+import AlunoClasseView from "./classe/AlunoClasseView";
+import AlunoClasse from "./classe/AlunoClasse";
+import AlunoStatusEdit from "./classe/AlunoStatusEdit";
+
 import CursosView from "./curso/CursosView";
 import CursoAdd from "./curso/CursoAdd";
 import CursoEdit from "./curso/CursoEdit";
@@ -29,21 +31,10 @@ import CarneAdd from "./carnes/CarneAdd";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import GeradorBoleto from "./boleto/GeradorBoleto";
 import HeaderDashboard from "./common/headerDashboard";
 import NavDashboard from "./common/navDashboard";
-import Test from "./teste/test";
-
+import config from "../../config";
 class Dashboard extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userInfo: "",
-    };
-  }
-
-  componentDidMount() {}
-
   render() {
     return (
       <div className="dashboard_container">
@@ -52,45 +43,105 @@ class Dashboard extends Component {
 
         <div id="dashboard_content">
           <Switch>
-            <Route path="/profile/test" component={Test} />
-
-            <Route exact path="/profile" component={Main} />
+            <Route exact path={config.BASE_URL_ADMIN} component={Main} />
 
             <Route
               exact
-              path="/profile/cadastrar_responsavel"
+              path={config.BASE_URL_ADMIN + "/cadastrar_responsavel"}
               component={ResponsavelAdd}
             />
 
             <Route
               exact
-              path="/profile/responsaveis"
+              path={config.BASE_URL_ADMIN + "/responsaveis"}
               component={ResponsaveisView}
             />
             <Route
-              path="/profile/responsavel_edit/"
+              path={config.BASE_URL_ADMIN + "/responsavel_edit/"}
               component={ResponsavelEdit}
             />
             <Route
-              path="/profile/responsavel_resumo/"
+              path={config.BASE_URL_ADMIN + "/responsavel_resumo/"}
               component={ResponsavelResumo}
             />
-            <Route path="/profile/aluno_edit/" component={AlunoEdit} />
-            <Route exact path="/profile/cadastrar_aluno" component={AlunoAdd} />
-            <Route exact path="/profile/alunos" component={AlunosView} />
+            <Route
+              path={config.BASE_URL_ADMIN + "/aluno_edit/"}
+              component={AlunoEdit}
+            />
+            <Route
+              exact
+              path={config.BASE_URL_ADMIN + "/cadastrar_aluno"}
+              component={AlunoAdd}
+            />
+            <Route
+              exact
+              path={config.BASE_URL_ADMIN + "/alunos"}
+              component={AlunosView}
+            />
 
-            <Route path="/profile/cadastrar_contrato" component={ContratoAdd} />
-            <Route path="/profile/contrato_edit/" component={ContratoEdit} />
-            <Route path="/profile/contratos" component={ContratoView} />
+            <Route
+              exact
+              path={config.BASE_URL_ADMIN + "/classe"}
+              component={ClasseView}
+            />
+            <Route
+              exact
+              path={config.BASE_URL_ADMIN + "/Alunos_classe_view"}
+              component={AlunoClasseView}
+            />
+            <Route
+              exact
+              path={config.BASE_URL_ADMIN + "/Alunos_classe"}
+              component={AlunoClasse}
+            />
+            <Route
+              exact
+              path={config.BASE_URL_ADMIN + "/Alunos_status_edit"}
+              component={AlunoStatusEdit}
+            />
 
-            <Route path="/profile/cursos" component={CursosView} />
-            <Route path="/profile/cadastrar_curso" component={CursoAdd} />
-            <Route path="/profile/curso_edit/" component={CursoEdit} />
+            <Route
+              path={config.BASE_URL_ADMIN + "/cadastrar_contrato"}
+              component={ContratoAdd}
+            />
+            <Route
+              path={config.BASE_URL_ADMIN + "/contrato_edit"}
+              component={ContratoEdit}
+            />
+            <Route
+              path={config.BASE_URL_ADMIN + "/contratos"}
+              component={ContratoView}
+            />
 
-            <Route path="/profile/carnes" component={CarnesView} />
-            <Route path="/profile/cadastrar_carne" component={CarneAdd} />
-            <Route path="/profile/carne_edit/" component={CarneEdit} />
-            <Route path="/profile/carne_resumo/" component={CarneResumo} />
+            <Route
+              path={config.BASE_URL_ADMIN + "/cursos"}
+              component={CursosView}
+            />
+            <Route
+              path={config.BASE_URL_ADMIN + "/cadastrar_curso"}
+              component={CursoAdd}
+            />
+            <Route
+              path={config.BASE_URL_ADMIN + "/curso_edit"}
+              component={CursoEdit}
+            />
+
+            <Route
+              path={config.BASE_URL_ADMIN + "/carnes"}
+              component={CarnesView}
+            />
+            <Route
+              path={config.BASE_URL_ADMIN + "/cadastrar_carne"}
+              component={CarneAdd}
+            />
+            <Route
+              path={config.BASE_URL_ADMIN + "/carne_edit"}
+              component={CarneEdit}
+            />
+            <Route
+              path={config.BASE_URL_ADMIN + "/carne_resumo"}
+              component={CarneResumo}
+            />
           </Switch>
         </div>
       </div>
