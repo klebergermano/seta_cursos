@@ -2,24 +2,20 @@ const connection = require("../../config/connection");
 
 async function cursoUpdate(req) {
   return new Promise((resolve, reject) => {
-    let tel = {};
-    let cel = {};
-
     let id = req.body.id;
-
     let update_curso = {
-      curso: req.body.curso,
+      nome: req.body.curso,
       duracao: req.body.duracao,
       valor: req.body.valor,
       obs: req.body.obs,
 
       created: req.body.created,
-      modified: new Date()
+      modified: new Date(),
     };
 
     let sql = "UPDATE curso SET ? WHERE id = ?";
 
-    connection.query(sql, [update_curso, id], err => {
+    connection.query(sql, [update_curso, id], (err) => {
       if (err) {
         return reject(err);
       }

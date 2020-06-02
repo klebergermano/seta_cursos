@@ -3,7 +3,7 @@ configDB = {
   password: "",
   user: "root",
   database: "seta_cursos",
-  host: "localhost"
+  host: "localhost",
 };
 
 module.exports = configDB;

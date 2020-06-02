@@ -1,17 +1,17 @@
 const express = require("express");
 const connection = require("./config/connection");
 const sendNodemailer = require("./nodemailer/sendNodemailer");
+const db = require("./db");
+
+//-----------------------------SESSION USER---------------------------
+const RoutesUser = require("./RoutesUser");
 var session = require("express-session");
 var MySQLStore = require("express-mysql-session")(session);
 const bcrypt = require("bcrypt");
-const db = require("./db");
 
 var sessionStore = new MySQLStore({} /* session store options */, connection);
-
 const saltRounds = 10;
-
 const app = express.Router();
-
 const TWO_HOURS = 1000 * 60 * 60 * 2; // 2 HOURS
 const SESS_NAME = "sid";
 const SESS_SECRET = "setaLogSpK";
@@ -32,10 +32,9 @@ app.use(
   })
 );
 
-app.post("/check_cookie", async (req, res, next) => {
-  res.send(200, { result: true });
-});
+new RoutesUser(app, connection);
 
+//---------------------------------------------------------------------
 //=================================== MAIN DASHBOARD TABLE ====================================
 
 app.get("/profile/cadastros_info", async (req, res) => {
@@ -150,6 +149,34 @@ app.get("/profile/resumo/:id", async (req, res) => {
     results.alunos = res_alunos;
     results.contratos = res_contratos;
     results.carnes = res_carnes;
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//=================================== ALUNO CLASSE TABLE ====================================
+
+//----EDIT ALUNO CLASSE ----------------------
+
+app.post("/profile/aluno_classe_edit", async (req, res) => {
+  try {
+    let results = await db.alunoClasseTable.update(req);
+    if (results) {
+      res.send({ msg_send: "Contrato atualizado com Sucesso!" });
+    }
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+//-- VIEW CLASSE --------------------------------
+
+app.get("/profile/alunos_classe", async (req, res) => {
+  try {
+    let results = await db.alunoClasseTable.view();
+    console.log(results);
     res.json(results);
   } catch (e) {
     console.log(e);
