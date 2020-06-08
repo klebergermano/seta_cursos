@@ -15,9 +15,12 @@ import CreditCard from "./Credit_card";
 import Books from "./Books";
 import FileText2 from "./File_text2";
 import Eye from "./eye";
+import Mug from "./Mug";
 
 const Icon = (props) => {
   switch (props.name) {
+    case "mug":
+      return <Mug {...props} />;
     case "cog":
       return <Cog {...props} />;
     case "eye":

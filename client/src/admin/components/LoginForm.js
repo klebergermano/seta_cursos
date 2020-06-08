@@ -51,11 +51,11 @@ const LoginForm = () => {
   return (
     <div>
       <form className="loginForm" onSubmit={doLogin}>
-        <h2>Log In</h2>
+        <h2>Login</h2>
         <div>
           <input
             type="text"
-            placeholder="Username"
+            placeholder="Usuário"
             name="username"
             onChange={handleUsernameChange}
             value={inputUsername}
@@ -64,13 +64,13 @@ const LoginForm = () => {
         <div>
           <input
             type="password"
-            placeholder="password"
+            placeholder="Senha"
             name="password"
             onChange={handlePasswordChange}
             value={inputPassword}
           />
         </div>
-        <button>Login</button>
+        <button>Logar</button>
       </form>
     </div>
   );

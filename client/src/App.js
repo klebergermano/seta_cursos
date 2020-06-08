@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./assets/css/style.css";
+import config from "./";
 
 import {
   BrowserRouter as Router,
@@ -11,7 +12,6 @@ import {
 import Admin from "./admin/components/Admin";
 import Teste from "./test";
 
-import CreateUser from "./admin/components/createUser";
 import Header from "./components/common/header";
 import Footer from "./components/common/footer";
 import Homepage from "./components/pages/homepage";
@@ -29,8 +29,6 @@ class App extends Component {
                 <Admin />{" "}
               </AuthProvider>
             </Route>
-
-            <Route path="/create_user" component={CreateUser} />
 
             <Route path="/">
               <div className="container">

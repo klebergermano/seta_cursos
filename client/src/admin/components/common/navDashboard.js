@@ -18,6 +18,18 @@ class NavDashboard extends Component {
               </li>
             </ul>
             <li>
+              <span>Gerenciamento</span>
+
+              <ul>
+                <li>
+                  <Link to={config.BASE_URL_ADMIN + "/users_view"}>
+                    <Icon name="mug" className="icon icon_resp" />
+                    Usuários
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            <li>
               <span>Cadastros</span>
 
               <ul>

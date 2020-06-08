@@ -783,14 +783,14 @@ button:disabled {
 .form_contrato .add_vencimento input {
   width: 60%;
 }
-.form_contrato .add_created {
+.form_contrato errorFeedback .add_created {
   width: 45%;
   float: right;
 }
-.form_contrato .add_created label {
+.form_contrato errorFeedback .add_created label {
   width: 40%;
 }
-.form_contrato .add_created input {
+.form_contrato errorFeedback .add_created input {
   width: 50%;
 }
 .form_contrato .data_creado_em {
@@ -812,6 +812,34 @@ button:disabled {
 }
 .form_contrato .div_add label {
   font-size: 16px;
+}
+
+#page_user_form h1 {
+  text-align: center;
+}
+
+.form_user {
+  overflow: hidden;
+}
+.form_user label {
+  width: 140px !important;
+}
+.form_user select,
+.form_user input {
+  width: 77.2% !important;
+  padding: 4px;
+  border: 1px solid #ccc;
+}
+
+.errorFeedback {
+  clear: both;
+  font-size: 12px;
+  color: red;
+  float: right;
+  width: 100%;
+  text-align: right;
+  display: block;
+  margin-bottom: -2px;
 }
 
 .view_aluno_classe td {

@@ -22,32 +22,6 @@ class CursoAdd extends Component {
     console.log(this.state);
   };
 
-  delTel = (e) => {
-    e.preventDefault();
-    let num = document.querySelectorAll(".input_tel").length;
-    let num_array = parseInt(num - 1);
-
-    if (num > 0) {
-      let target = document.getElementById("block_tel_" + num);
-      ReactDOM.unmountComponentAtNode(target);
-      let tel = "tel_" + num;
-      this.setState((prevState) => ({
-        telefones: {
-          // object that we want to update
-          ...prevState.telefones, // keep all other key-value pairs
-          [num_array]: {},
-        },
-      }));
-
-      num--;
-
-      if (num < 1) {
-        let btn_del = document.querySelector(".btn_delTel_input");
-        btn_del.style.background = "#ccc";
-      }
-    }
-  };
-
   cadastrar = (e) => {
     if (this.state.curso === "" || this.state.curso === " ") {
     } else {
@@ -76,7 +50,6 @@ class CursoAdd extends Component {
       <div>
         <NavCursos />
         <button onClick={this.showStatus}>Show Status</button>
-        <div id="teste"></div>
         <form className="form_add form_curso" id="form_add_curso">
           <div className="cadastro_sucesso">
             <h3>{this.state.msg_send}</h3>

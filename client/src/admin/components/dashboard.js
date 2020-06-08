@@ -29,6 +29,10 @@ import CarneEdit from "./carnes/CarneEdit";
 import CarneResumo from "./carnes/CarneResumo";
 import CarneAdd from "./carnes/CarneAdd";
 
+import UserEdit from "./user/UserEdit";
+import UserAdd from "./user/UserAdd";
+import UsersView from "./user/UsersView";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import HeaderDashboard from "./common/headerDashboard";
@@ -44,6 +48,21 @@ class Dashboard extends Component {
         <div id="dashboard_content">
           <Switch>
             <Route exact path={config.BASE_URL_ADMIN} component={Main} />
+
+            <Route
+              exact
+              path={config.BASE_URL_ADMIN + "/cadastrar_usuario"}
+              component={UserAdd}
+            />
+            <Route
+              path={config.BASE_URL_ADMIN + "/user_edit/"}
+              component={UserEdit}
+            />
+            <Route
+              exact
+              path={config.BASE_URL_ADMIN + "/users_view"}
+              component={UsersView}
+            />
 
             <Route
               exact

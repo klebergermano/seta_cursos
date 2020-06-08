@@ -597,7 +597,7 @@ button:disabled {
       width: 60%;
     }
   }
-  .add_created {
+  errorFeedback .add_created {
     width: 45%;
     float: right;
     label {
@@ -629,5 +629,33 @@ button:disabled {
     }
   }
 }
+//--------------------------------USERS---------------------------
+#page_user_form {
+  h1 {
+    text-align: center;
+  }
+}
+.form_user {
+  overflow: hidden;
+  label {
+    width: 140px !important;
+  }
 
+  select,
+  input {
+    width: 77.2% !important;
+    padding: 4px;
+    border: 1px solid #ccc;
+  }
+}
 //----------------------------------------------------------------------------------------
+.errorFeedback {
+  clear: both;
+  font-size: 12px;
+  color: red;
+  float: right;
+  width: 100%;
+  text-align: right;
+  display: block;
+  margin-bottom: -2px;
+}
