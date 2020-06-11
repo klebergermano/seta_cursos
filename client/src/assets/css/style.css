@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Titillium+Web&display=swap");
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -982,157 +983,254 @@ textarea {
   text-align: center;
 }
 
-#computing_course {
+#bg_informatica {
+  overflow: hidden;
   background: #f0f0f0;
-  padding: 20px;
-  padding-bottom: 60px;
-  height: auto;
-  max-height: 760px;
-  overflow: hidden;
-}
-#computing_course h2 {
-  text-align: center;
-  padding: 5px;
-}
-#computing_course .fadeOut {
-  animation-name: hide_modules;
-  animation-duration: 0.5s;
-}
-@keyframes hide_modules {
-  from {
-    opacity: 1;
-    display: block;
-  }
-  to {
-    opacity: 0;
-    display: none;
-  }
-}
-#computing_course #content_computing {
-  width: 1173px;
-  max-height: 600px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-#computing_course #content_computing #list_computing {
-  width: 20%;
-  min-height: 100%;
-  float: right;
-}
-#computing_course #content_computing #list_computing ul li {
-  list-style: none;
-  padding: 15px 25px;
-  border-bottom: 1px solid #ccc;
-  cursor: pointer;
-  background: #f8f8f8;
-}
-#computing_course #content_computing #list_computing ul li:hover {
-  background: #064a77;
-  color: #fff;
-}
-#computing_course #content_computing #list_computing ul .mod_active {
-  background: #064a77 !important;
-  color: #fff;
-}
-#computing_course #content_computing .sub_info_computing {
-  float: left;
-  width: 80%;
-  border: 0px solid #f90;
-  min-height: 705px;
-  margin-left: 0px;
-  background: #333;
-}
-#computing_course #content_computing .sub_info_computing .sub_modules {
-  display: none;
-  padding: 0px;
   height: 600px;
-}
-#computing_course #content_computing .sub_info_computing .sub_modules .modules {
-  overflow: hidden;
-  padding: 20px;
-  width: 100%;
-  height: 600px;
-}
-#computing_course #content_computing .sub_info_computing .sub_modules .modules h2 {
-  color: #fff;
-  text-align: center;
-}
-#computing_course #content_computing .sub_info_computing .sub_modules .modules p {
-  color: #fff;
-}
-#computing_course #content_computing .sub_info_computing .sub_modules .m_sub_intro_info {
-  background: url("https://abtectatui.com.br/wp-content/uploads/2018/04/curso-de-informatica-1.jpg");
-  background-size: cover;
-}
-#computing_course #content_computing .sub_info_computing .sub_modules .m_sub_impressao {
-  background: url("https://dmartvisual.com.br/wp-content/uploads/2019/03/Dicas-para-salvar-seu-arquivo-para-impressao-970x637.jpg");
-  background-size: cover;
-}
-#computing_course #content_computing .sub_info_computing .sub_modules .m_sub_interfaces {
-  background: url("https://fsg.edu.br/blog/wp-content/uploads/2015/04/como-escrevem-bem-trabalho.jpg");
-  background-size: cover;
-}
-#computing_course #content_computing .sub_info_computing .sub_modules .m_sub_windows {
-  background: url("https://msp7l1170302145284.blob.core.windows.net/ms-p7-l1-170302-1453-24-assets/Windows10s_Streamlined_800X450.png");
-  background-size: cover;
-}
-#computing_course #content_computing .sub_info_computing .sub_modules .m_sub_windows #windows_modulos {
   position: relative;
-  overflow: hidden;
-  top: 110px;
-  height: 65%;
   width: 100%;
-  overflow: hidden;
-  display: grid;
-  grid-gap: 2px;
-  grid-template-columns: 50% 50%;
+  margin-bottom: 0px;
 }
-#computing_course #content_computing .sub_info_computing .sub_modules .m_sub_windows #windows_modulos div .div {
-  height: 100%;
-  padding: 20px 20px 20px 30px;
-  background: #064a77;
-}
-#computing_course #content_computing .sub_info_computing .sub_modules .m_sub_windows #windows_modulos div .div h3 {
-  color: #ff6;
-  width: 100%;
+#bg_informatica h1.title {
   text-align: center;
-  clear: both;
-  column-count: 1;
+  padding: 20px;
+  background: #064a77;
+  color: #fff;
 }
-#computing_course #content_computing .sub_info_computing .sub_modules .m_sub_windows #windows_modulos div .div div p {
-  column-count: 2;
+#bg_informatica #container_informatica {
+  width: 100%;
+  height: auto;
 }
-#computing_course #content_computing .sub_info_computing .sub_modules .m_sub_windows #windows_modulos div .div div p li {
-  font-size: 14px;
-  padding: 5px 0px 5px 5px;
+
+.modulos_informatica {
+  width: 100%;
+  max-height: 550px;
+  display: none;
 }
-#computing_course #content_computing .sub_info_computing .sub_modules .m_sub_celulares {
-  background: url("https://s2.glbimg.com/_wWaAyQ_knCsvxbxjWPXUhWKmkw=/850x446/s2.glbimg.com/5dHKE9BZX37Xoo26GOBRxbggnOU=/0x0:695x463/695x463/s.glbimg.com/po/tt2/f/original/2016/01/11/wpp.jpg");
-  background-size: cover;
+.modulos_informatica .modulo_content {
+  max-width: 1170px;
+  margin: 0 auto;
+  max-height: 550px;
 }
-#computing_course #content_computing .sub_info_computing .sub_modules .m_sub_hadware {
-  background: url("https://tecnoblog.net/wp-content/uploads/2019/10/cyber-2377718_1280-cut-700x394.jpg");
-  background-size: cover;
+.modulos_informatica p,
+.modulos_informatica li,
+.modulos_informatica h1,
+.modulos_informatica h2,
+.modulos_informatica h3,
+.modulos_informatica h4,
+.modulos_informatica span {
+  color: #444;
 }
-#computing_course #content_computing .sub_info_computing .sub_modules .m_sub_internet {
-  background: url("https://image.freepik.com/free-vector/internet-of-things-background_23-2147642067.jpg");
-  background-size: cover;
+.modulos_informatica h1 {
+  padding: 0px !important;
+  width: 50%;
+  margin-top: 20px;
+  text-align: left !important;
 }
-#computing_course #content_computing .sub_info_computing .sub_modules .m_sub_office {
-  background: url("http://getwallpapers.com/wallpaper/full/8/2/b/1256057-microsoft-office-wallpaper-themes-1920x1080-iphone.jpg");
-  background-size: cover;
+.modulos_informatica .descricao_modulo {
+  width: 50%;
+  padding: 20px 0px;
 }
-#computing_course #content_computing .sub_info_computing .sub_modules .m_sub_sistemas_operacionais {
-  background: url("https://e-tinet.com/wp-content/uploads/2017/06/Conheca-os-melhores-sistemas-operacionais-do-mercado.gif");
-  background-size: cover;
+.modulos_informatica .resumo {
+  width: 45%;
+  line-height: 22px;
 }
-#computing_course #content_computing .sub_info_computing .sub_modules .m_sub_redes {
-  background: url("https://revistanordeste.com.br/wp-content/uploads/2017/12/internet.jpeg");
-  background-size: cover;
+.modulos_informatica .conteudo_modulo {
+  float: left;
+  width: 50%;
+  max-height: 550px;
 }
-#computing_course #content_computing .sub_info_computing .sub_modules .m_sub_conceitos_programacao {
-  background: url("https://pplware.sapo.pt/wp-content/uploads/2017/12/programming_03-720x481.jpg");
-  background-size: cover;
+.modulos_informatica .conteudo_modulo h3 {
+  width: 100%;
+  color: #064a77;
+  margin-top: 20px;
+}
+.modulos_informatica .conteudo_modulo h4 {
+  color: #064a77;
+}
+.modulos_informatica .conteudo_modulo div {
+  display: block;
+  column-count: auto;
+  padding: 20px;
+  max-height: 330px;
+  line-height: 30px;
+  column-width: 200px;
+  max-width: 80%;
+}
+.modulos_informatica figure {
+  display: block;
+  float: right;
+  max-width: 50%;
+  position: absolute;
+  right: 0px;
+  top: -30px;
+}
+.modulos_informatica figure img {
+  width: 100%;
+}
+
+#modulo-introducao {
+  display: block;
+}
+
+#modulo-windows .conteudo_modulo {
+  overflow: hidden;
+  width: 72%;
+}
+#modulo-windows .conteudo_modulo div {
+  max-width: 100%;
+}
+#modulo-windows .conteudo_modulo li {
+  line-height: 24px;
+}
+#modulo-windows figure {
+  width: 38%;
+  max-width: 350px;
+}
+
+#modulo-office .resumo {
+  width: 72%;
+}
+#modulo-office figure {
+  position: default;
+  display: block;
+  width: 300px;
+  height: auto;
+}
+#modulo-office figure img {
+  max-width: 300px;
+  width: auto;
+  height: auto;
+}
+#modulo-office .conteudo_modulo {
+  background: #f8f8f8;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 5px;
+  overflow: default;
+  width: 100%;
+  padding: 20px;
+  max-height: 360px;
+  overflow: default;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+#modulo-office .conteudo_modulo h3 {
+  margin-top: 0px;
+  margin-left: 20px;
+  text-align: left;
+}
+#modulo-office .conteudo_modulo div {
+  padding: 0px;
+  max-height: 600px;
+  height: 600px;
+  width: 90%;
+  display: flex;
+}
+#modulo-office .conteudo_modulo div .span_office {
+  padding: 10px;
+  flex: auto;
+  display: block;
+  float: left;
+  padding: 20px;
+  width: 100%;
+  overflow: hidden;
+}
+#modulo-office .conteudo_modulo div .span_office h4 {
+  font-size: 18px;
+}
+#modulo-office .conteudo_modulo div .span_office li {
+  list-style: none;
+  line-height: 32px;
+}
+#modulo-office .conteudo_modulo div .span_office li::before {
+  content: "•";
+  color: #344396;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+#modulo-office .conteudo_modulo div .span_office:nth-child(1) h4,
+#modulo-office .conteudo_modulo div .span_office:nth-child(1) li::before {
+  color: #24589b;
+}
+#modulo-office .conteudo_modulo div .span_office:nth-child(2) h4,
+#modulo-office .conteudo_modulo div .span_office:nth-child(2) li::before {
+  color: #1c7346;
+}
+#modulo-office .conteudo_modulo div .span_office:nth-child(3) h4,
+#modulo-office .conteudo_modulo div .span_office:nth-child(3) li::before {
+  color: #d34828;
+}
+#modulo-office .conteudo_modulo li {
+  line-height: 24px;
+}
+
+#nav_informatica {
+  padding: 5px 0px 0px 0px;
+}
+#nav_informatica ul {
+  display: flex;
+  align-items: left;
+  margin: 0 auto;
+  max-width: 1170px;
+  overflow: hidden;
+  flex-direction: row;
+}
+#nav_informatica ul li {
+  flex: 1 auto;
+  text-align: center;
+  margin: 0px;
+  /* and that, will result in a 10px gap */
+  display: block;
+  list-style: none;
+  width: auto;
+  text-align: center;
+  padding: 0px 0px;
+}
+#nav_informatica ul li a {
+  background: #f0f0f0;
+  width: 100%;
+  padding: 10px 0px;
+  display: block;
+  float: left;
+  border: 1px solid #999;
+}
+#nav_informatica ul li a:hover {
+  cursor: pointer;
+  background: #eb1e44;
+  color: #fff;
+}
+#nav_informatica ul li .active {
+  cursor: pointer;
+  background: #eb1e44;
+  color: #fff;
+}
+
+#bg_english {
+  background: #fff;
+  min-height: 650px;
+  margin-bottom: 0px;
+}
+#bg_english h1 {
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  background: #eb1e44;
+}
+
+#bg_excel {
+  margin-top: 0px;
+  background: #f0f0f0;
+  min-height: 500px;
+  margin-bottom: 0px;
+}
+#bg_excel h1 {
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  background: #0b694a;
 }
 
 #about {
@@ -1230,8 +1328,20 @@ footer #footer_center {
   width: 1173px;
 }
 
-body {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+a,
+span {
   font-family: "Titillium Web", sans-serif;
+  margin: 0px;
+  padding: 0px;
 }
 
 #bg_content {

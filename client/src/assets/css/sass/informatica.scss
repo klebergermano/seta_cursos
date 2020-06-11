@@ -1,0 +1,249 @@
+#bg_informatica {
+  overflow: hidden;
+  background: #f0f0f0;
+  height: 600px;
+  position: relative;
+  width: 100%;
+  margin-bottom: 0px;
+  h1.title {
+    text-align: center;
+    padding: 20px;
+    background: $primary-color;
+    color: #fff;
+  }
+  #container_informatica {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.modulos_informatica {
+  width: 100%;
+  max-height: 550px;
+  display: none;
+
+  .modulo_content {
+    max-width: 1170px;
+    margin: 0 auto;
+    max-height: 550px;
+  }
+  p,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  span {
+    color: #444;
+  }
+
+  h1 {
+    padding: 0px !important;
+    width: 50%;
+    margin-top: 20px;
+    text-align: left !important;
+  }
+  .descricao_modulo {
+    width: 50%;
+    padding: 20px 0px;
+  }
+  .resumo {
+    width: 45%;
+    line-height: 22px;
+  }
+  .conteudo_modulo {
+    float: left;
+    width: 50%;
+    max-height: 550px;
+    h3 {
+      width: 100%;
+      color: $primary-color;
+      margin-top: 20px;
+    }
+    h4 {
+      color: $primary-color;
+    }
+    div {
+      display: block;
+      column-count: auto;
+      padding: 20px;
+      max-height: 330px;
+      line-height: 30px;
+      column-width: 200px;
+      max-width: 80%;
+    }
+  }
+
+  figure {
+    display: block;
+    float: right;
+    max-width: 50%;
+    position: absolute;
+    right: 0px;
+    top: -30px;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+#modulo-introducao {
+  display: block;
+}
+
+//-----Windows Modulo---
+#modulo-windows {
+  .conteudo_modulo {
+    overflow: hidden;
+    width: 72%;
+    div {
+      max-width: 100%;
+    }
+    li {
+      line-height: 24px;
+    }
+  }
+  figure {
+    width: 38%;
+    max-width: 350px;
+  }
+}
+
+//-----Office Modulo---
+
+#modulo-office {
+  .resumo {
+    width: 72%;
+  }
+  figure {
+    position: default;
+    display: block;
+    width: 300px;
+    height: auto;
+
+    img {
+      max-width: 300px;
+      width: auto;
+      height: auto;
+    }
+  }
+  .conteudo_modulo {
+    background: #f8f8f8;
+    border-radius: 5px;
+    margin-top: 10px;
+
+    padding: 5px;
+    overflow: default;
+    width: 100%;
+    padding: 20px;
+    max-height: 360px;
+    overflow: default;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    h3 {
+      margin-top: 0px;
+      margin-left: 20px;
+      text-align: left;
+    }
+    div {
+      padding: 0px;
+      max-height: 600px;
+      height: 600px;
+      width: 90%;
+      display: flex;
+      .span_office {
+        padding: 10px;
+        h4 {
+          font-size: 18px;
+        }
+        flex: auto;
+
+        display: block;
+        float: left;
+        padding: 20px;
+        width: 100%;
+        overflow: hidden;
+        li {
+          list-style: none;
+          line-height: 32px;
+        }
+        li::before {
+          content: "\2022";
+
+          color: rgb(52, 67, 150);
+          font-weight: bold;
+          display: inline-block;
+          width: 1em;
+          margin-left: -1em;
+        }
+      }
+      .span_office:nth-child(1) {
+        h4,
+        li::before {
+          color: #24589b;
+        }
+      }
+      .span_office:nth-child(2) {
+        h4,
+        li::before {
+          color: #1c7346;
+        }
+      }
+      .span_office:nth-child(3) {
+        h4,
+        li::before {
+          color: #d34828;
+        }
+      }
+    }
+
+    li {
+      line-height: 24px;
+    }
+  }
+}
+//Nav Modulo
+#nav_informatica {
+  padding: 5px 0px 0px 0px;
+  ul {
+    display: flex;
+    align-items: left;
+    margin: 0 auto;
+    max-width: 1170px;
+    overflow: hidden;
+
+    flex-direction: row;
+
+    li {
+      flex: 1 auto;
+      text-align: center;
+
+      margin: 0px; /* and that, will result in a 10px gap */
+      display: block;
+      list-style: none;
+      width: auto;
+      text-align: center;
+      padding: 0px 0px;
+
+      a {
+        background: #f0f0f0;
+        width: 100%;
+        padding: 10px 0px;
+        display: block;
+        float: left;
+        border: 1px solid #999;
+
+        &:hover {
+          cursor: pointer;
+          background: $secondary-color;
+          color: #fff;
+        }
+      }
+      .active {
+        cursor: pointer;
+        background: $secondary-color;
+        color: #fff;
+      }
+    }
+  }
+}

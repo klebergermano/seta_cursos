@@ -1,0 +1,44 @@
+import React, { Component } from "react";
+import { Animated } from "react-animated-css";
+import NavInformatica from "./modulos_informatica/navInformatica";
+
+import Introducao from "./modulos_informatica/Introducao";
+import Hadware from "./modulos_informatica/Hadware";
+import Dispositivos from "./modulos_informatica/Dispositivos";
+import Impressao from "./modulos_informatica/Impressao";
+
+import Windows from "./modulos_informatica/Windows";
+import Office from "./modulos_informatica/Office";
+import Internet from "./modulos_informatica/Internet";
+import Rede from "./modulos_informatica/Rede";
+import Impressoras from "./modulos_informatica/Impressoras";
+
+import Celulares from "./modulos_informatica/Celulares";
+
+class Informatica extends Component {
+  state = {};
+
+  render() {
+    return (
+      <div className="col-12" id="bg_informatica">
+        <h1 className="title">Curso de Informática</h1>
+        <NavInformatica />
+        <div id="container_informatica">
+          <Introducao />
+          <Hadware />
+          <Dispositivos />
+          <Impressao />
+
+          <Windows />
+          <Office />
+          <Internet />
+          <Rede />
+          <Impressoras />
+          <Celulares />
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Informatica;

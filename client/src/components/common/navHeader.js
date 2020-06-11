@@ -52,7 +52,7 @@ class NavHeader extends Component {
                 <li>
                   <Link
                     activeClass="active"
-                    to="computing_course"
+                    to="bg_informatica"
                     spy={true}
                     smooth={true}
                     offset={-70}

@@ -14,7 +14,7 @@ import Teste from "./test";
 
 import Header from "./components/common/header";
 import Footer from "./components/common/footer";
-import Homepage from "./components/pages/homepage";
+import Homepage from "./components/pages/Homepage";
 import NotFound404 from "./components/NotFound404";
 import { AuthProvider } from "./context/AuthContext";
 

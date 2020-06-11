@@ -1,6 +1,19 @@
-body {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+a,
+span {
   font-family: "Titillium Web", sans-serif;
+  margin: 0px;
+  padding: 0px;
 }
+
 #bg_content {
   z-index: 10;
   overflow: hidden;

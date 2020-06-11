@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SlideHome from "../common/slideHome";
 
-import Courses from "./courses";
+import Cursos from "./Cursos";
 import About from "./about";
 import Contact from "./contact";
 
@@ -16,7 +16,7 @@ class Homepage extends Component {
         <SlideHome />
 
         <div id="bg_content">
-          <Courses />
+          <Cursos />
           <About />
           <Contact />
         </div>

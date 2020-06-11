@@ -7,7 +7,6 @@ class Header extends Component {
   render() {
     return (
       <header id="header_website">
-        <NavUser />
         <div id="header_center">
           <a href="./" id="logo">
             <img src={require("../../assets/img/logo.png")} />
