@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import NavHeader from "./navHeader";
-import NavUser from "./navUser";
 
 class Header extends Component {
   state = {};

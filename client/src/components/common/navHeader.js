@@ -27,10 +27,10 @@ class NavHeader extends Component {
             <a id="a_cursos">
               <Link
                 activeClass="active"
-                to="bg_courses"
+                to="bg_resumo_cursos"
                 spy={true}
                 smooth={true}
-                offset={-70}
+                offset={-60}
                 duration={600}
               >
                 Cursos
@@ -40,10 +40,10 @@ class NavHeader extends Component {
                 <li>
                   <Link
                     activeClass="active"
-                    to="see_more"
+                    to="bg_resumo_cursos"
                     spy={true}
                     smooth={true}
-                    offset={-70}
+                    offset={-60}
                     duration={600}
                   >
                     Sobre os Cursos
@@ -55,7 +55,7 @@ class NavHeader extends Component {
                     to="bg_informatica"
                     spy={true}
                     smooth={true}
-                    offset={-70}
+                    offset={-60}
                     duration={600}
                   >
                     Informática
@@ -65,7 +65,7 @@ class NavHeader extends Component {
                   <Link
                     activeClass="active"
                     className="sub_menu"
-                    to="english_course"
+                    to="bg_english"
                     spy={true}
                     smooth={true}
                     offset={-70}
@@ -78,7 +78,7 @@ class NavHeader extends Component {
                   <Link
                     activeClass="active"
                     className="sub_menu"
-                    to="excel_course"
+                    to="bg_excel"
                     spy={true}
                     smooth={true}
                     offset={-70}

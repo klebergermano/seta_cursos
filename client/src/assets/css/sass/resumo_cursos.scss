@@ -1,0 +1,79 @@
+#bg_resumo_cursos {
+  padding: 80px 0px;
+  display: flex;
+
+  position: relative;
+  max-width: 1170px;
+  margin: 0 auto;
+  h1 {
+    padding: 30px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    background: #f8f8f8;
+
+    color: $primary-color;
+    border-radius: 5px 5px 0px 0px;
+    font-size: 24px;
+    left: 0px;
+  }
+  .bloco_resumo {
+    position: relative;
+    border: 2px solid #f0f0f0;
+    border-top: 0px;
+    margin-top: 95px;
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 60px;
+    p {
+      color: #555;
+    }
+
+    h2 {
+      text-align: center;
+      padding: 20px 0px 10px 0px;
+    }
+    a {
+      cursor: pointer;
+      position: absolute;
+      display: block;
+      left: 35%;
+      bottom: 10px;
+      width: 30%;
+      text-decoration: underline;
+      text-align: center;
+      padding: 5px;
+      border-radius: 5px;
+      color: #333;
+
+      &:hover {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+  #resumo_informatica {
+    h2 {
+      color: $primary-color;
+    }
+    a:hover {
+      background: $primary-color;
+    }
+  }
+  #resumo_english {
+    h2 {
+      color: $secondary-color;
+    }
+    a:hover {
+      background: $secondary-color;
+    }
+  }
+  #resumo_excel {
+    h2 {
+      color: $tertiary-color;
+    }
+    a:hover {
+      background: $tertiary-color;
+    }
+  }
+}

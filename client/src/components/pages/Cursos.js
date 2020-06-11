@@ -10,19 +10,11 @@ class Courses extends Component {
   state = {};
   render() {
     return (
-      <div id="bg_courses">
-        <div id="courses">
-          <ResumoCursos />
-          <div>
-            <Informatica />
-          </div>
-          <div>
-            <English />
-          </div>
-          <div>
-            <Excel />
-          </div>
-        </div>
+      <div id="bg_cursos">
+        <ResumoCursos />
+        <Informatica />
+        <English />
+        <Excel />
       </div>
     );
   }

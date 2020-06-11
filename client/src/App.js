@@ -1,24 +1,19 @@
 import React, { Component } from "react";
 import "./assets/css/style.css";
-import config from "./";
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Admin from "./admin/components/Admin";
-import Teste from "./test";
 
 import Header from "./components/common/header";
 import Footer from "./components/common/footer";
 import Homepage from "./components/pages/Homepage";
 import NotFound404 from "./components/NotFound404";
 import { AuthProvider } from "./context/AuthContext";
+const isMobile = window.innerWidth <= 480;
 
 class App extends Component {
+  state = {};
   render() {
     return (
       <div>
@@ -40,7 +35,7 @@ class App extends Component {
                 <Footer />
               </div>
             </Route>
-            <Route path="*" component={NotFound404} />
+            <Route path="/*" component={NotFound404} />
           </Switch>
         </Router>
       </div>
