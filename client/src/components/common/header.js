@@ -1,20 +1,15 @@
-import React, { Component } from "react";
-import NavHeader from "./navHeader";
+import React, { useContext } from "react";
+import HeaderDesktop from "./HeaderDesktop";
+import HeaderMobile from "./HeaderMobile";
+import { MobileContext } from "../../context/MobileContext";
 
-class Header extends Component {
-  state = {};
-  render() {
-    return (
-      <header id="header_website">
-        <div id="header_center">
-          <a href="./" id="logo">
-            <img src={require("../../assets/img/logo.png")} />
-          </a>
-          <NavHeader />
-        </div>
-      </header>
-    );
+const Header = () => {
+  const isMobile = useContext(MobileContext);
+
+  if (isMobile) {
+    return <HeaderMobile />;
+  } else {
+    return <HeaderDesktop />;
   }
-}
-
+};
 export default Header;

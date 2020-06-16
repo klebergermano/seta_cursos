@@ -5,15 +5,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Admin from "./admin/components/Admin";
 
-import Header from "./components/common/header";
+import Header from "./components/common/Header";
 import Footer from "./components/common/footer";
 import Homepage from "./components/pages/Homepage";
 import NotFound404 from "./components/NotFound404";
 import { AuthProvider } from "./context/AuthContext";
-const isMobile = window.innerWidth <= 480;
-
+import { MobileProvider } from "./context/MobileContext";
 class App extends Component {
-  state = {};
   render() {
     return (
       <div>
@@ -26,14 +24,16 @@ class App extends Component {
             </Route>
 
             <Route path="/">
-              <div className="container">
-                <Header />
-                <div id="content">
-                  <Homepage />
+              <MobileProvider>
+                <div className="container">
+                  <Header />
+                  <div id="main_content">
+                    <Homepage />
+                  </div>
+                  {/* content */}
+                  <Footer />
                 </div>
-                >{/* content */}
-                <Footer />
-              </div>
+              </MobileProvider>
             </Route>
             <Route path="/*" component={NotFound404} />
           </Switch>

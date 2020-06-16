@@ -1,0 +1,77 @@
+#header_website_mobile {
+  z-index: 1;
+  border-bottom: 5px solid $secondary-color;
+  top: 0px;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  height: 60px;
+  overflow: hidden;
+  border-bottom: 5px solid $secondary-color;
+
+  #logo {
+    overflow: hidden;
+    display: block;
+    width: 120px;
+    padding: 15px;
+    float: left;
+    img {
+      max-width: 100%;
+    }
+  }
+
+  #nav_header_mobile {
+    li {
+      list-style: none;
+    }
+
+    #btn_menu {
+      margin: 5px;
+      border-radius: 5px;
+      float: right;
+      width: 60px;
+      height: 45px;
+      padding: 0px;
+      background: $primary-color;
+      box-shadow: 0px 2px 1px #333;
+    }
+    .icon {
+      display: block;
+      margin: auto;
+      width: 35px;
+      margin-top: 5px;
+      height: auto;
+      fill: #fff !important;
+    }
+
+    #submenu_mobile {
+      z-index: 10;
+      width: 100%;
+      top: 60px;
+      max-height: 500px;
+      position: absolute;
+      overflow: hidden;
+      border-bottom: 0px solid $secondary-color;
+      transition: max-height 0.5s, opacity 0.5s ease-in-out;
+
+      li {
+        a {
+          width: 100%;
+          display: block;
+          padding: 15px 20px;
+          background: #f8f8f8;
+
+          text-align: left;
+          border-bottom: 1px solid #ccc;
+          font-size: 18px;
+        }
+        &:last-child {
+          border-bottom: 5px solid $secondary-color;
+        }
+      }
+    }
+    .submenu_closed {
+      max-height: 0px !important;
+    }
+  }
+} /*headerMobile*/

@@ -2,7 +2,9 @@
 @import "./base/normalize.scss";
 @import "./base/grid.scss";
 @import "./variables.scss";
-@import "./header.scss";
+@import "./common.scss";
+@import "./header_desktop.scss";
+@import "./header_mobile.scss";
 @import "./navUser.scss";
 @import "./slideHome.scss";
 @import "./resumo_cursos.scss";
@@ -14,4 +16,3 @@
 @import "./contact.scss";
 @import "./form.scss";
 @import "./footer.scss";
-@import "./common.scss";

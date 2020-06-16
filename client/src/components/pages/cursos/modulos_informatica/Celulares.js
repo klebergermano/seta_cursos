@@ -7,17 +7,20 @@ class Celulares extends Component {
     return (
       <div className="modulos_informatica " id="modulo-celulares">
         <div className="modulo_content">
-          <Animated
-            animationIn="fadeIn"
-            animationOut="fadeOut"
-            isVisible={true}
-          >
-            <h1>Celulares</h1>
+          <div className="bloco_1">
+            <Animated
+              animationIn="fadeIn"
+              animationOut="fadeOut"
+              isVisible={true}
+              animationInDuration={1500}
+            >
+              <h1>Celulares</h1>
+            </Animated>
             <Animated
               animationIn="slideInUp"
               animationOut="fadeOut"
               isVisible={true}
-              animationInDuration={2000}
+              animationInDuration={1000}
             >
               <div className="resumo">
                 <p>
@@ -26,8 +29,14 @@ class Celulares extends Component {
                   hardware também. É importante saber, por exemplo.
                 </p>
               </div>
-
-              <div className="conteudo_modulo">
+            </Animated>
+            <Animated
+              animationIn="fadeInUp"
+              animationOut="fadeOut"
+              isVisible={true}
+              animationInDuration={1200}
+            >
+              <div className="conteudo">
                 <h3>Conteúdo Programático</h3>
                 <div>
                   <li>O que são Smartphones</li>
@@ -47,20 +56,22 @@ class Celulares extends Component {
                   <li>Senhas</li>
                 </div>
               </div>
-              <figure>
-                <Animated
-                  animationIn="slideInRight"
-                  animationOut="fadeOut"
-                  isVisible={true}
-                  animationInDuration={1000}
-                >
-                  <img
-                    src={require("../../../../assets/img/informatica/modulo_celulares.png")}
-                  />
-                </Animated>
-              </figure>
             </Animated>
-          </Animated>
+          </div>
+          <div className="bloco_2">
+            <figure>
+              <Animated
+                animationIn="slideInRight"
+                animationOut="fadeOut"
+                isVisible={true}
+                animationInDuration={1000}
+              >
+                <img
+                  src={require("../../../../assets/img/informatica/modulo_celulares.png")}
+                />
+              </Animated>
+            </figure>
+          </div>
         </div>
       </div>
     );

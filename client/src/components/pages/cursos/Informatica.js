@@ -21,7 +21,23 @@ class Informatica extends Component {
   render() {
     return (
       <div className="col-12" id="bg_informatica">
-        <h1 className="title">Curso de Informática</h1>
+        <div id="bg_resumo_informatica">
+          <div className="resumo_informatica">
+            <h1 className="title">Informática Completo</h1>
+            <p>
+              Aprensentamos nesse curso INFORMÁTICA COMPLETO os principais
+              conceitos de informática que incluem: hardwares de computadores,
+              sistema opacional Windows e programas, principais programas do
+              Pacote Office, e também dicas de navegação na internet.
+              <span>
+                <b>
+                  &nbsp; Confira abaixo os principais módulos do nosso curso e
+                  seus conteúdos
+                </b>
+              </span>
+            </p>
+          </div>
+        </div>
         <NavInformatica />
         <div id="container_informatica">
           <Introducao />

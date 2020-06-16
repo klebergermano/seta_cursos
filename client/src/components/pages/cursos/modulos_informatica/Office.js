@@ -7,17 +7,20 @@ class Office extends Component {
     return (
       <div className="modulos_informatica " id="modulo-office">
         <div className="modulo_content">
-          <Animated
-            animationIn="fadeIn"
-            animationOut="fadeOut"
-            isVisible={true}
-          >
-            <h1>Office</h1>
+          <div className="bloco_1">
+            <Animated
+              animationIn="fadeIn"
+              animationOut="fadeOut"
+              isVisible={true}
+              animationInDuration={1500}
+            >
+              <h1>Office</h1>
+            </Animated>
             <Animated
               animationIn="slideInUp"
               animationOut="fadeOut"
               isVisible={true}
-              animationInDuration={2000}
+              animationInDuration={1000}
             >
               <div className="resumo">
                 <p>
@@ -26,8 +29,14 @@ class Office extends Component {
                   hardware também. É importante saber, por exemplo.
                 </p>
               </div>
-
-              <div className="conteudo_modulo">
+            </Animated>
+            <Animated
+              animationIn="fadeInUp"
+              animationOut="fadeOut"
+              isVisible={true}
+              animationInDuration={1200}
+            >
+              <div className="conteudo">
                 <h3>Conteúdo Programático</h3>
                 <div>
                   <span className="span_office">
@@ -109,22 +118,26 @@ class Office extends Component {
                     <li>Dicas de Apresentaçao</li>
                     <li>Dicas de Seminários</li>
                   </span>
-                  <Animated
-                    animationIn="slideInRight"
-                    animationOut="fadeOut"
-                    isVisible={true}
-                    animationInDuration={1000}
-                  >
-                    <figure>
-                      <img
-                        src={require("../../../../assets/img/informatica/modulo_office.png")}
-                      />
-                    </figure>
-                  </Animated>
                 </div>
               </div>
             </Animated>
-          </Animated>
+          </div>
+          {/*bloco 1 */}
+
+          <div className="bloco_2">
+            <figure>
+              <Animated
+                animationIn="slideInRight"
+                animationOut="fadeOut"
+                isVisible={true}
+                animationInDuration={1000}
+              >
+                <img
+                  src={require("../../../../assets/img/informatica/modulo_office.png")}
+                />
+              </Animated>
+            </figure>
+          </div>
         </div>
       </div>
     );

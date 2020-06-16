@@ -7,17 +7,20 @@ class Rede extends Component {
     return (
       <div className="modulos_informatica " id="modulo-rede">
         <div className="modulo_content">
-          <Animated
-            animationIn="fadeIn"
-            animationOut="fadeOut"
-            isVisible={true}
-          >
-            <h1>Rede</h1>
+          <div className="bloco_1">
+            <Animated
+              animationIn="fadeIn"
+              animationOut="fadeOut"
+              isVisible={true}
+              animationInDuration={1500}
+            >
+              <h1>Rede</h1>
+            </Animated>
             <Animated
               animationIn="slideInUp"
               animationOut="fadeOut"
               isVisible={true}
-              animationInDuration={2000}
+              animationInDuration={1000}
             >
               <div className="resumo">
                 <p>
@@ -28,8 +31,14 @@ class Rede extends Component {
                   memória RAM e assim por diante.
                 </p>
               </div>
-
-              <div className="conteudo_modulo">
+            </Animated>
+            <Animated
+              animationIn="fadeInUp"
+              animationOut="fadeOut"
+              isVisible={true}
+              animationInDuration={1200}
+            >
+              <div className="conteudo">
                 <h3>Conteúdo Programático</h3>
                 <div>
                   <li>Introdução a Rede</li>
@@ -46,20 +55,22 @@ class Rede extends Component {
                   <li>Configuração de IP / IPV4</li>
                 </div>
               </div>
-              <figure>
-                <Animated
-                  animationIn="slideInRight"
-                  animationOut="fadeOut"
-                  isVisible={true}
-                  animationInDuration={1000}
-                >
-                  <img
-                    src={require("../../../../assets/img/informatica/modulo_rede.png")}
-                  />
-                </Animated>
-              </figure>
             </Animated>
-          </Animated>
+          </div>
+          <div className="bloco_2">
+            <figure>
+              <Animated
+                animationIn="slideInRight"
+                animationOut="fadeOut"
+                isVisible={true}
+                animationInDuration={1000}
+              >
+                <img
+                  src={require("../../../../assets/img/informatica/modulo_rede.png")}
+                />
+              </Animated>
+            </figure>
+          </div>
         </div>
       </div>
     );

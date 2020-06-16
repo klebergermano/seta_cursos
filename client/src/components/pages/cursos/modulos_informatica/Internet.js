@@ -7,17 +7,20 @@ class Internet extends Component {
     return (
       <div className="modulos_informatica " id="modulo-internet">
         <div className="modulo_content">
-          <Animated
-            animationIn="fadeIn"
-            animationOut="fadeOut"
-            isVisible={true}
-          >
-            <h1>Internet</h1>
+          <div className="bloco_1">
+            <Animated
+              animationIn="fadeIn"
+              animationOut="fadeOut"
+              isVisible={true}
+              animationInDuration={1500}
+            >
+              <h1>Internet</h1>
+            </Animated>
             <Animated
               animationIn="slideInUp"
               animationOut="fadeOut"
               isVisible={true}
-              animationInDuration={2000}
+              animationInDuration={1000}
             >
               <div className="resumo">
                 <p>
@@ -26,8 +29,14 @@ class Internet extends Component {
                   hardware também. É importante saber, por exemplo, o que é um
                 </p>
               </div>
-
-              <div className="conteudo_modulo">
+            </Animated>
+            <Animated
+              animationIn="fadeInUp"
+              animationOut="fadeOut"
+              isVisible={true}
+              animationInDuration={1200}
+            >
+              <div className="conteudo">
                 <h3>Conteúdo Programático</h3>
                 <div>
                   <li>Introdução a Internet </li>
@@ -64,20 +73,22 @@ class Internet extends Component {
                   <li>Linguagens de Programação </li>
                 </div>
               </div>
-              <figure>
-                <Animated
-                  animationIn="slideInRight"
-                  animationOut="fadeOut"
-                  isVisible={true}
-                  animationInDuration={1000}
-                >
-                  <img
-                    src={require("../../../../assets/img/informatica/modulo_internet.png")}
-                  />
-                </Animated>
-              </figure>
             </Animated>
-          </Animated>
+          </div>
+          <div className="bloco_2">
+            <figure>
+              <Animated
+                animationIn="slideInRight"
+                animationOut="fadeOut"
+                isVisible={true}
+                animationInDuration={1000}
+              >
+                <img
+                  src={require("../../../../assets/img/informatica/modulo_internet.png")}
+                />
+              </Animated>
+            </figure>
+          </div>
         </div>
       </div>
     );

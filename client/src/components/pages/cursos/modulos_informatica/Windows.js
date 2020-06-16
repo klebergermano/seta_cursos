@@ -7,34 +7,46 @@ class Windows extends Component {
     return (
       <div className="modulos_informatica " id="modulo-windows">
         <div className="modulo_content">
-          <Animated
-            animationIn="fadeIn"
-            animationOut="fadeOut"
-            isVisible={true}
-          >
-            <h1>Windows</h1>
+          <div className="bloco_1">
+            <Animated
+              animationIn="fadeIn"
+              animationOut="fadeOut"
+              isVisible={true}
+              animationInDuration={1500}
+            >
+              <h1>Windows</h1>
+            </Animated>
             <Animated
               animationIn="slideInUp"
               animationOut="fadeOut"
               isVisible={true}
-              animationInDuration={2000}
+              animationInDuration={1000}
             >
               <div className="resumo">
                 <p>
                   O mercado de trabalho exige conhecimentos básicos de
                   informática, não só no que se refere aos softwares, mas ao
-                  hardware também. É importante saber, por exemplo.
+                  hardware também. É importante saber, por exemplo. O mercado de
+                  trabalho exige conhecimentos básicos de informática, não só no
+                  que se refere aos softwares, mas ao hardware também. É
+                  importante saber, por exemplo.
                 </p>
               </div>
-
-              <div className="conteudo_modulo">
-                <h3>Conteúdo Programático</h3>
+            </Animated>
+            <Animated
+              animationIn="fadeInUp"
+              animationOut="fadeOut"
+              isVisible={true}
+              animationInDuration={1200}
+            >
+              <div className="conteudo">
+                <h3>Conteúdo Pragmático</h3>
                 <div>
                   <li>Introdução ao Windows 10</li>
                   <li>Area de Trabalho</li>
                   <li>Explorador de Arquivos</li>
                   <li>Menu Iniciar</li>
-                  <li>Manipulação de Pastas e Arquivos</li>
+                  <li>Uso de Pastas e Arquivos</li>
                   <li>Armazenamento</li>
                   <li>Configurações</li>
                   <li>Excluindo Aruqivos e Pastas</li>
@@ -51,27 +63,30 @@ class Windows extends Component {
                   <li>Extensões de Arquivos</li>
                   <li>Arquivos e Pastas Ocultas</li>
                   <li>Promp de Comando CMD</li>
-                  <li>Explorador Avançado de Arquivos</li>
+                  <li>Explorador Avançado </li>
                   <li>Editor de Registro</li>
                   <li>Acesso Remoto</li>
                   <li>Máquinas Virtuais</li>
                   <li>Instalação de Programas </li>
                 </div>
               </div>
-              <figure>
-                <Animated
-                  animationIn="slideInRight"
-                  animationOut="fadeOut"
-                  isVisible={true}
-                  animationInDuration={1000}
-                >
-                  <img
-                    src={require("../../../../assets/img/informatica/modulo_windows.png")}
-                  />
-                </Animated>
-              </figure>
             </Animated>
-          </Animated>
+          </div>
+          {/*bloco_1 */}
+          <div className="bloco_2">
+            <figure>
+              <Animated
+                animationIn="slideInRight"
+                animationOut="fadeOut"
+                isVisible={true}
+                animationInDuration={1000}
+              >
+                <img
+                  src={require("../../../../assets/img/informatica/modulo_windows.png")}
+                />
+              </Animated>
+            </figure>
+          </div>
         </div>
       </div>
     );

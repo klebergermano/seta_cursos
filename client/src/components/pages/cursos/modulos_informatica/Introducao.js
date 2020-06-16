@@ -5,13 +5,9 @@ class Introducao extends Component {
   state = {};
   render() {
     return (
-      <Animated
-        animationIn="slideInLeft"
-        animationOut="slideOutLeft"
-        isVisible={true}
-      >
-        <div className="modulos_informatica " id="modulo-introducao">
-          <div className="modulo_content">
+      <div className="modulos_informatica " id="modulo-introducao">
+        <div className="modulo_content">
+          <div className="bloco_1">
             <Animated
               animationIn="fadeIn"
               animationOut="fadeOut"
@@ -19,12 +15,11 @@ class Introducao extends Component {
             >
               <h1>Introdução a Informática</h1>
             </Animated>
-
             <Animated
               animationIn="slideInUp"
               animationOut="fadeOut"
               isVisible={true}
-              animationInDuration={2000}
+              animationInDuration={1000}
             >
               <div className="resumo">
                 <p>
@@ -33,7 +28,14 @@ class Introducao extends Component {
                   pessoas, organizações e sociedades.
                 </p>
               </div>
-              <div className="conteudo_modulo">
+            </Animated>
+            <Animated
+              animationIn="fadeInUp"
+              animationOut="fadeOut"
+              isVisible={true}
+              animationInDuration={1200}
+            >
+              <div className="conteudo">
                 <h3>Conteúdo Programático</h3>
 
                 <div>
@@ -49,24 +51,24 @@ class Introducao extends Component {
                   <li>Nomeclaturas e Terminologias</li>
                 </div>
               </div>
-              <div>
-                <figure>
-                  <Animated
-                    animationIn="slideInRight"
-                    animationOut="fadeOut"
-                    isVisible={true}
-                    animationInDuration={1000}
-                  >
-                    <img
-                      src={require("../../../../assets/img/informatica/modulo_introducao.png")}
-                    />
-                  </Animated>
-                </figure>
-              </div>
             </Animated>
           </div>
+          <div className="bloco_2">
+            <figure>
+              <Animated
+                animationIn="slideInRight"
+                animationOut="fadeOut"
+                isVisible={true}
+                animationInDuration={1000}
+              >
+                <img
+                  src={require("../../../../assets/img/informatica/modulo_introducao.png")}
+                />
+              </Animated>
+            </figure>
+          </div>
         </div>
-      </Animated>
+      </div>
     );
   }
 }

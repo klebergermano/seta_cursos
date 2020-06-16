@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import SlideHome from "../common/slideHome";
+import React, { Component, useContext } from "react";
+import SlideHome from "../common/SlideHome";
 
 import Cursos from "./Cursos";
 import About from "./about";
@@ -14,8 +14,7 @@ class Homepage extends Component {
         <div id="link_top"></div>
         {/*Used as anchor link  to scroll page to the top*/}
         <SlideHome />
-
-        <div id="bg_content">
+        <div id="content_homepage">
           <Cursos />
           <About />
           <Contact />

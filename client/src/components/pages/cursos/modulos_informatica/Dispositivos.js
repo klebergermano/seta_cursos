@@ -7,17 +7,20 @@ class Dispositivos extends Component {
     return (
       <div className="modulos_informatica " id="modulo-dispositivos">
         <div className="modulo_content">
-          <Animated
-            animationIn="fadeIn"
-            animationOut="fadeOut"
-            isVisible={true}
-          >
-            <h1>Dispositivos</h1>
+          <div className="bloco_1">
+            <Animated
+              animationIn="fadeIn"
+              animationOut="fadeOut"
+              isVisible={true}
+              animationInDuration={1500}
+            >
+              <h1>Dispositivos</h1>
+            </Animated>
             <Animated
               animationIn="slideInUp"
               animationOut="fadeOut"
               isVisible={true}
-              animationInDuration={2000}
+              animationInDuration={1000}
             >
               <div className="resumo">
                 <p>
@@ -26,8 +29,14 @@ class Dispositivos extends Component {
                   esse mundo da Informática.
                 </p>
               </div>
-
-              <div className="conteudo_modulo">
+            </Animated>
+            <Animated
+              animationIn="fadeInUp"
+              animationOut="fadeOut"
+              isVisible={true}
+              animationInDuration={1200}
+            >
+              <div className="conteudo">
                 <h3>Conteúdo Programático</h3>
                 <div>
                   <li>Digitação</li>
@@ -39,20 +48,22 @@ class Dispositivos extends Component {
                   <li>Touch Pad</li>
                 </div>
               </div>
-              <figure>
-                <Animated
-                  animationIn="slideInRight"
-                  animationOut="fadeOut"
-                  isVisible={true}
-                  animationInDuration={1000}
-                >
-                  <img
-                    src={require("../../../../assets/img/informatica/modulo_dispositivos.png")}
-                  />
-                </Animated>
-              </figure>
             </Animated>
-          </Animated>
+          </div>
+          <div className="bloco_2">
+            <figure>
+              <Animated
+                animationIn="slideInRight"
+                animationOut="fadeOut"
+                isVisible={true}
+                animationInDuration={1000}
+              >
+                <img
+                  src={require("../../../../assets/img/informatica/modulo_dispositivos.png")}
+                />
+              </Animated>
+            </figure>
+          </div>
         </div>
       </div>
     );
