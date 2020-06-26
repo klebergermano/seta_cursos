@@ -1,12 +1,134 @@
 #bg_english {
-  background: #fff;
-  min-height: 650px;
+  //background: $primary-color;
+  background: #fafafa;
+  // background: #f0f2f3 url("../img/english/bg_english2.png");
+  background-size: 20%;
+  height: auto;
   margin-bottom: 0px;
-  margin-top: 20px;
+  margin-top: 0px;
+  #bg_resumo_english {
+    overflow: hidden;
+    width: 100%;
+  }
   h1 {
-    padding: 20px;
     text-align: center;
-    color: #fff;
     background: $secondary-color;
+
+    padding: 20px;
+
+    color: #fff;
+    border-bottom: 2px solid #fff;
+  }
+
+  #resumo_english {
+    color: #fff;
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+    margin-top: 5px;
+
+    p {
+      background: $secondary-color;
+      background: $primary-color;
+
+      padding: 20px;
+      font-size: 18px;
+      color: #fff;
+    }
+  }
+  #english_content {
+    position: relative;
+
+    display: flex;
+    max-width: 1170px;
+    margin: 0 auto;
+    min-height: 600px;
+    padding-bottom: 20px;
+
+    #bloco_1 {
+      background: #fafafa;
+      display: flex;
+      flex-wrap: wrap;
+
+      width: 100%;
+      margin: 10px 0px;
+      #bg_modulos {
+        width: 65%;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px;
+        border: 2px solid rgb(247, 171, 171);
+
+        .modulos {
+          float: left;
+          height: auto;
+          margin: 10px;
+          border-radius: 10px;
+          overflow: hidden;
+          width: 45%;
+          //border: 2px solid rgb(247, 171, 171);
+
+          h3 {
+            height: 70px;
+            overflow: hidden;
+            text-align: center;
+            color: $secondary-color;
+            padding: 10px;
+            color: $primary-color;
+            border-bottom: 2px solid rgb(247, 171, 171);
+            overflow: hidden;
+            font-size: 28px;
+            margin: 0px;
+
+            span {
+              display: block;
+              float: left;
+            }
+          }
+          p {
+            padding: 10px 20px;
+            margin: 0px;
+            font-size: 18px;
+            line-height: 24px;
+          }
+        }
+      }
+
+      #banner {
+        background: $primary-color url("../img/english/flags.png") no-repeat;
+        background-size: 100%;
+        background-position: bottom;
+        width: 35%;
+        padding: 20px;
+        border-radius: 0px 5px 5px 0px;
+        //border-bottom: 25px solid $secondary-color;
+        border-bottom: 25px solid #e51a38;
+
+        li {
+          line-height: 38px;
+          color: #fff;
+          font-size: 22px;
+          list-style: none;
+          span {
+            color: #ff0;
+          }
+        }
+      }
+    }
+  }
+  #people_english {
+    display: none;
+    bottom: -10px;
+    right: -150px;
+    max-width: 450px;
+    width: auto;
+    position: absolute;
+    overflow: hidden;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      margin-bottom: 0px;
+      float: left;
+    }
   }
 }

@@ -8,6 +8,12 @@ import Trash from "./Trash";
 import Message from "./Message";
 import Email from "./Email";
 
+import CheckboxChecked from "./Checkbox-checked";
+
+import Facebook from "./Facebook";
+import Instagram from "./Instagram";
+import Whatsapp from "./Whatsapp";
+
 import Cog from "./Cog";
 import User from "./User";
 import Users from "./Users";
@@ -17,9 +23,21 @@ import FileText2 from "./File_text2";
 import Eye from "./eye";
 import Mug from "./Mug";
 import Menu from "./Menu";
+import Cellphone from "./Cellphone";
 
 const Icon = (props) => {
   switch (props.name) {
+    case "cellphone":
+      return <Cellphone {...props} />;
+    case "facebook":
+      return <Facebook {...props} />;
+    case "instagram":
+      return <Instagram {...props} />;
+    case "whatsapp":
+      return <Whatsapp {...props} />;
+    case "checkbox-checked":
+      return <CheckboxChecked {...props} />;
+
     case "menu":
       return <Menu {...props} />;
     case "mug":

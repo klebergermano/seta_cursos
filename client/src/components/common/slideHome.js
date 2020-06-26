@@ -5,8 +5,8 @@ import { Animated } from "react-animated-css";
 import { Link, animateScroll as scroll } from "react-scroll";
 import { MobileContext } from "../../context/MobileContext";
 const SlideHome = () => {
-  const isMobile = useContext(MobileContext);
-  if (isMobile) {
+  const mobileInfo = useContext(MobileContext);
+  if (mobileInfo.isMobile) {
     return "";
   } else {
     return (

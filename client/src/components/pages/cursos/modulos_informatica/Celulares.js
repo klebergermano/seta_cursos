@@ -24,9 +24,8 @@ class Celulares extends Component {
             >
               <div className="resumo">
                 <p>
-                  O mercado de trabalho exige conhecimentos básicos de
-                  informática, não só no que se refere aos softwares, mas ao
-                  hardware também. É importante saber, por exemplo.
+                  O aluno aprendera sobre formatação, Backup, tranferencia de
+                  arquivos e configurações de celulares.
                 </p>
               </div>
             </Animated>
@@ -39,21 +38,17 @@ class Celulares extends Component {
               <div className="conteudo">
                 <h3>Conteúdo Programático</h3>
                 <div>
-                  <li>O que são Smartphones</li>
+                  <li>Conceitos de Smartphones</li>
                   <li>Aplicativos</li>
-                  <li>Email pelo Celular</li>
+                  <li>Emails</li>
+                  <li>Aplicativos de Menssagem</li>
                   <li>Tranferência de arquivos</li>
-                  <li>PlayStore</li>
                   <li>Configurações</li>
-                  <li>Formatação do Celular</li>
-                  <li>Papel de Parede</li>
-                  <li>Print</li>
-                  <li>Instalação Whatsup</li>
-                  <li>Instalação do Messenger</li>
+                  <li>Formatação </li>
+                  <li>Personalização</li>
                   <li>Aplicativos de Foto</li>
                   <li>Backup </li>
-                  <li>Nuvem</li>
-                  <li>Senhas</li>
+                  <li>Senhas e Proteção de Dados</li>
                 </div>
               </div>
             </Animated>

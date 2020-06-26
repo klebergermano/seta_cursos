@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Animated } from "react-animated-css";
+import ImageInformatica from "./ImageInformatica";
 
 class Introducao extends Component {
   state = {};
@@ -23,9 +24,10 @@ class Introducao extends Component {
             >
               <div className="resumo">
                 <p>
-                  Informática é um termo usado para descrever o estudo e o
-                  desenvolvimento das tecnologias de informação em prol das
-                  pessoas, organizações e sociedades.
+                  Informática é um termo abrangente por isso separamos um módulo
+                  onde on aluno tera uma visão abrangente e passara a entender
+                  sobre Terminologias, conceitos como binário e a tramissão de
+                  dados através de computadores
                 </p>
               </div>
             </Animated>
@@ -61,8 +63,9 @@ class Introducao extends Component {
                 isVisible={true}
                 animationInDuration={1000}
               >
-                <img
-                  src={require("../../../../assets/img/informatica/modulo_introducao.png")}
+                <ImageInformatica
+                  imgDesktop={"modulo_introducao.png"}
+                  imgMobile={"modulo_introducao-mob.png"}
                 />
               </Animated>
             </figure>

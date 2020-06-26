@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import { Animated } from "react-animated-css";
-
+import ImageInformatica from "./ImageInformatica";
 class Windows extends Component {
   state = {};
+
   render() {
     return (
       <div className="modulos_informatica " id="modulo-windows">
@@ -24,12 +25,11 @@ class Windows extends Component {
             >
               <div className="resumo">
                 <p>
-                  O mercado de trabalho exige conhecimentos básicos de
-                  informática, não só no que se refere aos softwares, mas ao
-                  hardware também. É importante saber, por exemplo. O mercado de
-                  trabalho exige conhecimentos básicos de informática, não só no
-                  que se refere aos softwares, mas ao hardware também. É
-                  importante saber, por exemplo.
+                  Todo o conhecimento necessário para você se tornar um usuário
+                  prático do Windows 10 aprendendo as principais ferramentas do
+                  sistema operacional, Atalhos importantes para o uso diário do
+                  sistema, instalação e desinstalação de programas,
+                  gerencimaneto, manutenção e muito mais.
                 </p>
               </div>
             </Animated>
@@ -81,8 +81,9 @@ class Windows extends Component {
                 isVisible={true}
                 animationInDuration={1000}
               >
-                <img
-                  src={require("../../../../assets/img/informatica/modulo_windows.png")}
+                <ImageInformatica
+                  imgDesktop={"modulo_windows.png"}
+                  imgMobile={"modulo_windows-mob.png"}
                 />
               </Animated>
             </figure>

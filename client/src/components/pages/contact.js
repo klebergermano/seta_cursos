@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import Form from "../common/form";
+import Info from "../common/info_contatos";
+import Icon from "../../assets/icons";
 class Contact extends Component {
   state = {};
   render() {
     return (
       <div className="pages" id="bg_contact">
-        <div id="contact">
-          <h1>Entre em contato conosco</h1>
-          <Form />
-        </div>
+        <Form />
       </div>
     );
   }

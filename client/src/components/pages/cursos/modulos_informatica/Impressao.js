@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Animated } from "react-animated-css";
+import ImageInformatica from "./ImageInformatica";
 
 class Impressao extends Component {
   state = {};
@@ -24,10 +25,11 @@ class Impressao extends Component {
             >
               <div className="resumo">
                 <p>
-                  Impressora ou dispositivo de impressão que, quando conectado a
-                  um computador ou a uma rede de computadores, tem a função de
-                  dispositivo de saída, imprimindo textos, gráficos ou qualquer
-                  outro resultado de uma aplicação.
+                  O Aluno aprendera a Scanear, tranferir seus arquivos via
+                  Email, Celular ou Computador para impressão, formatos de
+                  arquivos ideais, formato de cores CMYK e resolução de imagens
+                  e configuração de Pixeis por Polegadas para uma impressão de
+                  alta qualidade.
                 </p>
               </div>
             </Animated>
@@ -43,10 +45,12 @@ class Impressao extends Component {
                   <li>O que são Impressoras</li>
                   <li>Tipos de Impressoras</li>
                   <li>Como imprimir</li>
+                  <li>Arquivos para Impressão</li>
                   <li>Como Scanear</li>
                   <li>Tipos de Papel</li>
-                  <li>Configuração </li>
+                  <li>Configurações </li>
                   <li>Instalação da Impressora</li>
+                  <li>DPI - (Pixeis por Polegada)</li>
                 </div>
               </div>
             </Animated>
@@ -59,8 +63,9 @@ class Impressao extends Component {
                 isVisible={true}
                 animationInDuration={1000}
               >
-                <img
-                  src={require("../../../../assets/img/informatica/modulo_impressao.png")}
+                <ImageInformatica
+                  imgDesktop={"modulo_impressao.png"}
+                  imgMobile={"modulo_impressao-mob.png"}
                 />
               </Animated>
             </figure>

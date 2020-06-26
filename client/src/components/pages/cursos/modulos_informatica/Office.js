@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Animated } from "react-animated-css";
+import ImageInformatica from "./ImageInformatica";
 
 class Office extends Component {
   state = {};
@@ -24,9 +25,11 @@ class Office extends Component {
             >
               <div className="resumo">
                 <p>
-                  O mercado de trabalho exige conhecimentos básicos de
-                  informática, não só no que se refere aos softwares, mas ao
-                  hardware também. É importante saber, por exemplo.
+                  Nosso curso é focado em Excel, Word e PowerPoint; O aluno
+                  aprende de forma simples e direta com exemplos práticos e
+                  realmente aplicáveis onde enssinamos as principais ferramentas
+                  que possuem útilidade tanto para uso pessoal como
+                  profissional.
                 </p>
               </div>
             </Animated>
@@ -132,8 +135,9 @@ class Office extends Component {
                 isVisible={true}
                 animationInDuration={1000}
               >
-                <img
-                  src={require("../../../../assets/img/informatica/modulo_office.png")}
+                <ImageInformatica
+                  imgDesktop={"modulo_office.png"}
+                  imgMobile={"modulo_office-mob.png"}
                 />
               </Animated>
             </figure>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Animated } from "react-animated-css";
+import ImageInformatica from "./ImageInformatica";
 
 class Dispositivos extends Component {
   state = {};
@@ -14,7 +15,7 @@ class Dispositivos extends Component {
               isVisible={true}
               animationInDuration={1500}
             >
-              <h1>Dispositivos</h1>
+              <h1>Interfaces</h1>
             </Animated>
             <Animated
               animationIn="slideInUp"
@@ -24,9 +25,9 @@ class Dispositivos extends Component {
             >
               <div className="resumo">
                 <p>
-                  Em Informática existem uma grande variedade de dispositivos
-                  conhece-los é fundamental para entender com mais profundidade
-                  esse mundo da Informática.
+                  O aluno aprendera alem de digitação diferentes interfaces como
+                  touchpad e o funcionamento de telas touchscreen, padrão QWERTY
+                  e atalhos ASCII
                 </p>
               </div>
             </Animated>
@@ -58,8 +59,9 @@ class Dispositivos extends Component {
                 isVisible={true}
                 animationInDuration={1000}
               >
-                <img
-                  src={require("../../../../assets/img/informatica/modulo_dispositivos.png")}
+                <ImageInformatica
+                  imgDesktop={"modulo_dispositivos.png"}
+                  imgMobile={"modulo_dispositivos-mob.png"}
                 />
               </Animated>
             </figure>

@@ -24,9 +24,9 @@ class Internet extends Component {
             >
               <div className="resumo">
                 <p>
-                  O mercado de trabalho exige conhecimentos básicos de
-                  informática, não só no que se refere aos softwares, mas ao
-                  hardware também. É importante saber, por exemplo, o que é um
+                  Alem de boas práticas e terminologias sobre internet e o aluno
+                  também aprendera conceitos como Download, Upload, Emails,
+                  Cookies protolocolo HTTP e IOT (Internet das Coisas).
                 </p>
               </div>
             </Animated>
@@ -39,38 +39,29 @@ class Internet extends Component {
               <div className="conteudo">
                 <h3>Conteúdo Programático</h3>
                 <div>
-                  <li>Introdução a Internet </li>
-                  <li>A Origem da Internet</li>
+                  <li>Introdução a Terminilogias</li>
                   <li>Navegadores</li>
-                  <li>Navegando na Internet</li>
                   <li>Email</li>
                   <li>Sites</li>
-                  <li>Redes Sociais</li>
-                  <li>O que é Download e Upload</li>
-                  <li>Dicas de Pesquisa</li>
-                  <li>O que são Links</li>
+                  <li>HTTP</li>
+                  <li>Download e Upload</li>
+                  <li>Pesquisas Avançadas</li>
+                  <li>Links</li>
                   <li>Atalhos</li>
-                  <li>Teste de Velocidade</li>
+                  <li>IP</li>
 
-                  <li>Criar e Usar Email</li>
-                  <li>Provedores de Email</li>
+                  <li>Uso de Emails</li>
                   <li>IOT (Internet das Coisas)</li>
-                  <li>Pesquisa Avançada</li>
-                  <li>Baixando e Enviando Arquivos</li>
-                  <li>Tipos de Download</li>
+                  <li>Conceitos de Nuvem</li>
                   <li>Malwares e Virus</li>
                   <li>Cookies</li>
-                  <li>Histórico</li>
                   <li>Extesões</li>
                   <li>Atalhos</li>
-                  <li>Barra de Favoritos</li>
                   <li>Personalização de Navegadores</li>
-                  <li>Servidores e Nuvem</li>
-                  <li>Aplicativos na Nuvem</li>
+                  <li>Conceito de Servidores</li>
+                  <li>Aplicativos Online</li>
                   <li>Contas Integradas</li>
                   <li>Acesso Remoto</li>
-                  <li>Serviços Online</li>
-                  <li>Linguagens de Programação </li>
                 </div>
               </div>
             </Animated>

@@ -801,8 +801,8 @@ span {
 #header_website {
   position: fixed;
   z-index: 1;
-  border-bottom: 5px solid #eb1e44;
-  background: white;
+  border-bottom: 5px solid #ca0d3c;
+  background: #fff;
   top: 0px;
   width: 100%;
   height: auto;
@@ -889,8 +889,8 @@ span {
   position: absolute;
   border-top: 0px;
   border-radius: 0px 0px 5px 5px;
-  border: 2px solid #eb1e44;
-  border-top: 4px solid #eb1e44;
+  border: 2px solid #ca0d3c;
+  border-top: 4px solid #ca0d3c;
   overflow: hidden;
   box-shadow: 0em 0.1em 0.2em #111;
   animation-name: show_menu;
@@ -907,7 +907,7 @@ span {
   border-bottom: 1px solid #ccc;
 }
 #header_website #nav_header li a ul li a:hover {
-  background: #eb1e44;
+  background: #ca0d3c;
 }
 #header_website #nav_header li a:hover {
   background: #064a77;
@@ -920,14 +920,14 @@ span {
 /*header*/
 #header_website_mobile {
   z-index: 1;
-  border-bottom: 5px solid #eb1e44;
+  border-bottom: 5px solid #ca0d3c;
   top: 0px;
   width: 100%;
   height: auto;
   background: #fff;
   height: 60px;
   overflow: hidden;
-  border-bottom: 5px solid #eb1e44;
+  border-bottom: 5px solid #ca0d3c;
 }
 #header_website_mobile #logo {
   overflow: hidden;
@@ -967,7 +967,7 @@ span {
   max-height: 500px;
   position: absolute;
   overflow: hidden;
-  border-bottom: 0px solid #eb1e44;
+  border-bottom: 0px solid #ca0d3c;
   transition: max-height 0.5s, opacity 0.5s ease-in-out;
 }
 #header_website_mobile #nav_header_mobile #submenu_mobile li a {
@@ -980,7 +980,7 @@ span {
   font-size: 18px;
 }
 #header_website_mobile #nav_header_mobile #submenu_mobile li:last-child {
-  border-bottom: 5px solid #eb1e44;
+  border-bottom: 5px solid #ca0d3c;
 }
 #header_website_mobile #nav_header_mobile .submenu_closed {
   max-height: 0px !important;
@@ -1018,7 +1018,7 @@ span {
   background: #043e96;
 }
 #nav_user ul li a:active {
-  background: #c51133;
+  background: #9a0a2e;
 }
 
 #bg_scanlines {
@@ -1092,6 +1092,7 @@ span {
   padding: 20px;
   padding-top: 0px;
   padding-bottom: 60px;
+  width: 33.33333333%;
 }
 #bg_resumo_cursos .bloco_resumo p {
   color: #555;
@@ -1124,10 +1125,10 @@ span {
   background: #064a77;
 }
 #bg_resumo_cursos #resumo_english h2 {
-  color: #eb1e44;
+  color: #ca0d3c;
 }
 #bg_resumo_cursos #resumo_english a:hover {
-  background: #eb1e44;
+  background: #ca0d3c;
 }
 #bg_resumo_cursos #resumo_excel h2 {
   color: #068651;
@@ -1147,6 +1148,7 @@ span {
     padding: 20px;
     background: #064a77;
     color: #fff;
+    border-radius: 0px;
   }
   #bg_resumo_cursos .bloco_resumo {
     width: 50%;
@@ -1174,12 +1176,12 @@ span {
   }
 }
 #bg_informatica {
-  overflow: hidden;
-  background: #f0f0f0;
-  height: 750px;
+  background: #f7fafc;
+  height: auto;
   position: relative;
   width: 100%;
   margin-bottom: 0px;
+  padding-bottom: 60px;
 }
 #bg_informatica h1.title {
   text-align: center;
@@ -1220,6 +1222,7 @@ span {
   height: 100%;
   margin: 0 auto;
   display: none;
+  padding-top: 20px;
 }
 .modulos_informatica p,
 .modulos_informatica li,
@@ -1231,7 +1234,7 @@ span {
   color: #444;
 }
 .modulos_informatica .modulo_content {
-  overflow: hidden;
+  padding: 0px 0px 20px 20px;
   display: flex;
 }
 .modulos_informatica .modulo_content h1 {
@@ -1240,24 +1243,29 @@ span {
 }
 .modulos_informatica .modulo_content .bloco_1 {
   float: left;
-  width: 65%;
+  width: 64%;
+  margin-right: 20px;
 }
 .modulos_informatica .modulo_content .bloco_1 .resumo {
   width: 100%;
   line-height: 22px;
-  max-height: 100px;
+  height: auto;
 }
 .modulos_informatica .modulo_content .bloco_1 .conteudo {
+  border: 1px solid #ccc;
   margin-top: 20px;
-  padding: 20px;
+  padding: 20px 40px;
   height: 280px;
   overflow-y: scroll;
-  background: #f8f8f8;
+  background: #f0f6f7;
   border-radius: 5px;
 }
 .modulos_informatica .modulo_content .bloco_1 .conteudo h3 {
   padding: 0px 0px 10px 0px;
   color: #064a77;
+}
+.modulos_informatica .modulo_content .bloco_1 .conteudo h3 span {
+  float: left;
 }
 .modulos_informatica .modulo_content .bloco_1 .conteudo div {
   column-count: 3;
@@ -1265,14 +1273,21 @@ span {
   column-width: 150px;
 }
 .modulos_informatica .modulo_content .bloco_2 {
-  flex: 1 auto;
-  width: 35%;
+  flex: 1;
   float: right;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+}
+.modulos_informatica .modulo_content .bloco_2 figure {
+  max-width: 100%;
 }
 .modulos_informatica .modulo_content .bloco_2 figure img {
-  width: 100%;
+  max-width: 100%;
+  display: block;
+  max-height: 335px;
+  width: auto;
+  height: auto;
 }
 
 #modulo-windows {
@@ -1310,7 +1325,7 @@ span {
 }
 
 #nav_informatica {
-  padding: 5px 0px 0px 0px;
+  padding: 20px 0px 0px 0px;
 }
 #nav_informatica ul {
   display: flex;
@@ -1329,26 +1344,23 @@ span {
   list-style: none;
   width: auto;
   text-align: center;
-  padding: 0px 0px;
+  margin: 0px;
+  padding: 0px 0px !important;
 }
 #nav_informatica ul li a {
-  background: #064a77;
-  color: #fff;
+  border-bottom: 1px solid #ccd;
+  color: #333b;
   width: 100%;
   padding: 10px 0px;
   display: block;
   float: left;
-  border: 1px solid #f0f0f0;
-}
-#nav_informatica ul li a:hover {
-  cursor: pointer;
-  background: #eb1e44;
-  color: #fff;
 }
 #nav_informatica ul li .active {
   cursor: pointer;
-  background: #eb1e44;
-  color: #fff;
+  background: #f0f3f6;
+  border: 1px solid #ccc;
+  border-bottom: 0px;
+  color: #064a77;
 }
 
 @media (max-width: 1190px) {
@@ -1359,7 +1371,8 @@ span {
   }
 
   #bg_informatica {
-    padding: 0px 20px;
+    padding-right: 20px;
+    padding-left: 20px;
   }
 
   #bg_resumo_informatica {
@@ -1372,17 +1385,18 @@ span {
     position: relative;
   }
   .modulo_content .bloco_1 {
-    min-width: 100% !important;
+    min-width: 70% !important;
   }
-  .modulo_content .bloco_1 .resumo {
-    width: 70% !important;
+  #modulo-office .conteudo div {
+    display: flex;
+    flex-wrap: wrap;
   }
-  .modulo_content .bloco_2 {
-    position: absolute;
-    top: 20px;
-    right: 0px;
-    max-width: 30%;
-    padding: 0px;
+  #modulo-office .conteudo div span {
+    height: auto;
+  }
+  #modulo-office .conteudo div span li {
+    line-height: 26px;
+    font-size: 15px;
   }
 }
 @media (max-width: 960px) {
@@ -1390,63 +1404,335 @@ span {
     display: flex;
     align-items: start;
     justify-content: start;
-    /* You can set flex-wrap and
-       flex-direction individually */
     flex-direction: row;
     flex-wrap: wrap;
-    /* Or do it all in one line
-      with flex flow */
     flex-flow: row wrap;
-    /* tweak where items line
-       up on the row
-       valid values are: flex-start,
-       flex-end, space-between,
-       space-around, stretch */
     align-content: flex-end;
   }
   #nav_informatica ul li {
-    width: 150px;
-    min-width: 150px;
+    width: 120px;
     max-width: 200px;
   }
   #nav_informatica ul li a {
     float: left;
   }
 }
+@media (max-width: 900px) {
+  #bg_informatica .bloco_1 {
+    min-width: 100% !important;
+  }
+  #bg_informatica .bloco_1 .resumo {
+    width: 65%;
+    min-height: 80px;
+  }
+  #bg_informatica .bloco_1 .conteudo {
+    width: 100% !important;
+  }
+  #bg_informatica .bloco_1 .conteudo p {
+    line-height: 20px;
+  }
+  #bg_informatica .bloco_2 {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 0px;
+  }
+  #bg_informatica .bloco_2 figure img {
+    max-height: 150px;
+    overflow: hidden;
+  }
+}
 @media (max-width: 860px) {
-  #bg_informatica {
-    height: 900px !important;
+  #bg_informatica .bloco_1 .resumo p {
+    line-height: 20px;
+  }
+}
+@media (max-width: 820px) {
+  #nav_informatica ul li a {
+    padding: 5px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 700px) {
+  .bloco_1 h1 {
+    font-size: 22px;
+  }
+
+  #modulo-office .conteudo div span li {
+    line-height: 24px;
+    font-size: 15px;
+  }
+}
+@media (max-width: 640px) {
+  #nav_informatica ul li {
+    max-width: 25%;
   }
 }
 @media (max-width: 560px) {
-  #bg_resumo_informatica h1 {
+  .resumo p {
+    font-size: 15px;
+  }
+
+  #bg_resumo_informatica .resumo_informatica {
+    padding-top: 0px !important;
+    padding-bottom: 20px !important;
+  }
+  #bg_resumo_informatica .resumo_informatica h1 {
+    padding: 20px 0px !important;
     font-size: 22px;
+  }
+  #bg_resumo_informatica p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .bloco_1 .resumo {
+    min-width: 70%;
+  }
+  .bloco_1 .conteudo {
+    z-index: 10;
+    max-height: 200px;
+  }
+
+  .bloco_2 figure {
+    margin-top: 20px;
+    max-height: 130px;
+    overflow: hidden;
+  }
+  .bloco_2 figure img {
+    max-width: auto;
+    max-height: 130px !important;
+  }
+
+  #nav_informatica {
+    margin-left: -20px;
+    min-width: calc(100% + 40px);
+  }
+  #nav_informatica ul li {
+    min-width: 130px;
+    max-width: 25%;
+    width: auto;
+  }
+  #nav_informatica ul li a {
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #333;
+    font-size: 12px;
+    padding: 5px 0px;
+  }
+  #nav_informatica .active {
+    background: #334 !important;
+    color: #fff !important;
+  }
+
+  #modulo-office .conteudo div .span_office:nth-child(1) {
+    flex: 50%;
+  }
+  #modulo-office .conteudo div .span_office:nth-child(2) {
+    flex: 50%;
+  }
+  #modulo-office .conteudo div .span_office:nth-child(3) {
+    flex: 100%;
+  }
+}
+@media (max-width: 525px) {
+  #nav_informatica ul li {
+    min-width: 33.333%;
+    max-width: 33.333%;
+  }
+}
+@media (max-width: 350px) {
+  #nav_informatica ul li {
+    min-width: 50%;
   }
 }
 #bg_english {
-  background: #fff;
-  min-height: 650px;
+  background: #fafafa;
+  background-size: 20%;
+  height: auto;
   margin-bottom: 0px;
-  margin-top: 20px;
+  margin-top: 0px;
+}
+#bg_english #bg_resumo_english {
+  overflow: hidden;
+  width: 100%;
 }
 #bg_english h1 {
-  padding: 20px;
   text-align: center;
+  background: #ca0d3c;
+  padding: 20px;
   color: #fff;
-  background: #eb1e44;
+  border-bottom: 2px solid #fff;
+}
+#bg_english #resumo_english {
+  color: #fff;
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+#bg_english #resumo_english p {
+  background: #ca0d3c;
+  background: #064a77;
+  padding: 20px;
+  font-size: 18px;
+  color: #fff;
+}
+#bg_english #english_content {
+  position: relative;
+  display: flex;
+  max-width: 1170px;
+  margin: 0 auto;
+  min-height: 600px;
+  padding-bottom: 20px;
+}
+#bg_english #english_content #bloco_1 {
+  background: #fafafa;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 10px 0px;
+}
+#bg_english #english_content #bloco_1 #bg_modulos {
+  width: 65%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  border: 2px solid #f7abab;
+}
+#bg_english #english_content #bloco_1 #bg_modulos .modulos {
+  float: left;
+  height: auto;
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 45%;
+}
+#bg_english #english_content #bloco_1 #bg_modulos .modulos h3 {
+  height: 70px;
+  overflow: hidden;
+  text-align: center;
+  color: #ca0d3c;
+  padding: 10px;
+  color: #064a77;
+  border-bottom: 2px solid #f7abab;
+  overflow: hidden;
+  font-size: 28px;
+  margin: 0px;
+}
+#bg_english #english_content #bloco_1 #bg_modulos .modulos h3 span {
+  display: block;
+  float: left;
+}
+#bg_english #english_content #bloco_1 #bg_modulos .modulos p {
+  padding: 10px 20px;
+  margin: 0px;
+  font-size: 18px;
+  line-height: 24px;
+}
+#bg_english #english_content #bloco_1 #banner {
+  background: #064a77 url("../img/english/flags.png") no-repeat;
+  background-size: 100%;
+  background-position: bottom;
+  width: 35%;
+  padding: 20px;
+  border-radius: 0px 5px 5px 0px;
+  border-bottom: 25px solid #e51a38;
+}
+#bg_english #english_content #bloco_1 #banner li {
+  line-height: 38px;
+  color: #fff;
+  font-size: 22px;
+  list-style: none;
+}
+#bg_english #english_content #bloco_1 #banner li span {
+  color: #ff0;
+}
+#bg_english #people_english {
+  display: none;
+  bottom: -10px;
+  right: -150px;
+  max-width: 450px;
+  width: auto;
+  position: absolute;
+  overflow: hidden;
+}
+#bg_english #people_english img {
+  max-width: 100%;
+  max-height: 100%;
+  margin-bottom: 0px;
+  float: left;
 }
 
 #bg_excel {
   margin-top: 0px;
-  background: #f0f0f0;
-  min-height: 500px;
+  background: #207043 url("../img/excel/img_excel.png") no-repeat;
+  background-position: bottom right;
+  background-size: auto 88%;
+  min-height: 250px;
+  overflow: hidden;
   margin-bottom: 0px;
 }
 #bg_excel h1 {
   padding: 20px;
   text-align: center;
   color: #fff;
-  background: #0b694a;
+  background: #148a47;
+  width: 100%;
+}
+#bg_excel #excel_content {
+  max-width: 1173px;
+  padding: 20px;
+  margin: 0 auto;
+  display: flex;
+  min-height: 100%;
+}
+#bg_excel #excel_content #bloco_1 {
+  overflow: hidden;
+  max-width: 80%;
+}
+#bg_excel #excel_content #resumo_excel {
+  margin-top: 40px;
+  display: flex;
+  max-width: 90%;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+}
+#bg_excel #excel_content #resumo_excel figure {
+  min-width: 100px;
+  min-height: 100%;
+}
+#bg_excel #excel_content #resumo_excel figure img {
+  max-width: 100%;
+  height: auto;
+}
+#bg_excel #excel_content #resumo_excel p {
+  font-size: 18px;
+  line-height: 26px;
+  padding: 0px 0px 0px 20px;
+  background: #207043;
+  border-radius: 5px;
+  padding: 20px;
+}
+#bg_excel #excel_content #modulos_excel {
+  margin-top: 20px;
+  background: #f8f8f8;
+  padding: 20px 40px;
+  border-radius: 5px;
+  max-width: 90%;
+  margin-bottom: 50px;
+}
+#bg_excel #excel_content #modulos_excel li {
+  font-size: 18px;
+  color: #555;
+}
+#bg_excel #excel_content figure {
+  max-width: 200px;
+}
+#bg_excel #excel_content figure img {
+  height: 100%;
 }
 
 #about {
@@ -1454,39 +1740,93 @@ span {
   clear: both;
   width: 100%;
   margin: 0px;
-  height: 580px;
+  min-height: 500px;
+  height: auto;
 }
 #about #content {
-  width: 1173px;
+  display: flex;
+  max-width: 1173px;
   margin: 0 auto;
+  padding: 90px 0px;
+  align-items: center;
 }
-#about h1 {
-  margin-top: 80px;
-  margin-bottom: 60px;
+#about #content h1 {
+  margin-bottom: 20px;
   text-align: center;
 }
+#about #content p {
+  font-size: 18px;
+  padding: 0px 40px;
+}
+#about #content figure {
+  margin-top: 60px;
+}
 
+@media (max-width: 560px) {
+  #about {
+    padding: 20px;
+  }
+  #about h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
 #bg_contact {
-  background: #f9f9f9;
+  background: #ccc;
   padding: 60px;
   width: 100%;
   margin: 0px;
   height: 900px;
 }
-#bg_contact #contact {
-  width: 1173px;
+#bg_contact #bg_form {
+  max-width: 1173px;
   background: #fff url("../img/bg_email.png") no-repeat;
   background-size: auto;
   background-position: 50px 100px;
   margin: 0 auto;
   overflow: hidden;
 }
-#bg_contact #contact h1 {
+#bg_contact #bg_form h1 {
   text-align: center;
   background: #064a77;
   margin: 0px;
   padding: 20px;
   color: #fff;
+}
+
+#info_contato {
+  max-width: 50%;
+  padding: 40px 0px 0px 60px;
+  float: left;
+}
+#info_contato p {
+  color: #555;
+  font-size: 20px;
+  margin-bottom: 5px;
+  background: #ffffffaa;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+#info_contato p .icon {
+  width: 20px;
+  margin: 0px 5px -5px 0px;
+}
+#info_contato p .whatsapp {
+  fill: #0daf0d;
+}
+#info_contato p .facebook {
+  fill: #064a77;
+}
+#info_contato p .email {
+  fill: #555;
+  height: 20px;
+}
+#info_contato p .cellphone {
+  fill: #555;
+}
+#info_contato p a {
+  color: #046bf1;
 }
 
 #form {
@@ -1499,7 +1839,7 @@ span {
   float: right;
 }
 #form div {
-  padding: 10px;
+  padding: 5px;
 }
 #form label {
   display: none;
@@ -1507,7 +1847,7 @@ span {
   width: 20%;
 }
 #form input {
-  border-radius: 10px;
+  border-radius: 5px;
   border: 1px solid #999;
   width: 100%;
   padding: 10px;
@@ -1532,6 +1872,60 @@ span {
   color: #fff;
 }
 
+@media (max-width: 1190px) {
+  #bg_form {
+    background-size: 50% !important;
+    background-position: 10px 10px !important;
+  }
+
+  #form {
+    width: 60%;
+  }
+}
+@media (max-width: 900px) {
+  #bg_form {
+    background: #fff !important;
+    background-position: 10px 10px !important;
+  }
+
+  #form {
+    margin: 0 auto;
+    width: 100%;
+    margin-right: 0%;
+    padding: 40px 140px;
+  }
+}
+@media (max-width: 850px) {
+  #form {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+@media (max-width: 700px) {
+  #form {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+@media (max-width: 560px) {
+  #bg_contact {
+    padding: 0px;
+    height: auto;
+  }
+
+  #bg_form h1 {
+    font-size: 22px;
+  }
+
+  #form {
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  #form input {
+    padding: 5px;
+  }
+}
 footer {
   position: absolute;
   bottom: 0px;
@@ -1539,10 +1933,32 @@ footer {
   width: 100%;
   height: 150px;
   clear: both;
-  border-top: 5px solid #eb1e44;
+  border-top: 5px solid #ca0d3c;
 }
 footer #footer_center {
+  padding: 40px 0px;
   width: 1173px;
+  margin: 0 auto;
+}
+footer #footer_center .icon {
+  width: 15px;
+  float: left;
+  margin: 3px 5px 0px 5px;
+}
+footer #footer_center p {
+  float: left;
+  padding-right: 20px;
+  font-size: 18px;
+}
+footer #footer_center p img {
+  width: 15px;
+}
+footer #footer_center p .facebook {
+  fill: #0c4cad;
+}
+footer #footer_center p .whatsapp {
+  fill: #04a704;
+  float: right;
 }
 
 /*# sourceMappingURL=style.css.map */

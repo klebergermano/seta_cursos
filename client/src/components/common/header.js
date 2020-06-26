@@ -4,9 +4,9 @@ import HeaderMobile from "./HeaderMobile";
 import { MobileContext } from "../../context/MobileContext";
 
 const Header = () => {
-  const isMobile = useContext(MobileContext);
+  const mobileInfo = useContext(MobileContext);
 
-  if (isMobile) {
+  if (mobileInfo.isMobile) {
     return <HeaderMobile />;
   } else {
     return <HeaderDesktop />;

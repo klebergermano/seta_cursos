@@ -10,11 +10,11 @@ class ResumoCursos extends Component {
         <div className="bloco_resumo" id="resumo_informatica">
           <h2>Informática</h2>
           <p>
-            LNunc vel finibus magna. Aliquam euismod eu ante ut eleifend.
-            Phasellus quam erat, fringilla sed lectus eget, gravida maximus
-            enim. Curabitur euismod in ante et bibendum. Quisque id orci eu
-            lorem efficitur dapibus et et eros. Quisque condimentum erat quam,
-            id consequat nunc condimentum lacinia.
+            Saber dominar os principais programas de computadores, pode garantir
+            melhores oportunidades no mercado de trabalho, melhores salários, e
+            mais independencia para realizar suas tarefas. Pensando nisso
+            criamos nosso curso de Informática, Nosso curso é para todas as
+            idades do básico ao avançado.
           </p>
           <Link
             activeClass="active"
@@ -30,11 +30,11 @@ class ResumoCursos extends Component {
         <div className="bloco_resumo" id="resumo_english">
           <h2>Inglês</h2>
           <p>
-            LNunc vel finibus magna. Aliquam euismod eu ante ut eleifend.
-            Phasellus quam erat, fringilla sed lectus eget, gravida maximus
-            enim. Curabitur euismod in ante et bibendum. Quisque id orci eu
-            lorem efficitur dapibus et et eros. Quisque condimentum erat quam,
-            id consequat nunc condimentum lacinia.
+            Aprenda ingles naturalmente, com aulas focadas na conversação, onde
+            o aluno sera capaz de se comunicar em inglês. Com nosso metodo de
+            ensino, e material de apoio nossos alunos desenvolvem suas
+            habilidades se torando capazes de ouvir, falar, ler e escrever em
+            inglês com fluência.
           </p>
           <Link
             activeClass="active"
@@ -50,11 +50,11 @@ class ResumoCursos extends Component {
         <div className="bloco_resumo" id="resumo_excel">
           <h2>Excel</h2>
           <p>
-            LNunc vel finibus magna. Aliquam euismod eu ante ut eleifend.
-            Phasellus quam erat, fringilla sed lectus eget, gravida maximus
-            enim. Curabitur euismod in ante et bibendum. Quisque id orci eu
-            lorem efficitur dapibus et et eros. Quisque condimentum erat quam,
-            id consequat nunc condimentum lacinia.
+            Excel Avançado no seu currículo é um grande diferencial, alem de ser
+            um dos mais exigidos no mercado de trabalho. Desenvolvemos este
+            curso Especializado para cada aluno, focado nas suas necessidades e
+            no que tem de novo mercado, focamos nas principais e mais avançadas
+            funções.
           </p>
           <Link
             activeClass="active"

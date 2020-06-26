@@ -3,7 +3,7 @@ import { Animated } from "react-animated-css";
 import NavInformatica from "./modulos_informatica/navInformatica";
 
 import Introducao from "./modulos_informatica/Introducao";
-import Hadware from "./modulos_informatica/Hadware";
+import Hardware from "./modulos_informatica/Hardware";
 import Dispositivos from "./modulos_informatica/Dispositivos";
 import Impressao from "./modulos_informatica/Impressao";
 
@@ -41,7 +41,7 @@ class Informatica extends Component {
         <NavInformatica />
         <div id="container_informatica">
           <Introducao />
-          <Hadware />
+          <Hardware />
           <Dispositivos />
           <Impressao />
 

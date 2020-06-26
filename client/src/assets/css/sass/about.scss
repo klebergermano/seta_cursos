@@ -3,16 +3,40 @@
   clear: both;
   width: 100%;
   margin: 0px;
-  height: 580px;
+  min-height: 500px;
+  height: auto;
   #content {
-    width: $content-width;
+    display: flex;
+    max-width: $content-width;
     margin: 0 auto;
+    padding: 90px 0px;
+    align-items: center;
+    h1 {
+      margin-bottom: 20px;
+
+      text-align: center;
+    }
+    p {
+      font-size: 18px;
+      padding: 0px 40px;
+    }
+    figure {
+      margin-top: 60px;
+    }
   }
+}
 
-  h1 {
-    margin-top: 80px;
-    margin-bottom: 60px;
+@media (max-width: 560px) {
+  #about {
+    padding: 20px;
+    #content {
+    }
 
-    text-align: center;
+    h1 {
+      margin-top: 20px;
+      margin-bottom: 20px;
+
+      text-align: center;
+    }
   }
 }

@@ -7,6 +7,28 @@ footer {
   clear: both;
   border-top: 5px solid $secondary-color;
   #footer_center {
+    .icon {
+      width: 15px;
+      float: left;
+      margin: 3px 5px 0px 5px;
+    }
+    padding: 40px 0px;
     width: $content-width;
+    margin: 0 auto;
+    p {
+      float: left;
+      padding-right: 20px;
+      font-size: 18px;
+      img {
+        width: 15px;
+      }
+      .facebook {
+        fill: rgb(12, 76, 173);
+      }
+      .whatsapp {
+        fill: rgb(4, 167, 4);
+        float: right;
+      }
+    }
   }
 }

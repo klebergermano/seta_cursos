@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Info from "../common/info_contatos";
+import Icon from "../../assets/icons";
 
 class Form extends Component {
   constructor() {
@@ -9,42 +11,42 @@ class Form extends Component {
       phone: "",
       subject: "",
       message: "",
-      msg_send: ""
+      msg_send: "",
     };
   }
   componentDidMount() {}
 
-  handleNameChange = event => {
+  handleNameChange = (event) => {
     this.setState({ name: event.target.value });
   };
 
-  handleEmailChange = event => {
+  handleEmailChange = (event) => {
     this.setState({ email: event.target.value });
   };
 
-  handlePhoneChange = event => {
+  handlePhoneChange = (event) => {
     this.setState({ phone: event.target.value });
   };
 
-  handleSubjectChange = event => {
+  handleSubjectChange = (event) => {
     this.setState({ subject: event.target.value });
   };
 
-  handleTextareaChange = event => {
+  handleTextareaChange = (event) => {
     this.setState({ message: event.target.value });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     const data = this.state;
     fetch("/form_send", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     })
-      .then(res => res.text())
-      .then(text => {
+      .then((res) => res.text())
+      .then((text) => {
         this.setState({ msg_send: text });
       });
 
@@ -53,7 +55,33 @@ class Form extends Component {
 
   render() {
     return (
-      <div>
+      <div id="bg_form">
+        <h1>Entre em contato conosco</h1>
+        <div id="info_contato">
+          <p>
+            Eenvie-nos uma mensagem ou entre em contato conosco por um de nossos
+            canais de comunicação.
+          </p>
+          <p className="infoContato" id="tel">
+            <Icon name="cellphone" className="icon cellphone" width="15" />
+            {Info.telefone} <Icon name="whatsapp" className="icon whatsapp" />
+          </p>
+          <p className="infoContato" id="face">
+            <Icon name="facebook" className="icon facebook" />
+
+            <a target="_blank" href={Info.facebook}>
+              Seta Cursos
+            </a>
+          </p>
+          <p className="infoContato" id="email">
+            <Icon name="email" className="icon email" />
+
+            {Info.email}
+          </p>
+          <p className="infoContato" id="endereco">
+            {Info.endereco}
+          </p>
+        </div>
         <form id="form" onSubmit={this.handleSubmit}>
           <p>{this.state.msg_send}</p>
           <div>

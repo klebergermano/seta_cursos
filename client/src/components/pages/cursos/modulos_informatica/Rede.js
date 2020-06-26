@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Animated } from "react-animated-css";
+import ImageInformatica from "./ImageInformatica";
 
 class Rede extends Component {
   state = {};
@@ -14,7 +15,7 @@ class Rede extends Component {
               isVisible={true}
               animationInDuration={1500}
             >
-              <h1>Rede</h1>
+              <h1>Redes</h1>
             </Animated>
             <Animated
               animationIn="slideInUp"
@@ -24,11 +25,9 @@ class Rede extends Component {
             >
               <div className="resumo">
                 <p>
-                  O mercado de trabalho exige conhecimentos básicos de
-                  informática, não só no que se refere aos softwares, mas ao
-                  hardware também. É importante saber, por exemplo, o que é um
-                  HD (Hard Disk), para que serve o processador, qual a função da
-                  memória RAM e assim por diante.
+                  Você aprenderá os fundamentos sobre funcionamento de redes de
+                  computadores bem como equipamentos de redes, como hubs,
+                  switches, roteadores e crimpagem.
                 </p>
               </div>
             </Animated>
@@ -65,8 +64,9 @@ class Rede extends Component {
                 isVisible={true}
                 animationInDuration={1000}
               >
-                <img
-                  src={require("../../../../assets/img/informatica/modulo_rede.png")}
+                <ImageInformatica
+                  imgDesktop={"modulo_rede.png"}
+                  imgMobile={"modulo_rede-mob.png"}
                 />
               </Animated>
             </figure>
