@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "./assets/css/style.css";
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
 import Admin from "./admin/components/Admin";
-
+import CertificadoValidacao from "./components/pages/CertificadoValidacao";
+import ListaCursosIngles from "./components/pages/ListaCursosIngles";
+import ListaCursosInformatica from "./components/pages/ListaCursosInformatica";
 import Header from "./components/common/Header";
 import Footer from "./components/common/footer";
 import Homepage from "./components/pages/Homepage";
@@ -21,6 +21,36 @@ class App extends Component {
               <AuthProvider>
                 <Admin />{" "}
               </AuthProvider>
+            </Route>
+            <Route path="/certificados">
+              <MobileProvider>
+                <div className="container">
+                  <div id="header_pagina_externa">
+                    <Header />
+                  </div>
+
+                  <CertificadoValidacao />
+                  <Footer />
+                </div>
+              </MobileProvider>
+            </Route>
+            <Route path="/link_ingles_978033445">
+              <MobileProvider>
+                <div className="container">
+                  <Header />
+                  <ListaCursosIngles />
+                  <Footer />
+                </div>
+              </MobileProvider>
+            </Route>
+            <Route path="/link_informatica_978033445">
+              <MobileProvider>
+                <div className="container">
+                  <Header />
+                  <ListaCursosInformatica />
+                  <Footer />
+                </div>
+              </MobileProvider>
             </Route>
 
             <Route path="/">

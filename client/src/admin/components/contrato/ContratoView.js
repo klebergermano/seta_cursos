@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
 import * as helpers from "../helpers/index";
 import NavContratos from "./NavContratos";
+import config from "../../../config";
 
 class Contratos extends Component {
   constructor() {
@@ -70,17 +71,26 @@ class Contratos extends Component {
                 <td className="td_control">
                   <Link
                     className="btn_resumo"
-                    to={"/profile/responsavel_resumo/" + contratos.id_resp}
+                    to={
+                      config.BASE_URL_ADMIN +
+                      "/responsavel_resumo/" +
+                      contratos.id_resp
+                    }
                   >
                     Resumo
                   </Link>{" "}
                   <Link
                     className="btn_edit"
-                    to={"/profile/contrato_edit/" + contratos.id}
+                    to={
+                      config.BASE_URL_ADMIN + "/contrato_edit/" + contratos.id
+                    }
                   >
                     Editar
                   </Link>
-                  <Link className="btn_delete" to="/profile/contratos">
+                  <Link
+                    className="btn_delete"
+                    to={config.BASE_URL_ADMIN + "/contratos"}
+                  >
                     x
                   </Link>
                 </td>

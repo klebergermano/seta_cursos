@@ -26,10 +26,39 @@
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 860px) {
   #about {
-    padding: 20px;
+    padding: 0px;
+    position: relative;
+    height: auto !important;
+    min-height: 300px;
+
     #content {
+      width: 100%;
+      padding: 0px;
+
+      min-height: 300px;
+      padding-bottom: 100px;
+
+      div {
+        min-width: 100%;
+        p {
+          padding: 15px;
+        }
+      }
+      figure {
+        position: absolute;
+        bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+
+        width: 280px !important;
+        img {
+          max-width: 100%;
+        }
+      }
     }
 
     h1 {

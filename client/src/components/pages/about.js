@@ -7,16 +7,17 @@ class About extends Component {
       <div className="pages" id="about">
         <div id="content">
           <div>
-            <h1>Sobre</h1>
+            <h1>Quem somos</h1>
             <p>
-              "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-              aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-              eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-              est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-              velit,
+              A SETA CURSOS, tem como missão levar aos nossos alunos cursos de
+              qualidade e personalizados de acordo com a necessidade dos alunos,
+              e tudo isso a um preço justo. Acreditamos que para termos uma
+              sociedade melhor um dos primeiros passos é ama educação de
+              qualidade, assim buscasmos sempre primorarmos profissionalmente e
+              pessoalmente. Concordamos que hoje a visão de mundo em relação ao
+              estudos mudou, existindo uma constante necessidade de aprendizagem
+              independente da idade, o que nos move a estar sempre a frente e
+              atualizados. Venha você também fazer parte dessa idéia!
             </p>
           </div>
           <figure>

@@ -1,4 +1,11 @@
 import React, { Component } from "react";
+import NavIngles from "./modulos_ingles/NavIngles";
+import SobreIngles from "./modulos_ingles/SobreIngles";
+import ModulosIngles from "./modulos_ingles/ModulosIngles";
+
+import Modulo_1 from "./modulos_ingles/Modulo_1";
+import Modulo_2 from "./modulos_ingles/Modulo_2";
+import Modulo_3 from "./modulos_ingles/Modulo_3";
 class English extends Component {
   state = {};
   render() {
@@ -9,92 +16,45 @@ class English extends Component {
 
           <div id="resumo_english">
             <p>
-              Aprenda inglês naturalmente, com{" "}
-              <span>aulas focadas na conversação</span>, Com nosso metodo de
-              ensino e material de apoio nossos alunos desenvolvem suas
-              habilidades se torando capazes de ouvir, falar, ler e escrever com
-              fluência.
+              Nosso curso foi feito para você aprender inglês da mesma forma que
+              poliglotas (pessoas que falam varios idiomas), aprendem. Com uma
+              duração dois anos nosso curso é dividido e 3 etapas: Básico,
+              Intermediário e Avançado
             </p>
           </div>
         </div>
         <div id="english_content">
           <div id="bloco_1">
             <div id="bg_modulos">
-              <div id="lisening" className="modulos">
-                <h3>
-                  <span>
-                    <img
-                      src={require("../../../assets/img/english/ico-read.png")}
-                    />
-                  </span>
-                  Ler
-                </h3>
-                <p>
-                  A leitura em Inglês, por exemplo, melhora muito o vocabulário,
-                  facilita a formação de frases, além de estimular o
-                  aprendizado.
-                </p>
-              </div>
-              <div id="writing" className="modulos">
-                <h3>
-                  <span>
-                    <img
-                      src={require("../../../assets/img/english/ico-fone.png")}
-                    />
-                  </span>
-                  Ouvir{" "}
-                </h3>
-                <p>
-                  Listening (Ouvir) é de suma importância e nosso curso traz ao
-                  aluno exemplos práticos e imersivos auditivos desde a primeira
-                  aula.
-                </p>
-              </div>
-              <div id="reading" className="modulos">
-                <h3>
-                  <span>
-                    <img
-                      src={require("../../../assets/img/english/ico-talk.png")}
-                    />
-                  </span>
-                  Falar
-                </h3>
-                <p>
-                  O conhecimento da pronúncia correta das palavras, além do
-                  ritmo e sonoridade das frases é essencial para aqueles que
-                  desejam conversar em inglês com menos dificuldade. o que faz
-                  da pronúncia um dos módulos fundamentais do nosso curso.
-                </p>
-              </div>
-              <div id="talking" className="modulos">
-                <h3>
-                  <span>
-                    <img
-                      src={require("../../../assets/img/english/ico-book.png")}
-                    />
-                  </span>
-                  Escrever
-                </h3>
-                <p>
-                  A habilidade de escrever bem em Inglês é de suma importância,
-                  poes não basta ter um bom vocabulario, mas sim aprender a se
-                  expressar de maneira correta através da escrita.
-                </p>
-              </div>
+              <NavIngles />
+              <SobreIngles />
+              <ModulosIngles />
             </div>
             <div id="banner">
+              <img
+                src={require("../../../assets/img/english/learn_english2.png")}
+              />
+              <li>
+                <span>* PARA TODAS AS IDADES! </span>
+              </li>
+              <li>
+                <span>*</span> Curso com <span> Certificado! </span>
+              </li>
               <li>
                 <span>*</span> Material Didático <span>Grátis!</span>
               </li>
               <li>
-                <span>*</span> Turmas reduzidas
+                <span>*</span> Turmas reduzidas!
               </li>
               <li>
-                <span>*</span> Metodologia Moderna
+                <span>*</span> Metodologia Moderna!
               </li>
               <li>
-                <span>*</span> Curso focado no dominio do idioma
+                <span>*</span> Focado no domínio do idioma!
               </li>
+              <p>
+                Entre em <a href="#">Contato </a>e Saiba Mais!
+              </p>
             </div>
           </div>
           <figure id="people_english" className="modulos">

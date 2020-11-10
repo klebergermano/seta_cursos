@@ -2,7 +2,7 @@ configDB = {
   connectionLimit: 10,
   password: "",
   user: "root",
-  database: "seta_cursos_teste",
+  database: "seta_cursos",
   host: "localhost",
 };
 

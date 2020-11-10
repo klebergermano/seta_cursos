@@ -58,8 +58,8 @@ class Form extends Component {
       <div id="bg_form">
         <h1>Entre em contato conosco</h1>
         <div id="info_contato">
-          <p>
-            Eenvie-nos uma mensagem ou entre em contato conosco por um de nossos
+          <p id="message">
+            Envie-nos uma mensagem ou entre em contato conosco por um de nossos
             canais de comunicação.
           </p>
           <p className="infoContato" id="tel">

@@ -1,0 +1,121 @@
+.bg_page_lista_cursos {
+  background: rgb(34, 69, 102);
+
+  #txt_area_aluno {
+    left: 10px;
+    display: block;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #333;
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 0px 0px 15px 15px;
+  }
+  .page_lista_cursos {
+    padding-bottom: 80px;
+    position: relative;
+    max-width: $content-width;
+    min-height: 1000px;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 80px;
+
+    h1 {
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .curso_info {
+      border-radius: 0px;
+      padding: 20px;
+      margin: 0px 10px;
+      margin-top: 20px;
+
+      h3 {
+        color: #ffa;
+        text-align: center;
+      }
+
+      p {
+        text-align: center;
+        color: #fff;
+      }
+    }
+
+    .wrapper_videos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      min-height: auto;
+      grid-column-gap: 1em;
+      grid-row-gap: 1em;
+      grid-auto-rows: minmax(400px, auto);
+
+      .videos {
+        border: 4px solid #000 !important;
+        background: #fff;
+
+        padding-top: 50px;
+        position: relative;
+        max-height: 500px;
+
+        p {
+          position: absolute;
+          top: 0px;
+          color: #666;
+          padding: 10px;
+          text-transform: uppercase;
+          span {
+            font-weight: bold;
+            color: #000;
+          }
+        }
+        iframe {
+          width: 100%;
+          height: 100%;
+          min-height: auto;
+          border: 0px;
+        }
+      }
+      .videos_lista {
+        background: #f0f0f0;
+        padding: 40px;
+        grid-column: 1/3;
+        overflow: hidden;
+        min-height: 200px;
+        h3 {
+          padding: 10px 0px;
+        }
+        p {
+          padding-bottom: 20px;
+        }
+        li {
+          list-style: none;
+          color: #777;
+          padding: 5px;
+          span {
+            width: 10px;
+            display: block;
+          }
+        }
+        .publicado {
+          color: #000;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .wrapper_videos {
+    display: block !important;
+    grid-template-columns: 100%;
+    .videos {
+      min-height: 400px;
+      iframe {
+        min-height: 400px !important;
+      }
+    }
+  }
+}

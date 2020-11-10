@@ -171,11 +171,11 @@
   ul {
     display: flex;
     align-items: left;
+    flex-direction: row;
+
     margin: 0 auto;
     max-width: 1170px;
     overflow: hidden;
-
-    flex-direction: row;
 
     li {
       flex: 1 auto;
@@ -365,6 +365,9 @@
   }
 }
 @media (max-width: 560px) {
+  .modulo_content {
+    padding: 0px !important;
+  }
   .resumo {
     p {
       font-size: 15px;
@@ -372,6 +375,8 @@
   }
 
   #bg_resumo_informatica {
+    background: #064a77 !important;
+
     .resumo_informatica {
       h1 {
         padding: 20px 0px !important;

@@ -20,7 +20,7 @@ class Informatica extends Component {
 
   render() {
     return (
-      <div className="col-12" id="bg_informatica">
+      <div className="col-12" id="bg_informatica" name="bg_informatica">
         <div id="bg_resumo_informatica">
           <div className="resumo_informatica">
             <h1 className="title">Informática Completo</h1>

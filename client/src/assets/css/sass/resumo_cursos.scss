@@ -1,7 +1,6 @@
 #bg_resumo_cursos {
-  padding: 50px 0px 50px 0px;
+  padding: 100px 0px 100px 0px;
   display: flex;
-
   position: relative;
   max-width: 1170px;
   margin: 0 auto;
@@ -10,7 +9,7 @@
     position: absolute;
     width: 100%;
     text-align: center;
-    background: #f8f8f8;
+    background: #eee;
 
     color: $primary-color;
     border-radius: 5px 5px 0px 0px;
@@ -18,15 +17,14 @@
     left: 0px;
   }
   .bloco_resumo {
+    display: flex;
     position: relative;
     border: 2px solid #f0f0f0;
     background: #ffffff77;
     border-top: 0px;
     margin-top: 95px;
-    padding: 20px;
-    padding-top: 0px;
-    padding-bottom: 60px;
     width: 33.33333333%;
+    height: 250px;
     p {
       color: #555;
     }
@@ -53,8 +51,27 @@
         text-decoration: none;
       }
     }
+
+    &:hover {
+      .content-resumo {
+        opacity: 1;
+      }
+    }
+    .content-resumo {
+      padding: 20px;
+
+      background: #fffffff6;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
   }
+
   #resumo_informatica {
+    background: #d8e4f8 url("../img/informatica/modulo_introducao.png")
+      no-repeat;
+    background-position: center;
+    background-size: auto 80%;
+
     h2 {
       color: $primary-color;
     }
@@ -63,6 +80,10 @@
     }
   }
   #resumo_english {
+    background: #fc124d url("../img/english/english3.jpg") no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+
     h2 {
       color: $secondary-color;
     }
@@ -71,6 +92,10 @@
     }
   }
   #resumo_excel {
+    background: rgb(6, 119, 72) url("../img/excel/excel-logo-white.png")
+      no-repeat;
+    background-size: auto 60%;
+    background-position: center;
     h2 {
       color: $tertiary-color;
     }
@@ -103,6 +128,7 @@
 }
 @media (max-width: 660px) {
   #bg_resumo_cursos {
+    display: none !important;
     flex-direction: column;
     .bloco_resumo {
       padding-left: 50px;
