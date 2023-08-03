@@ -15,17 +15,19 @@ class SobreIngles extends Component {
           >
             <h3>Sobre Nosso Curso</h3>
             <p>
-              Nosso curso de inglês é focado na conversação, que é o que a
+            Nosso curso de inglês é focado na conversação, que é o que a
               maioria das pessoas buscam ao aprender inglês, todo curso foi
-              planejado para que o aluno consiga buscar seu proprio conhecimento
-              de ingles, de forma personalizada de acordo com suas necessidades.{" "}
+              planejado para que o aluno consiga buscar seu próprio conhecimento
+              de inglês, de forma personalizada de acordo com suas necessidades
+.{" "}
             </p>
             <p>
-              o nosso curso foi feito para você aprender ingles da mesma forma
-              que poliglotas (pessoas que falam varios idiomas), aprendem, o
-              curso dura dois anos e é dividido e 3 etapas: como funcionam as
-              aulas: as trabalham com as 4 habilidades , ler e escrever, ouvir e
+            o nosso curso foi feito para você aprender inglês da mesma forma
+              que poliglotas (pessoas que falam vários idiomas), aprendem, o
+              curso dura três anos e é dividido e 3 etapas: como funcionam as
+              aulas: as trabalham com as 4 habilidades, ler e escrever, ouvir e
               falar.
+
             </p>
           </Animated>
           <Animated

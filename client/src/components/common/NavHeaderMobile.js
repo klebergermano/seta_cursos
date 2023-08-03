@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link, animateScroll as scroll } from "react-scroll";
+
+
 import { Animated } from "react-animated-css";
 
 import Icons from "../../assets/icons";
@@ -11,7 +13,9 @@ class NavHeaderMobile extends Component {
   handleMenuClick() {
     let submenu = document.querySelector("#submenu_mobile");
     submenu.classList.toggle("submenu_closed");
+  
   }
+
 
   render() {
     return (
@@ -22,9 +26,11 @@ class NavHeaderMobile extends Component {
               <Icons id="icon_menu" className="icon" name="menu" />
             </a>
 
-            <ul id="submenu_mobile" className="submenu_closed">
+            <ul id="submenu_mobile" className="submenu_closed"  onClick={this.handleMenuClick}>
               <li>
                 <Link
+                onClick={this.handleMenuClick}
+
                   activeClass="active"
                   to="bg_informatica"
                   spy={true}
@@ -37,6 +43,8 @@ class NavHeaderMobile extends Component {
               </li>
               <li>
                 <Link
+                onClick={this.handleMenuClick}
+
                   activeClass="active"
                   className="sub_menu "
                   to="bg_english"
@@ -50,6 +58,7 @@ class NavHeaderMobile extends Component {
               </li>
               <li>
                 <Link
+                onClick={this.handleMenuClick}
                   activeClass="active"
                   className="sub_menu"
                   to="bg_excel"
@@ -63,6 +72,8 @@ class NavHeaderMobile extends Component {
               </li>
               <li>
                 <Link
+                onClick={this.handleMenuClick}
+
                   activeClass="active"
                   to="about"
                   spy={true}
@@ -75,11 +86,13 @@ class NavHeaderMobile extends Component {
               </li>
               <li>
                 <Link
+                onClick={this.handleMenuClick}
+
                   activeClass="active"
                   to="contact"
                   spy={true}
                   smooth={true}
-                  offset={-130}
+                  offset={-70}
                   duration={600}
                 >
                   Contato

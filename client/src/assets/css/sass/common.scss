@@ -33,7 +33,13 @@ span {
   min-width: 100%;
   min-height: 100%;
 }
-
+.pages {
+  width: $content-width;
+  background: #fff;
+  margin: 0 auto;
+  padding: 20px 40px;
+  height: 540px;
+}
 @media (max-width: 1360px) {
   #content_homepage {
     margin-top: 200px;
@@ -70,20 +76,17 @@ span {
   }
 }
 @media (max-width: 560px) {
+.pages {
+padding-bottom: 120px !important;
+}
   #slide_home {
     display: none;
   }
   #content_homepage {
-    margin-top: 0px;
+    margin-top: 60px;
   }
   #info_slide {
     margin-top: 50px;
   }
 }
-.pages {
-  width: $content-width;
-  background: #fff;
-  margin: 0 auto;
-  padding: 20px 40px;
-  height: 540px;
-}
+

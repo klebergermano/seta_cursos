@@ -1,21 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.00317373.chunk.css",
-    "main.js": "/static/js/main.5da0449f.chunk.js",
-    "main.js.map": "/static/js/main.5da0449f.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.597b7f10.js",
-    "runtime-main.js.map": "/static/js/runtime-main.597b7f10.js.map",
-    "static/js/2.f43b8a10.chunk.js": "/static/js/2.f43b8a10.chunk.js",
-    "static/js/2.f43b8a10.chunk.js.map": "/static/js/2.f43b8a10.chunk.js.map",
+    "main.css": "/static/css/main.ef046c9f.chunk.css",
+    "main.js": "/static/js/main.1c13a0d4.chunk.js",
+    "main.js.map": "/static/js/main.1c13a0d4.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.09b85ec0.js",
+    "runtime-main.js.map": "/static/js/runtime-main.09b85ec0.js.map",
+    "static/js/2.875ca3c8.chunk.js": "/static/js/2.875ca3c8.chunk.js",
+    "static/js/2.875ca3c8.chunk.js.map": "/static/js/2.875ca3c8.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.2c5226c007e4d2721365cc870ae20926.js": "/precache-manifest.2c5226c007e4d2721365cc870ae20926.js",
+    "precache-manifest.7136686110804c08b81a76f7af578230.js": "/precache-manifest.7136686110804c08b81a76f7af578230.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.00317373.chunk.css.map": "/static/css/main.00317373.chunk.css.map",
-    "static/js/2.f43b8a10.chunk.js.LICENSE.txt": "/static/js/2.f43b8a10.chunk.js.LICENSE.txt",
+    "static/css/main.ef046c9f.chunk.css.map": "/static/css/main.ef046c9f.chunk.css.map",
+    "static/js/2.875ca3c8.chunk.js.LICENSE.txt": "/static/js/2.875ca3c8.chunk.js.LICENSE.txt",
     "static/media/01.mp4": "/static/media/01.a51a94b8.mp4",
     "static/media/Felipe-de-Oliveira-Almeida-Certificado.jpg": "/static/media/Felipe-de-Oliveira-Almeida-Certificado.5675cdda.jpg",
     "static/media/style.css": "/static/media/ouvir.87315c49.png",
     "static/media/excel-logo.png": "/static/media/excel-logo.3ec82a7e.png",
+    "static/media/formulario-sucesso.png": "/static/media/formulario-sucesso.5f491496.png",
     "static/media/learn_english.jpg": "/static/media/learn_english.11544329.jpg",
     "static/media/learn_english2.png": "/static/media/learn_english2.f6be0926.png",
     "static/media/loader_pdf.gif": "/static/media/loader_pdf.ae2e7bfe.gif",
@@ -41,9 +42,9 @@
     "static/media/web-certificado-setacursos-exemplo.jpg": "/static/media/web-certificado-setacursos-exemplo.70ff5760.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.597b7f10.js",
-    "static/js/2.f43b8a10.chunk.js",
-    "static/css/main.00317373.chunk.css",
-    "static/js/main.5da0449f.chunk.js"
+    "static/js/runtime-main.09b85ec0.js",
+    "static/js/2.875ca3c8.chunk.js",
+    "static/css/main.ef046c9f.chunk.css",
+    "static/js/main.1c13a0d4.chunk.js"
   ]
 }

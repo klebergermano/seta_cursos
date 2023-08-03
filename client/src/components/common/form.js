@@ -14,7 +14,7 @@ class Form extends Component {
       msg_send: "",
     };
   }
-  componentDidMount() {}
+  componentDidMount() { }
 
   handleNameChange = (event) => {
     this.setState({ name: event.target.value });
@@ -81,7 +81,7 @@ class Form extends Component {
           <p className="infoContato" id="endereco">
             {Info.endereco}
           </p>
-        </div>
+        </div>{/*info-contato*/}
         <form id="form" onSubmit={this.handleSubmit}>
           <p>{this.state.msg_send}</p>
           <div>

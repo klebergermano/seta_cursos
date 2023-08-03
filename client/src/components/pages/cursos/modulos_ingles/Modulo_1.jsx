@@ -6,12 +6,13 @@ class Modulo_1 extends Component {
       <div className="modulo_ingles" id="ingles-modulo_1">
         <h3>Módulo 1 - Básico</h3>
         <p>
-          no nível básico o aluno tera os primeiros contatos com o idioma, ele
-          ira aprender, as primeiras expressoes usadas para que ja haja
-          comunicação desde as primeiras aulas, ira aprender o alfabeto,
-          IPA(international phonetic alphabet), os numeros em ingles, gramatica
-          basica, e vocabulario basico. O aluno sera capaz de ler e escrever
-          textos simples, ouvir e falar expressoes simples do dia a dia.
+         No nível básico o aluno terá os primeiros contatos com o idioma, ele
+          irá aprender, as primeiras expressões usadas para que haja
+          comunicação desde as primeiras aulas além de aprender o alfabeto,
+          IPA (International Phonetic Alphabet), os números em inglês, gramática
+          básica, e vocabulário básico. O aluno será capaz de ler e escrever
+          textos simples, ouvir e falar expressões simples do dia a dia.
+
         </p>
       </div>
     );

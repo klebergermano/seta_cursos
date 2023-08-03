@@ -108,10 +108,10 @@ class NavHeader extends Component {
           <li>
             <Link
               activeClass="active"
-              to="bg_contact"
+              to="contact"
               spy={true}
               smooth={true}
-              offset={-130}
+              offset={-70}
               duration={600}
             >
               Contato

@@ -18,8 +18,8 @@ class English extends Component {
             <p>
               Nosso curso foi feito para você aprender inglês da mesma forma que
               poliglotas (pessoas que falam varios idiomas), aprendem. Com uma
-              duração dois anos nosso curso é dividido e 3 etapas: Básico,
-              Intermediário e Avançado
+              duração de três anos nosso curso é dividido e 3 etapas: Básico,
+              Intermediário e Avançado.
             </p>
           </div>
         </div>

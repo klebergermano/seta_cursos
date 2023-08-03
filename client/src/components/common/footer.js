@@ -20,11 +20,20 @@ class Footer extends Component {
           </p>
           <p className="infoContato" id="face">
             <Icon name="facebook" className="icon facebook" />
-
             <a target="_blank" href={Info.facebook}>
               Seta Cursos
-            </a>
+            </a> 
+           
+         
           </p>
+
+          <p className="infoContato" id='insta'>
+
+<Icon name="instagram" className="icon instagram" /> 
+<a target="_blank" href={Info.instagram}>
+@Seta Cursos
+</a>
+</p>
         </div>
       </footer>
     );

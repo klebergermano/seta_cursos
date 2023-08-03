@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
 import Form from "../common/form";
+import FormNetlify from "../common/formNetlify";
 import Info from "../common/info_contatos";
 import Icon from "../../assets/icons";
 import Iframe from "react-iframe";
@@ -11,8 +12,8 @@ class Contact extends Component {
 
   render() {
     return (
-      <div className="pages" id="bg_contact">
-        <div id="bg_form">
+      <div className="pages" id="contact">
+        <div id="contactContainer">
           <h1>Entre em contato conosco</h1>
           <div id="info_contato">
             <p id="message">
@@ -25,11 +26,22 @@ class Contact extends Component {
             </p>
             <p className="infoContato" id="face">
               <Icon name="facebook" className="icon facebook" />
-
               <a target="_blank" href={Info.facebook}>
                 Seta Cursos
               </a>
             </p>
+
+            <p className="infoContato" id="insta">
+            <Icon name="instagram" className="icon instagram" /> 
+          
+            <a target="_blank" href={Info.instagram}>
+              @Seta Cursos
+            </a>
+            </p>
+
+
+
+
             <p className="infoContato" id="email">
               <Icon name="email" className="icon email" />
 
@@ -39,11 +51,7 @@ class Contact extends Component {
               {Info.endereco}
             </p>
           </div>
-          <div id="block_ads"></div>
-          <Iframe
-            url="https://form.jotform.com/202280857942662"
-            id="contatoIframe"
-          />
+          <FormNetlify/>
         </div>
       </div>
     );

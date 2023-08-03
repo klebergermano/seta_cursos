@@ -6,13 +6,14 @@ class Modulo_2 extends Component {
       <div className="modulo_ingles" id="ingles-modulo_2">
         <h3>Módulo 2 - Intermediário</h3>
         <p>
-          Nesse nível o aluno ja sera capaz, de compreender melhor a estrutura
-          do inglês, ter melhor conhecimento das classes gramaticais, sera capaz
-          ler e escrever textos maiores e com vocabulario mais complexo, sera
-          capaz de ouvir e falar em ingles mantendo uma conversa em ingles, ja
-          começando a juntar melhor, frases e expressoes, ja conseguindo falar
+        Nesse nível o aluno já será capaz, de compreender melhor a estrutura
+          do inglês, ter melhor conhecimento das classes gramaticais, será capaz
+          ler e escrever textos maiores e com vocabulário mais complexo, será
+          capaz de ouvir e falar em inglês mantendo uma conversa em inglês,
+          usando melhor frases e expressões, além de conseguir se expressar
           sobre acontecimentos tanto no presente, passado ou futuro. Nessa fase
-          a maior parte das aulas serão totalmete em ingles.
+          a maior parte das aulas serão totalmente em inglês.
+
         </p>
       </div>
     );

@@ -16,7 +16,7 @@ class Excel extends Component {
               <p>
                 O uso de planilhas eletrônicas é cada dia mais exigido pelas
                 empresas. O programa Microsoft Excel, sem dúvidas, é o mais
-                utilizado no mercado. Desenvolvemos este curso Especializado
+                utilizado no mercado. Desenvolvemos este curso especializado
                 para cada aluno, focado nas suas necessidades e no que tem de
                 novo mercado, focamos nas principais e mais avançadas funções.
               </p>

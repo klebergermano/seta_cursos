@@ -5,6 +5,7 @@ const cors = require("cors");
 
 const RoutesUser = require("./RoutesUser");
 const pdfTemplate = require("../documents");
+
 //Database
 const apiRouter = require("./routes.js");
 

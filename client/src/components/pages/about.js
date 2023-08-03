@@ -9,15 +9,21 @@ class About extends Component {
           <div>
             <h1>Quem somos</h1>
             <p>
-              A SETA CURSOS, tem como missão levar aos nossos alunos cursos de
-              qualidade e personalizados de acordo com a necessidade dos alunos,
-              e tudo isso a um preço justo. Acreditamos que para termos uma
-              sociedade melhor um dos primeiros passos é ama educação de
-              qualidade, assim buscasmos sempre primorarmos profissionalmente e
-              pessoalmente. Concordamos que hoje a visão de mundo em relação ao
-              estudos mudou, existindo uma constante necessidade de aprendizagem
-              independente da idade, o que nos move a estar sempre a frente e
-              atualizados. Venha você também fazer parte dessa idéia!
+              A SETA CURSOS tem como principal objetivo oferecer aos nossos alunos
+              cursos de alta qualidade, totalmente personalizados para atender às suas
+              necessidades individuais, tudo isso por um preço justo. Acreditamos
+              firmemente que a chave para uma sociedade melhor começa com uma educação de excelência,
+              por isso estamos empenhados em aprimorar constantemente tanto nossas habilidades
+              profissionais quanto pessoais.
+            </p>
+            <p>
+
+              Reconhecemos que a perspectiva sobre o estudo tem evoluído, e
+              agora mais do que nunca há uma demanda crescente por aprendizado contínuo em todas as
+              fases da vida. Por essa razão, estamos sempre à frente das últimas tendências e informações,
+              garantindo que nossos cursos estejam atualizados e relevantes.</p>
+            <p>
+              Convidamos você a se juntar a nós nessa jornada educacional, onde o conhecimento é valorizado e a educação é tratada com carinho. Venha fazer parte dessa ideia e explore um mundo de oportunidades para o seu crescimento pessoal e profissional!
             </p>
           </div>
           <figure>

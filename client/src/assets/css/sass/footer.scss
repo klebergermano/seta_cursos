@@ -46,15 +46,12 @@ footer {
       }
     }
   }
+  
 }
 
 @media (max-width: 560px) {
-}
-@media (max-width: 380px) {
-  #footer_center {
-    padding: 20px !important;
-    p {
-      padding: 0px !important;
-    }
+  footer{
+  height:250px !important;
+  p{line-height: 22px;}
   }
 }

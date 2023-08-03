@@ -8,9 +8,13 @@ import ListaCursosInformatica from "./components/pages/ListaCursosInformatica";
 import Header from "./components/common/Header";
 import Footer from "./components/common/footer";
 import Homepage from "./components/pages/Homepage";
+import PageFormSubmitted from "./components/common/PageFormSubmitted.js";
+
+
 import NotFound404 from "./components/NotFound404";
 import { AuthProvider } from "./context/AuthContext";
 import { MobileProvider } from "./context/MobileContext";
+import PageTrafegoGeral from "./components/pages/landpages/PageTrafegoGeral";
 class App extends Component {
   render() {
     return (
@@ -22,6 +26,21 @@ class App extends Component {
                 <Admin />{" "}
               </AuthProvider>
             </Route>
+
+            <Route path="/page-info-geral">
+              <MobileProvider>
+                <div className="container">
+                  <div id="header_pagina_externa">
+                    <Header />
+                  </div>
+
+                  <PageTrafegoGeral />
+                  <Footer />
+                </div>
+              </MobileProvider>
+            </Route>
+
+
             <Route path="/certificados">
               <MobileProvider>
                 <div className="container">
@@ -30,6 +49,17 @@ class App extends Component {
                   </div>
 
                   <CertificadoValidacao />
+                  <Footer />
+                </div>
+              </MobileProvider>
+            </Route>
+            <Route path="/form-submitted">
+              <MobileProvider>
+                <div className="container">
+                  <div id="header_pagina_externa">
+                    <Header />
+                  </div>
+                  <PageFormSubmitted/>
                   <Footer />
                 </div>
               </MobileProvider>
